@@ -3,28 +3,14 @@
 
     \subsection{Type de la plateforme}
     \label{subsec:plateforme}
-    Il n’y a aucune contrainte quant à la réalisation de la plateforme, si ce n’est qu’elle doit être accessible pour tous types
-    d’utilisateurs : PC (Windows/Mac/Linux), Tablettes (Android/iOS) voir même Smartphones (Android/iOS/Windows phone/Blackberry…).
-    Il serait envisageable d’imaginer réaliser une application multiplateforme qui puisse être installée et fonctionne sur tous
-    types de plateforme, cependant cela imposera de très nombreuses contraintes techniques, il faudra sans cesse penser à cette
-    comptabilité et les tests n’en seraient que plus embêtant. Il est bien évidemment exclus de réaliser une application unique
-    à chaque plateforme, ne serait-ce que pour le temps de développement mais aussi lors de la reprise de celle-ci dans le futur
-    qui rendrait ceci très difficile.
+    Il n’y a aucune contrainte quant à la réalisation de la plateforme, si ce n’est qu’elle doit être accessible pour tous types d’utilisateurs : PC (Windows/Mac/Linux), Tablettes (Android/iOS) voir même Smartphones (Android/iOS/Windows phone/Blackberry…). Il serait envisageable d’imaginer réaliser une application multiplateforme qui puisse être installée et puisse fonctionner sur tous types de plateforme, cependant cela imposera de très nombreuses contraintes techniques, il faudra sans cesse penser à cette comptabilité et les tests n’en seraient que plus embêtant. Il est bien évidemment exclus de réaliser une application unique à chaque plateforme, ne serait-ce que pour le temps de développement mais aussi lors de la reprise de celle-ci dans le futur qui rendrait ceci très difficile.
 
-    Il semble donc naturel de partir sur le développement d’une plateforme web, ce qui permettra de la rentre compatible avec
-    n’importe quel navigateur, qui facilitera la communication client/serveur (qui aurait pu poser des problèmes si l’application
-    installée sur la machine de l’utilisateur devait communiquer avec un serveur). De plus la gestion de comptabilité entre les
-    différents formats de visualisation sera réalisée grâce aux outils de design que permet une application web, cela facilitera
-    l’implémentation.
+    Il semble donc naturel de partir sur le développement d’une plateforme web, ce qui permettra de la rentre compatible avec n’importe quel navigateur et facilitera la communication client/serveur (qui aurait pu poser des problèmes si l’application installée sur la machine de l’utilisateur devait communiquer avec un serveur). De plus la gestion de comptabilité entre les différents formats de visualisation sera réalisée grâce aux outils de design que permet une application web, cela facilitera l’implémentation.
 
     \subsection{Technologie de la platefome}
     \label{subsec:technologie}
-    Il existe plusieurs langages qui permettraient de développer une application web comme
-    celle-ci. Chaque langage a ses propres avantages et inconvénients, nous allons ici présenter de façon
-    exhaustive chaque langage possible avant de lister les avantages et inconvénients de chacun. Ces
-    choix feront lui d’un débat lors d’une réunion du groupe afin de décider d’une technologie à utiliser
-    pour commencer à la prendre en main et réaliser une ébauche afin de voir ce que l’on sera capable
-    de faire de nous-même avec avant le développement de la plateforme.
+    Il existe plusieurs langages qui permettraient de développer une application web comme celle-ci. Chaque langage a ses propres avantages et inconvénients, nous allons ici présenter de façon exhaustive chaque langage possible avant de lister les avantages et inconvénients de chacun. Ces choix feront lieu d’un débat lors d’une réunion du groupe afin de décider d’une technologie à utiliser pour commencer à la prendre en main et réaliser une ébauche afin de voir ce que l’on sera capable de faire de nous-mêmes avec, et ce avant le développement de la plateforme.
+
 
         \subsubsection{PHP}
         \label{subsubsec:php}
@@ -73,11 +59,8 @@
 
         \subsubsection{.NET}
         \label{subsubsec:dotnet}
-        .NET ou ASP.net - un produit de Microsoft pour participer a la compétition de la programmation site web.
-        Cette platforme est bien utilisée dans les entreprises mais individuellement, on ne l’utilise pas pour
-        réaliser un site web. Car on doit avoir un host Windows particulier pour exécuter une application codée
-        en ASP.net, ça revient a peu près le même problème avec platforme Ruby. De plus, apprentissage de ASP.net
-        est difficile, on doit faire beaucoup plus d’efforts que l’autre plateforme pour obtenir un produit qui vaut la même valeur.
+        .NET ou ASP.net est un produit de Microsoft qui vise à concurrencer les autres technologies web. Cette plateforme est bien utilisée dans les entreprises mais un nombre restreint de site web sont actuellement développés avec ce langage, notamment car il n’est compatible que sur Microsoft Server. De plus, l’apprentissage de .Net est difficile, et il existe moins d’experts de cette technologie, ce qui est un élément important à prendre en compte pour la reprise éventuelle du développement de la plateforme.
+
 
 
         \subsubsection{Récapitulatif}
@@ -121,20 +104,12 @@
     \subsection{Gestion de la base de données}
     \label{subsec:bdd}
 
-    Notre plateforme disposera aussi d’une base de données afin de stocker les données des documents numérisés
-    ainsi que celle des comptes utilisateurs. On distingue d’abord deux types de système de gestion de base de données.
-    D’un côté, les bases de données relationnelles. Ce sont des bases où les données sont organisées sous forme de tables
-    (ou relation) à deux dimensions. C’est le système de base de données le plus utilisé. Les bases de données sont manipulées
-    à l’aide du langage SQL. La présence d’un schéma relationnel qui structure les données permet de faire
-    des requêtes riches, ce qui permet de manipuler efficacement les données.
+   Notre plateforme disposera aussi d’une base de données afin de stocker les données des documents numérisés ainsi que celle des comptes utilisateurs. Il est nécessaire de distinguer deux types de système de gestion de base de données.
 
-    D’un autre côté, le NoSQL qui comprend tous les systèmes de base de données qui ne se base pas sur une
-    architecture relationnelle. Le but est de gagner en simplicité notamment en s’affranchissant du schéma relationnel
-    qui est fixé lors de la création de la table et qui contraint l’ajout de nouvelles données. Un exemple de modèle en NoSQL,
-    c’est un système de clé-valeur. La base de données peut se résumer alors à un tableau associatif avec des millions d’entrées.
+    D’un côté, les bases de données relationnelles. Ce sont des bases où les données sont organisées sous forme de tables (ou relation) à deux dimensions. C’est le système de base de données le plus utilisé. Les bases de données sont manipulées à l’aide du langage SQL. La présence d’un schéma relationnel qui structure les données permet de faire des requêtes riches, ce qui permet de manipuler efficacement les données.
 
-    Cependant, cette simplicité réduit la richesse des requêtes et déplace la complexité intrinsèque de la requête vers
-    la logique de l’application. En revanche, ce système de base de données gère mieux le cas où les données sont réparties sur plusieurs serveurs.
+    D’un autre côté, le NoSQL, qui comprend tous les systèmes de base de données qui ne se basent pas sur une architecture relationnelle. Le but est de gagner en simplicité, notamment en s’affranchissant du schéma relationnel qui est fixé lors de la création de la table, et qui contraint l’ajout de nouvelles données. Un exemple de modèle en NoSQL, c’est un système de clé-valeur. La base de données peut se résumer alors à un tableau associatif avec des millions d’entrées. Cependant, cette simplicité réduit la richesse des requêtes et déplace la complexité intrinsèque de la requête vers la logique de l’application. En revanche, ce système de base de données gère mieux le cas où les données sont réparties sur plusieurs serveurs.
+
 
         \subsubsection{Liste des solutions}
         \label{subsubsec:bddsolutions}
@@ -176,31 +151,15 @@
 
     \subsection{Besoins de la plateforme}
     \label{subsec:besoinplateforme}
-    Les caractéristiques mises en avant précédemment sont d’ordre général. Nous allons à présent regarder
-    vis-à-vis des particularités de notre base de données.
-    Les données que nous manipulerons seront nombreuses, l’application est destinée entre autres
-    à des services d’archives départementales qui ont des dizaines de milliers de documents numérises
-    et ce nombre s’accroit. Ce sont aussi des données plutôt volumineuses (plusieurs Mo le document).
-    Cela signifie que nous avons besoin d’une solution qui soit optimisée pour ce genre de cas tout en
-    restant performant car l’utilisateur ne doit pas attendre longtemps l’affichage du document.
-    Donc, MySQL ne figure pas dans les meilleures solutions pour cette particularité.
+    Les caractéristiques mises en avant précédemment sont d’ordre général. Nous allons à présent regarder vis-à-vis des particularités des besoins de notre future base de données.
+        
+    Les données que nous manipulerons seront nombreuses, l’application est destinée entre autres à des services d’archives départementales qui peuvent avoir des dizaines, voire des centaines, de milliers de documents numérisés et ce nombre ne cessera de s'accroître. Ce sont aussi des données plutôt volumineuses (plusieurs Mo le document). Cela signifie que nous avons besoin d’une solution qui soit optimisée pour ce genre de cas tout en restant performant car l’utilisateur ne doit pas attendre longtemps l’affichage du document. Donc, MySQL ne figure pas dans les meilleures solutions pour cette particularité.
+        
+    La solution devra aussi nous permettre d’implémenter le concept de documents numérisés de manière à ne pas rendre le travail de manipulation des données trop complexe. De même, nous aurons besoin de faire des recherches en fonction du titre, de l’année… Le langage relatif à la base de données devra permettre cela. Cependant, nous pouvons accepter les langages qui ne proposent qu’une recherche rudimentaire car nous pourrons implémenter une recherche plus sophistiquée avec le langage de l’application. C’est le cas, par exemple, de MongoDB.
+        
+    Il faut prendre aussi une particularité intrinsèque au projet : la connaissance du langage. En effet, utiliser un langage que nous maîtrisons déjà nous permettrait de gagner du temps. C’est le cas du SQL que nous avons vu lors de notre cursus scolaire. Cependant apprendre un nouveau langage est toujours un apport ludique. Les projets sont l’occasion d’utiliser des langages différents de ceux enseignés dans le cursus. Il ne faut pas non plus choisir un langage trop obscure car le projet sera probablement poursuivi les années suivantes. Il serait préférable que le langage choisi soit motivant pour les prochains groupes qui pourraient se retrouver à travailler sur le projet.
+       
+    Enfin, certaines solutions sont des licences propriétaires. Cela signifie que l’utiliser nécessite d’acheter une licence. Nous aimerions éviter d’avoir à utiliser ce genre de solutions non seulement pour une raison financière mais aussi car le but premier de la plateforme est le partage des données, et choisir une solution qui n’est pas open-source irait à l’encontre de ce précepte.
 
-    La solution devra aussi nous permettre d’implémenter le concept de document numérisé de manière
-    à ne pas rendre le travail de manipulation des données trop complexe. De même, nous aurons besoin
-    de faire des recherches en fonction du titre, de l’année… Le langage devra permettre cela.
-    Cependant, nous pouvons accepter les langages qui ne proposent qu’une recherche rudimentaire
-    car nous pourrons implémenter une recherche plus sophistiquée avec le langage de l’application.
-    C’est le cas, par exemple, de MongoDB.
-
-    Il faut prendre aussi une particularité intrinsèque au projet : la connaissance du langage.
-    En effet, utiliser un langage que nous maitrisons déjà nous permettrait de gagner du temps.
-    C’est le cas du SQL que nous avons vu lors de notre cursus scolaire. Cependant apprendre un
-    nouveau langage est toujours un apport ludique. Les projets sont l’occasion d’utiliser des
-    langages différents de ceux enseignés dans le cursus. Mais il ne faut pas non plus choisir
-    un langage trop obscur car le projet sera probablement poursuivi les années suivantes.
-    Il serait préférable que le langage choisi soit motivant pour les prochains groupes qui travailleront sur le projet.
-    Enfin, certaines solutions sont des licences propriétaires. Cela signifie que l’utiliser
-    nécessite d’acheter une licence. Nous aimerions éviter d’avoir à utiliser ce genre de solutions
-    non seulement pour une raison financière mais aussi parce que nous préférerions  que notre plateforme soit open source.
 
 
