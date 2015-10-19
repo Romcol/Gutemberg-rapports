@@ -34,9 +34,9 @@
         sont codés en PHP, ce qui correspond à 50\% des sites web dans le monde. C’est un langage
         polyvalent et il est considéré comme le langage web standard. Ce langage est notamment privilégié
         car il est simple à apprendre et il est très simple d’installer un serveur web fonctionnant sous PHP,
-        que ce soit sous Windows, Max ou Linux. Il est aussi à l’origine de quelques plateformes comme
+        que ce soit sous Windows, Mac ou Linux. Il est aussi à l’origine de quelques plateformes comme
         WordPress, Wikipedia, et est même utilisé dans une partie de Facebook. PHP a été imaginé pour
-        créer des sites webs. 
+        créer des sites webs.
 
         De plus de très nombreux frameworks imaginés pour le développement de sites web existent
         et fournissent des outils spécifiques permettant d’améliorer l’efficacité du code. La bibliothèque de
@@ -73,13 +73,6 @@
         sites web compliqués, et comme Perl, plus performant. Néanmoins, Ruby a aussi un point faible ;
         contrairement à PHP il existe un moins grand nombre de serveurs qui supportent Ruby par défaut.
 
-        \subsubsection{Python}
-        \label{subsubsec:python}
-        Python est un langage orienté objet, open-source ; c’est aussi un langage très facile à apprendre
-        et qui possède une syntaxe simple à relire. Python est un bon outil pour programmer mais il n’est
-        pas très utilisé en programmation site web. Pourtant Python est un bon choix pour les débutants et
-        surtout pour les gens qui veulent faire des projets Linux ou pour une communauté open-source.
-
         \subsubsection{.NET}
         \label{subsubsec:dotnet}
         .NET ou ASP.net est un produit de Microsoft qui vise à concurrencer les autres technologies web.
@@ -114,13 +107,7 @@
                 & + Communauté très active \\
                 & + Framework Ruby on Rails \\
                 & - Langage interpreté: problème de performances si beaucoup de clients \\ \hline
-            \multirow{6}{*}{Python} & + Syntaxe simple et facilement lisible \\
-                & + Nombreuses bibliothèques disponibles \\
-                & + Communauté énorme et active \\
-                & + Permet d’intégrer un code écrit dans un autre langage \\
-                & - Détection d’erreur à l’exécution \\
-                & - Langage interprété : problème de performances si beaucoup de clients \\ \hline
-            \multirow{6}{*}{.Net} & + Langage compilé, éxecution plus rapide \\
+                \multirow{6}{*}{.Net} & + Langage compilé, éxecution plus rapide \\
                 & + Possibilité d'utiliser plusieurs langages \\
                 & + Garbage collector \\
                 & - Ne fonctionne que sur Microsoft Server \\
@@ -147,25 +134,25 @@
     la logique de l’application. En revanche, ce système de base de données gère mieux le cas où les données sont réparties
     sur plusieurs serveurs.
 
-    \subsubsection{ElascticSearch}
-    \label{subsubsec:elasticsearch}
-    ElasticSearch est une base de données orientée sur la recherche.
-    Elle propose des possibilités de recherche intelligente. En effet, il est par exemple possible
-    d'effectuer des recherches mal orthographiées, ElasticSearch se charge alors de trouver des ressemblances
-    entre les mots et propose alors des résultats avec un taux de confiance.
+        \subsubsection{ElascticSearch}
+        \label{subsubsec:elasticsearch}
+        ElasticSearch est une base de données orientée sur la recherche.
+        Elle propose des possibilités de recherche intelligente. En effet, il est par exemple possible
+        d'effectuer des recherches mal orthographiées, ElasticSearch se charge alors de trouver des ressemblances
+        entre les mots et propose alors des résultats avec un taux de confiance.
 
-    ElasticSearch est accessible une API REST permettant d'effectuer des requêtes facilement.Elle est facilement scalable :
-    la réplication des données au sein d'un cluster s'effectue en toute transparence.
-    C'est donc une technologie qu'il serait intéressant d'utiliser dans le projet, pour permettre à l'utilisateur
-    de d'effectuer des recherches d'articles efficacement.
+        ElasticSearch est accessible une API REST permettant d'effectuer des requêtes facilement.Elle est facilement scalable :
+        la réplication des données au sein d'un cluster s'effectue en toute transparence.
+        C'est donc une technologie qu'il serait intéressant d'utiliser dans le projet, pour permettre à l'utilisateur
+        de d'effectuer des recherches d'articles efficacement.
 
-    Dans la plupart des cas d'usages, elle n'est pas utilisée en base de données principale. En général,
-    les modifications de données sont effectuées une base de données principale (PostgreSQL, MongoDB, etc);
-    et les consultations/recherches de données sont effectuées sur ElasticSearch. Les données doivent donc être répliquées sur ElasticSearch.
+        Dans la plupart des cas d'usages, elle n'est pas utilisée en base de données principale. En général,
+        les modifications de données sont effectuées une base de données principale (PostgreSQL, MongoDB, etc);
+        et les consultations/recherches de données sont effectuées sur ElasticSearch. Les données doivent donc être répliquées sur ElasticSearch.
 
-    Cette séparation des tâches est intéressant d'un point de vue performance. En effet, en cas d'utilisation intensive
-    des ressources du serveur, il serait tout a fait envisageable d'avoir une base de données principale sur un serveur,
-    et ElasticSearch sur un autre.
+        Cette séparation des tâches est intéressant d'un point de vue performance. En effet, en cas d'utilisation intensive
+        des ressources du serveur, il serait tout a fait envisageable d'avoir une base de données principale sur un serveur,
+        et ElasticSearch sur un autre.
 
 
         \subsubsection{Liste des solutions}
