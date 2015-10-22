@@ -1,48 +1,53 @@
 \section{Les Objectifs}
 	\label{sec:objectifs}
 
-    Le projet se résume donc à la réalisation d’une plateforme qui permettra aux utilisateurs
-    de consulter des informations mais aussi d’interagir avec les éléments de l’application.
-    En effet, si la tâche principale est de pouvoir accéder aux divers documents numérisés afin
-    de consulter ceux-ci, l’utilisateur doit pouvoir accéder à d’autres fonctionnalités.
-    Ainsi il sera possible d'apporter des modifications sur certaines annotations
-    extraites des images numérisées sur divers documents pour apporter des informations
-    supplémentaires sur ceux-ci ou en corriger certaines. Mais il sera aussi nécessaire
-    de permettre la création et la gestion de parcours thématiques par les utilisateurs
-    afin d’offrir une navigation collaborative dans la presse ancienne.
+    On va découper les objectifs de l’application en plusieurs phases ; au fur et à mesure
+    du développement les fonctionnalités vont évoluées, l’idée étant d’avoir à n’importe quel moment un produit fonctionnel.
 
-    On peut donc résumer les objectifs de l’application de façon très concise :
+    \subparagraph{Lire un journal :} 
+    fonctionnalité essentielle, un utilisateur doit pouvoir consulter un journal, en parcourir
+    toutes ses pages. Les journaux peuvent avoir une taille très supérieur aux images standard,
+    il faudra donc pouvoir avoir des « miniatures » des images qui devront être zoomable pour
+    permettre à un utilisateur d’arriver à une taille lisible tout en permettant d’avoir avant
+    cela une vue d’ensemble de la page. Une visionneuse d’images permettant de naviguer entre
+    les images et permettant cette action devra être nécessaire.
+    
+    \subparagraph{Recherche avancée :}
+    second point très important, l’utilisateur doit disposer d’une fonctionnalité de recherche
+    qui va permettre de chercher des journaux suivant le journal, la date, le sujet... Pouvoir rechercher
+    directement un article sera aussi quelque chose d’intéressant pour l’utilisateur. Enfin il faudra pouvoir
+    proposer un tri sélectif, par journal et par date par exemple. Si au départ très peu d’éléments seront
+    présents dans la base de données, on imagine par la suite avoir de très nombreux documents archivés
+    (plus d’un million), avec des enregistrements très gros, il sera nécessaire d’avoir une base de données
+    performante pour que l’affichage des résultats pour l’utilisateur soit rapide.
 
-    \begin{itemize}
-        \item{Accéder aux documents numérisés}
-        \item{Recherche à travers les documents}
-        \item{Geérer des annotations pour chaque document}
-        \item{Créer et gérer des parcours thématiques}
-    \end{itemize}
+    \subparagraph{Recherche plein texte :}
+    par la suite le visionnage de document devra être amélioré pour permettre une recherche plein texte.
+    L’idée principale est de pouvoir, sur une page quelconque, pouvoir rechercher du texte. Si une (ou plusieurs)
+    occurrence est trouvée, alors celle-ci sera mise en évidence sur l’image pour situer à l’utilisateur
+    la présence de ce texte. Il sera d’un côté nécessaire d’avoir une visionneuse d’image qui permette facilement
+    le ‘dessin’ d’éléments par-dessus l’image d’une part, et une recherche dans des documents XML
+    (le contenu d’une page étant stockée dans un xml) assez efficace pour obtenir un résultat quasiment instantané.
 
-    L’objectif principal est de gérer les données de milliers puis de millions de documents
-    qui sont – et seront – numérisés et mis à disposition à travers la plateforme.
-    Si au départ celle-ci ne contiendra que quelques milliers de documents, la base de données
-    qui sera utilisée devra toujours être accessible rapidement afin de limiter les temps d’attente;
-    au final un des objectifs importants sera d’optimiser la base de donnée reliée à l’application.
+    \subparagraph{Découper et identifier une page de journal :}
+    ajout supplémentaire lors de la lecture de journaux, proposer un découpage de chaque page lues avec les articles,
+    images ou tout élément intéressant à l’utilisateur pour permettre à celui-ci de directement zoomer sur
+    un article précis, ou de montrer simplement le découpage de la page afin de voir son organisation et avoir
+    une liste des éléments existants. Cela nécessitera comme pour la tâche précédente une visionneuse
+    qui permette de ‘dessiner’ sur l’image pour présenter les éléments à l’utilisateur, et d’un analyseur
+    de document XML assez vaste qui permette de reconnaître l’architecture de n’importe quelle page,
+    et qui ne rajoute pas trop de temps de traitement pour l’affichage de chaque page
 
-    Bien évidemment, la recherche d’éléments constitue la fonctionnalité clé de l’application,
-    puisqu’il est primordial de pouvoir chercher et/ou retrouver efficacement un document
-    en possédant certaines informations ou en ayant un domaine de recherche. Il sera donc nécessaire
-    de proposer des champs de recherche pouvant couvrir tous les besoins, mais aussi que celle-ci
-    se fasse assez rapidement. La recherche plein texte dans un document ou sur une page
-    sera aussi important afin d’avoir un visuel direct sur des éléments que l’on pourrait rechercher
-    dans une page, d’autant plus que certains journaux ont une résolution de 5000x4000 pixels et
-    qu’il serait trop embêtant pour l’utilisateur de devoir chercher l’information de lui-même dans la page.
+    \subparagraph{Proposition articles proches :}
+    ensuite, il sera intéressant d’ajouter des propositions de lecture standard, redirigeant vers certains
+    journaux en lien avec celui que l’utilisateur est en train de lire (édition précédente/suivante,
+    autre journal pour la même date ...), pour proposer une navigation plus fluide entre les journaux pour un utilisateur.
 
-    Le but de pouvoir gérer les annotations, qui seront en partie initialisées après la récupération
-    des informations du document, sera de permettre aux utilisateurs de corriger les données quand
-    le résultat de l’analyse ne semble pas très pertinent, ou de rajouter des commentaires ou
-    de nouvelles informations afin de fournir le maximum d’informations possibles et utiles aux utilisateurs.
-
-    Enfin, le dernier objectif mais pas des moindres, sera donc la gestion de parcours thématiques,
-    créés par et pour les utilisateurs. Le but est de rassembler autour d’un même évènement,
-    d’un même journal ou d’une même personnalité, divers articles sélectionnés par ces mêmes utilisateurs
-    afin de proposer, entre autres, des pistes de lecture. Le défi ici est de proposer de manière simple,
-    automatique et pratique la création, la modification et le partage de ces parcours afin que cela
-    ne devienne pas une besogne pour ceux qui souhaitent partager de l’information.
+    \subparagraph{Navigation entre journaux avec les parcours thématiques :}
+    enfin dernière fonctionnalité assez conséquente, permettre aux utilisateurs de créer des parcours thématiques,
+    regroupant des journaux ou des articles autour d’un ou plusieurs éléments spécifiques choisis par l’utilisateur.
+    Cela permettra par la suite de proposer une navigation encore plus fluide entre les divers journaux,
+    en proposant aux personnes lisant un certain journal d’autres journaux faisant parti d’un même parcours thématique.
+    Il est important dans ce contexte de permettre à plusieurs utilisateurs de travailler sur le même parcours
+    pour modifier, ajouter ou enlever des éléments à celui-ci. Cette espace d’entraide et de création pourra
+    se faire par le biais d’un wiki, qui est un environnement plutôt adéquat pour ce genre de fonctionnalités.

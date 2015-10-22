@@ -17,7 +17,7 @@
         La plate-forme des archives des Yvelines permet de faire une recherche plus ou moins affinée en fonction d’une thématique
         (registres paroissiaux, recensement de population, répertoires de notaires, presse ancienne,. . . ) ou en fonction de la commune.
 
-        \begin{figure}[h!]
+        \begin{figure}[H]
             \centering
             \includegraphics[width=1\textwidth]{figure/screen_yvelines_recherche.png}
             \caption{Capture d'écran de la recherche sur Archives Yvelines}
@@ -35,7 +35,7 @@
         Il existe certains documents comme les fiches concernant les navires de guerre où il n’est pas possible d’effectuer
         une action pendant la consultation.
 
-        \begin{figure}[h!]
+        \begin{figure}[H]
             \centering
             \includegraphics[width=1\textwidth]{figure/screen_yvelines_document.png}
             \caption{Capture d'écran de l'outil de visualisation d'un document sur Archives Yvelines}
@@ -67,7 +67,7 @@
         certaines guerres comme la guerre de Corée ; cartographie sur laquelle est localisée chacune
         des batailles de la guerre, la période et le nombre de décès.
 
-        \begin{figure}[h!]
+        \begin{figure}[H]
             \centering
             \includegraphics[width=1\textwidth]{figure/screen_memoire_hommes.png}
             \caption{Capture d'écran de la cartographie Mémoire des hommes}
@@ -96,7 +96,7 @@
         avec montée en qualité du texte ou celui-ci est amélioré par une correction manuel. On peut ainsi
         attendre un taux qualité cible de 96 à 99.9\% avec l’OCR le plus qualitatif.
 
-        \begin{figure}[h!]
+        \begin{figure}[H]
             \centering
             \includegraphics[width=1\textwidth]{figure/screenshot_gallica.jpg}
             \caption{Capture d'écran du moteur de recherche Gallica}
@@ -131,7 +131,7 @@
         les premiers résultats sont proposés et il est possible d’affiner celle-ci, en précisent le type de la recherche
         (image, vidéo, son, texte …), la langue, l'année, le pays, en rajoutant des mots-clés. Mais la recherche permet aussi
         d’obtenir des objets qui sont sous différents copyright… 
-				Accéder à un objet fournit des informations sur celui-ci, comme les titres alternatifs, sa description, son type, sa date, les tags générés pour celui-ci,
+        Accéder à un objet fournit des informations sur celui-ci, comme les titres alternatifs, sa description, son type, sa date, les tags générés pour celui-ci,
         la source de l’objet et qui le fournit. On peut ensuite accéder à l’objet par un lien qui retourne sur le site ayant archivé l’élément trouvé.
 
         Il n’y a pas de réelle interaction avec les documents sur cette plateforme ; le reste se passe sur les diverses plateformes qui ont archivées les éléments.
@@ -175,30 +175,35 @@
     \label{sec:point}
     L’étude de l’art permet de faire un point sur ce qui existe pour voir ce qu’il serait très intéressant de proposer
     sur la plateforme afin de ne pas proposer moins de fonctionnalités que ce qui existe déjà. Il faut cependant garder
-    en tête que nos ressources (temps et développeurs) sont limitées, et que nous ne pourrons peut-être pas tout réaliser.
+    en tête que nos ressources (temps et développeurs) sont limitées, et que nous ne pourrons peut-être pas tout réaliser ;
+    voici cependant les objectifs que l’on a mentionné plus haut qui semblent très important à mettre en place vis-à-vis
+    de ce qui existe déjà actuellement.
 
-    Des interactions sur le document, par nécessité : Fonctionnalités communes à toutes les plateformes et qui sont donc indispensables ;
-    il sera nécessaire, sur le document, de pouvoir se déplacer (zoom/dézoom) sur les images trop grandes pour l’écran
-    (notamment car les pages de journaux peuvent être très grandes) ou télécharger le document. Une autre fonctionnalité
-    très intéressante est de pouvoir ‘bookmark’ le document afin de pouvoir y revenir directement plus tard à partir de son compte.
+    \subparagraph{Des interactions sur le document, par nécessité :}
+    Fonctionnalités communes à toutes les plateformes et qui sont donc indispensables ;
+    il sera nécessaire, sur le document, de pouvoir se déplacer (zoom/dézoom) sur les images trop grandes
+    pour l’écran (notamment car les pages de journaux peuvent-être très grandes), télécharger le document.
+    Une autre fonctionnalité très intéressante est de pouvoir ‘bookmark’ le document afin de pouvoir
+    y revenir directement plus tard à partir de son compte.
 
-    Recherche plein texte, pour compléter la recherche : Un élément important pour des journaux, dont le contenu par page
-    peut être énorme - certaines images sont plus grandes que 5000x3000 pixels- et qui n’est pourtant pas présent
-    sur toutes les plateformes : permettre de rechercher du texte directement sur la page. L’utilisateur doit pouvoir rechercher du texte,
-    et pouvoir retrouver facilement les résultats de sa recherche sur la page qui seront mis en avant directement sur la page
-    (résultat entouré / surligné ...).
+    \subparagraph{Recherche plein texte, pour compléter la recherche :}
+    Un élément important pour des journaux, dont le contenu par page peut-être énorme - certaines images
+    sont plus grandes que 5000x3000 pixels,- et qui n’est pourtant pas présente sur toutes les plateformes :
+    permettre de rechercher du texte directement sur la page. L’utilisateur doit pouvoir rechercher du texte,
+    et pouvoir retrouver facilement les résultats de sa recherche sur la page qui seront mis en avant directement
+    sur la page (résultat entouré / surligné ...).
 
-    Mise en avant de journaux, pour des propositions ludiques : Archives Yvelines a mis quelque chose d’intéressant en place ;
-    ils proposent en avant des documents qui sont sortis 100 an avant jour pour jour. Il serait intéressant de mettre en avant
-    des journaux/articles en lien avec des événements dont l’anniversaire est proche, par exemple.
+    \subparagraph{Mise en avant de journaux, pour des propositions ludiques :}
+    Archives Yvelines a mis quelque chose d’intéressant en place ; ils proposent en avant des documents
+    qui sont sortis 100 an avant jour pour jour. Il serait intéressant de mettre en avant des journaux/articles
+    en lien avec des évènements dont l’anniversaire est proche, par exemple.
 
-    Des parcours thématiques, pour se démarquer des autres : Enfin concernant les fonctionnalités de la plateforme générale,
-    on remarquera que la seule interaction présente entre les utilisateurs et les documents sont l’ajout d’annotation
-    pour améliorer la lecture, et ce car les OCR utilisés ne sont pas forcément les plus performants. Les utilisateurs
-    peuvent donc apporter certaines informations sur certains documents, et c’est tout. Et c’est un point très important à noter,
-    qui va permettre de nous démarquer des autres.  La possibilité pour les utilisateurs de créer des parcours thématiques devient
-    une tâche primordiale. Ils pourront donc regrouper des articles, des journaux autour de dates, d’événements...
-    ou de tout autre élément dont il serait intéressant d’avoir plusieurs sources d’information. Enfin il sera très important
-    de créer un espace collaboratif autour de ces parcours afin de permettre à divers utilisateurs d’apporter des modifications sur un parcours,
-    de partager ceux-ci, de les mettre en avant.
-
+    \subparagraph{Des parcours thématiques, pour se démarquer des autres :}
+    Enfin concernant les fonctionnalités de la plateforme générale, on remarquera que la seule interaction
+    présente entre les utilisateurs et les documents sont l’ajout d’annotation pour améliorer la lecture,
+    et ce car les OCR utilisés ne sont pas forcément les plus performants. Les utilisateurs peuvent donc apporter
+    certaines informations sur certains documents, et c’est tout. Et c’est un point très important à noter,
+    qui va permettre de nous démarquer des autres.  La possibilité pour les utilisateurs de créer des parcours thématiques
+    devient une tâche primordiale. Ils pourront donc regrouper des articles, des journaux autour de dates, d’évènements...
+    ou de tous autres éléments dont il serait intéressant d’avoir plusieurs sources d’information. Enfin il sera très important
+    de permettre à divers utilisateurs d’apporter des modifications sur un parcours, de partager ceux-ci, de les mettre en avant.
