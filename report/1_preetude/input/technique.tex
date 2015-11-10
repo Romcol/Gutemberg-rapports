@@ -3,44 +3,42 @@
 
     \subsection{Type de la plateforme}
     \label{subsec:plateforme}
-    Il n’y a aucune contrainte quant à la réalisation de la plateforme, si ce n’est qu’elle doit être
+    Il n’y a aucune contrainte quant à la réalisation de la plate-forme, si ce n’est qu’elle doit être
     accessible pour tous types d’utilisateurs : PC (Windows/Mac/Linux), Tablettes (Android/iOS) voir
     même Smartphones (Android/iOS/Windows phone/Blackberry…). Il serait envisageable d’imaginer réaliser
-    une application multiplateforme qui puisse être installée et fonctionne sur tous types de plateforme,
-    cependant cela imposera de très nombreuses contraintes techniques, il faudra sans cesse penser à cette
-    comptabilité et les tests n’en seraient que plus embêtant. Il est bien évidemment exclu de réaliser
-    une application unique à chaque plateforme, ne serait-ce que pour le temps de développement mais aussi
-    lors de la reprise de celle-ci dans le futur qui rendrait ceci très difficile.
+    une application multi-plate-forme qui puisse être installée et fonctionne sur tous types de plates-formes,
+    cependant cela imposerait de très nombreuses contraintes techniques, il faudrait sans cesse penser
+    à cette comptabilité et les tests n’en seraient que plus embêtant. Il est bien évidemment exclu de réaliser
+    une application unique à chaque plate-forme, car le temps de développement disponible n’est pas suffisant.
 
-    Il semble donc naturel de partir sur le développement d’une plateforme web, ce qui permettra
-    de la rentre compatible avec n’importe quel navigateur, qui facilitera la communication client/serveur
-    (qui aurait pu poser des problèmes si l’application installée sur la machine de l’utilisateur devait communiquer avec un serveur).
-    De plus la gestion de comptabilité entre les différents formats de visualisation sera réalisée grâce
-    aux outils de design que permet une application web, cela facilitera l’implémentation.
+    Il semble donc naturel de partir sur le développement d’une plate-forme web, ce qui permettra de la rendre
+    compatible avec n’importe quel navigateur et qui facilitera la communication client/serveur. De plus la gestion
+    de compatibilité entre les différents formats de visualisation sera réalisée grâce aux outils de design
+    que permet une application web.
 
     \subsection{Technologie de la platefome}
     \label{subsec:technologie}
     Il existe plusieurs langages qui permettraient de développer une application web comme celle-ci.
-    Chaque langage a ses propres avantages et inconvénients, nous allons ici présenter de façon exhaustive
-    chaque langage possible avant de lister les avantages et inconvénients de chacun. Ces choix feront lui
-    d’un débat lors d’une réunion du groupe afin de décider d’une technologie à utiliser pour commencer à la
-    prendre en main et réaliser une ébauche afin de voir ce que l’on sera capable de faire de nous-même avec
-    avant le développement de la plateforme.
+    Chaque langage a ses propres avantages et inconvénients, nous allons ici présenter de façon non-exhaustive
+    certaines langages possibles avant de lister les avantages et inconvénients de chacuns. Ces choix feront
+    lieu de tests (proof of concept) afin de décider d’une technologie à utiliser pour commencer à réaliser
+    une ébauche afin de voir ce que l’on sera capable de faire de nous-mêmes avec avant le développement de la plate-forme.
 
         \subsubsection{PHP}
         \label{subsubsec:php}
-        PHP est utilisé sur plus de 75\% des serveurs web ; il y a plus de 27 millions de sites web qui
-        sont codés en PHP, ce qui correspond à 50\% des sites web dans le monde. C’est un langage
-        polyvalent et il est considéré comme le langage web standard. Ce langage est notamment privilégié
-        car il est simple à apprendre et il est très simple d’installer un serveur web fonctionnant sous PHP,
-        que ce soit sous Windows, Mac ou Linux. Il est aussi à l’origine de quelques plateformes comme
-        WordPress, Wikipedia, et est même utilisé dans une partie de Facebook. PHP a été imaginé pour
-        créer des sites web.
+        PHP est utilisé sur plus de 75\% des serveurs web ; il y a plus de 27 millions de sites web qui sont codés en PHP,
+        ce qui correspond à 50\% des sites web dans le monde. C’est un langage polyvalent et il est considéré comme
+        le langage web standard. Ce langage est notamment privilégié car il est simple à apprendre et il est très
+        simple d’installer un serveur web fonctionnant sous PHP, que ce soit sous Windows, Mac ou Linux. Il est
+        aussi à l’origine de quelques plates-formes comme WordPress ou Wikipedia, et est même utilisé dans une
+        partie de Facebook. PHP a été imaginé pour créer des sites webs.
 
-        De plus de très nombreux frameworks imaginés pour le développement de sites web existent
-        et fournissent des outils spécifiques permettant d’améliorer l’efficacité du code. La bibliothèque de
-        PHP est aussi bien riche et diversifiée ; ce qui nous permet de résoudre presque tous les problèmes
-        qui peuvent arriver en réalisant un site web.
+        De plus de très nombreux frameworks imaginés pour le développement de sites web existent et fournissent
+        des outils spécifiques permettant d’améliorer l’efficacité du code. La bibliothèque de PHP est aussi bien
+        riche et diversifiée ; ce qui nous permet de résoudre presque tous les problèmes qui peuvent arriver
+        en réalisant un site web.
+
+        \pagebreak
 
         \paragraph{Framework PHP}
         \label{par:framworkPHP}
@@ -61,11 +59,11 @@
             \subparagraph{Yii framework}
             \label{subpar:yii}
             Yii est un framework PHP très performant pour développer des applications web. Il utilise le principe
-            Modèle - Vue - Contrôleur qui est souvent utilisé dans la programmation site web et qui permet aux developpeurs
-            d’effectuer facilement des modifications sans modifier du code annexe. Yii Framework permet non seulement
-            de développer des applications plus rapidement en générant les opérations basiques, mais nous permet aussi
-            de maintenant facilement l’application. “Migration Utility” est integrée, et permet de changer facilement
-            de base de données, et nous facilite la mise a jour des différentes versions de l’application. Yii fournit
+            Modèle - Vue - Contrôleur qui est plutôt utilisé dans la programmation site web et qui permet aux développeurs
+            d’effectuer facilement des modifications sans modifier du code annexe. Il permet non seulement de
+            développer des applications plus rapidement en générant les opérations basiques, mais permet aussi de
+            maintenir facilement l’application. “Migration Utility” est intégrée, et permet de changer facilement
+            de base de données, et facilite la mise a jour des différentes versions de l’application. Yii fournit
             aussi un bon invité de commande qui permet de créer des CRON assez compliqués en utilisant une application
             logique intégrée qui évite de les réécrire.
 
@@ -73,49 +71,50 @@
             \label{subpar:symfony}
             Symfony est un des framework de PHP les plus populaires pour créer des sites web et des applications web :
             on recense plus de 1000 contributeurs dans le projet Symfony Framework et pas moins de 300 000 développeurs
-            qui utilisent Symfony. Symfony est développé par l'entreprise SensioLabs qui est etabli depuis plus que 12 ans,
+            qui utilisent Symfony. Symfony est développé par l'entreprise SensioLabs qui est établie depuis plus que 12 ans,
             sa permanence est donc bien assurée. Récemment Symfony s’est vu offrir une “Open-Source MIT license”
             qui n'impose aucune contrainte et permet de développer ses propres applications. Ce framework utilise aussi
             la structure MVC, il possède tout ce dont on a besoin sur un framework : rapidité, flexibilité, des composants réutilisables, ...
 
         \subsubsection{Node.js / Javascript}
         \label{subsubsec:node}
-         ne pas confondre avec Java, Javascript est un “maître” qui nous permet de faire des interactions dans notre site web.
+         ne pas confondre avec Java, Javascript est un  langage qui nous permet de faire des interactions dans notre site web.
          C’est un langage particulier qui fonctionne en fonction de la navigation de l’utilisateur. Il nous permet d’interagir
          avec le site web avec des évènements et permet de mettre à jour dynamiquement des éléments sans avoir à recharger une page.
          Pour ce projet, l’utilisateur interagira avec divers éléments très souvent et il serait très embêtants pour lui
          de devoir attendre le rechargement de pages. Le langage propose notamment un framework très connu, JQuery,
          qui permet d’écrire beaucoup moins de code tout en améliorant l’interactivité de la plateforme.
 
-         Node.js est une technologie très récente, encore jeune, permet tout simplement de gérer un serveur entièrement en Javascript.
+         Node.js est une technologie très récente, encore jeune, et permet tout simplement de gérer un serveur entièrement en Javascript.
          En effet il était de base nécessaire de manipuler PHP côté serveur et Javascript côté client. On a ici l’avantage
          de gérer ces deux parties dans un seul langage, ce qui facilite énormément la reprise d’un projet. De plus,
          Node.js montre aussi de très bonnes performances qui restent stables quel que soit le nombre d’utilisations,
-         il faut cependant avec une très bonne connaissance de Javascript pour gérer le serveur par cette technologie.
+         il faut cependant avoir une très bonne connaissance de Javascript pour gérer le serveur avec cette technologie.
 
         \subsubsection{Ruby}
         \label{subsubsec:ruby}
-        Ruby est accompagné d’un framework, Ruby on Rails, pour developper un site. Il est fortement utilisé
-        dans quelques grands sites web comme Groupon, Shopify, … et est utilisé pour faire le front-end du site web social Twitter.
-        Ruby est open-source, c’est un langage orienté objet et est interprété par le serveur avant d’envoyer
-        du code HTML au navigateur de l’utilisateur (comme PHP). Pourtant, Ruby a ses points forts: développement
+        Ruby est accompagné d’un framework, Ruby on Rails, pour développer les sites web. Il est fortement utilisé
+        dans quelques grands sites web comme Groupon ou Shopify, et est utilisé pour faire le front-end du site web
+        social Twitter. Ruby est open-source, c’est un langage orienté objet et est interprété par le serveur avant
+        d’envoyer du code HTML au navigateur de l’utilisateur (comme PHP). Ruby a ses points forts: développement
         des applications très rapides, moins de répétition de code et le temps de traitement est plus court que PHP.
-        Ruby on Rails a été imaginé pour faire des sites web compliqués, et comme Perl, plus performant.
+        De plus, Ruby on Rails a été imaginé pour faire des sites web compliqués et performants.
 
         \subsubsection{.NET}
         \label{subsubsec:dotnet}
-        .NET ou ASP.net est un produit de Microsoft qui vise à concurrencer les autres technologies web.
-        Cette plateforme est bien utilisée dans les entreprises mais un nombre restreint de site web sont actuellement
-        développés avec ce langage, notamment car il n’est compatible que sur Microsoft Server.
+        .NET ou ASP.net est un produit de Microsoft créé en 2002 qui visait à concurrencer les autres technologies web.
+        C’est une technologie qui est utilisée dans de nombreuses entreprises, et on recense maintenant un grand nombre
+        d’experts .NET. Cependant le principal défaut de ce langage est qu’il est propriétaire; en effet il n’est compatible
+        qu’avec Microsoft Server, et donc uniquement avec Windows.
 
         \subsubsection{GO}
         \label{subsubsec:go}
-        Go est un langage créé par Google et apparu en 2009. C’est un langage compilé qui a la particularité d’être rapide
-        à l’exécution et de consommer très peu de mémoire. Il est donc adapté a de site à haute fréquentation.
-        Il propose également des fonctionnalités de programmation concurrente plus simple à mettre en place que celles de ses concurrents.
-        Golang est très adapté au développement de services web sans avoir besoin de framework, et ce grâce aux packages
-        natif mis à disposition du développeur. Pour finir, Go est un langage facile à apprendre, agréable à utiliser
-        et permet un développement rapide.
+        Go est un langage créé par Google et apparu en 2009. C’est un langage compilé qui a la particularité d’être
+        rapide à l’exécution et de consommer très peu de mémoire. Il est donc adapté pour des sites à haute fréquentation.
+        Il propose également des fonctionnalités de programmation concurrente plus simple à mettre en place que celles
+        de ses concurrents.  Golang est très adapté au développement de services web sans avoir besoin de framework,
+        et ce grâce aux nombreux packages natif mis à disposition du développeur. Pour finir, Go est un langage facile
+        à apprendre, agréable à utiliser et permet un développement rapide.
 
         \subsubsection{Récapitulatif}
         \label{recap}
@@ -130,17 +129,17 @@
                 & - Langage interprété problème de performances si beaucoup de clients \\
                 & - Non typé \\
                 & - Débogage difficile \\ \hline
-            \multirow{5}{*}{Node.js} & + Très performant, mëme si de nombreuses utilisations \\
-                & + Temps de traitement et de changement faibles \\
-                & + Communauté très active \\
-                & - Nécessite une bonne maîtrise du langage Javascript \\
-                & - Technologie jeune, pas de preuves de durée sur le long terme \\ \hline
             \multirow{6}{*}{Ruby} & + Langage concis, code plus lisible et reprise plus aisée \\
                 & + Langage fortement orienté objet \\
                 & + Gestion de librairie avec Bundler \\
                 & + Communauté très active \\
                 & + Framework Ruby on Rails \\
                 & - Langage interpreté: problème de performances si beaucoup de clients \\ \hline
+            \multirow{5}{*}{Node.js} & + Très performant, mëme si de nombreuses utilisations \\
+                & + Temps de traitement et de changement faibles \\
+                & + Communauté très active \\
+                & - Nécessite une bonne maîtrise du langage Javascript \\
+                & - Technologie jeune, pas de preuves de durée sur le long terme \\ \hline
             \multirow{6}{*}{.Net} & + Langage compilé, éxecution plus rapide \\
                 & + Possibilité d'utiliser plusieurs langages \\
                 & + Garbage collector \\
@@ -158,15 +157,15 @@
     \label{subsec:bdd}
 
    Notre plateforme disposera aussi d’une base de données afin de stocker les données des documents numérisés ainsi
-   que celle des comptes utilisateurs. On distingue d’abord deux types de système de gestion de base de données.
+   que celles des comptes utilisateurs. On distingue d’abord deux types de système de gestion de base de données.
 
    D’un côté, les bases de données relationnelles. Ce sont des bases où les données sont organisées sous forme
    de tables (ou relation) à deux dimensions. C’est le système de base de données le plus utilisé. Les bases
    de données sont manipulées à l’aide du langage SQL. La présence d’un schéma relationnel qui structure les données
    permet de faire des requêtes riches, et de manipuler efficacement les données.
 
-   D’un autre côté, le NoSQL qui comprend tous les systèmes de base de données qui ne se base pas sur
-   une architecture relationnelle. Le but est de gagner en simplicité notamment en s’affranchissant
+   D’un autre côté, le NoSQLi, qui comprend tous les systèmes de base de données qui ne se basent pas sur
+   une architecture relationnelle. Le but est de gagner en simplicité, notamment en s’affranchissant
    du schéma relationnel qui est fixé lors de la création de la table et qui contraint l’ajout de nouvelles données.
    Un exemple de modèle en NoSQL, c’est un système de clé-valeur. La base de données peut se résumer alors
    à un tableau associatif avec des millions d’entrées. Cependant, cette simplicité réduit la richesse des requêtes
@@ -243,53 +242,46 @@
 
         \subsubsection{OpenSeaDragon}
         \label{subsubsec:openseagdragon}
-        OpenSeadragon est une visionneuse d’image haute résolution open source. C’est la visionneuse utilisée
-        par le site “chroniclingamerica”. Le plugin est implémenté en Javascript pur et est adapté aux périphériques
-        desktop et mobiles, ce qui convient à notre projet. (Pas besoin de framework tel que JQuery). Il est entièrement customisable,
-        on peut y ajouter des overlays (polygones délimiteurs de contenus), boutons de navigation, etc. De plus son caractère
-        open source permettrait son utilisation et sa modification dans le cas où il nous faille y ajouter des fonctionnalités.
-        C’est un exemple de plugin Javascript que nous pourrions utiliser. Cependant, un cahier des charges plus poussé du projet
-        nous obligera peut-être à nous tourner vers l’utilisation de plusieurs plugins et de coder un lot de fonctionnalités
-        nous-même à l’aide de JQuery.
+        OpenSeadragon est une visionneuse d’image haute résolution open source. C’est la visionneuse utilisée par le site
+        “Chronicling America”. Le plugin est implémenté en Javascript pur et est adapté aux périphériques desktop et mobiles,
+        ce qui convient à notre projet. (Pas besoin de framework tel que JQuery). Il est entièrement customisable, on peut
+        y ajouter des overlays (polygones délimiteurs de contenus), boutons de navigation, etc. De plus son caractère open
+        source permettrait son utilisation et sa modification dans le cas où il nous faille y ajouter des fonctionnalités.
+        C’est un exemple de plugin Javascript que nous pourrions utiliser. Cependant, un cahier des charges plus poussé du
+        projet nous obligera peut-être à nous tourner vers l’utilisation de plusieurs plugins et de coder un lot de fonctionnalités
+        nous-mêmes à l’aide de JQuery.
 
         \subsubsection{Bootstrap}
         \label{subsubsec:bootstrap}
-        Bootstrap est un framework HTML, CSS et Javascript, c’est le framework le plus populaire du genre.
-        Côté CSS, il permet de structurer un site grâce à un système de grilles , cela permet de créer
-        un site totalement responsive, adapté aux mobiles, tablettes et ordinateurs de bureau. De plus,
-        il fourni des éléments de design pour les éléments HTML simple tels que les formulaires, champs,
-        boutons par exemple. Dans le cadre de notre projet, ce framework peut servir à rendre notre solution responsive.
-        Cela permet de coder une seule application web fonctionnelle sur tous les supports au lieu de créer
-        des applications pour téléphones mobiles. 
+        Bootstrap est un framework HTML, CSS et Javascript, et c’est le framework le plus populaire du genre.
+        Côté CSS, il permet de structurer un site grâce à un système de grilles , cela permet de créer un site
+        totalement responsive, adapté aux mobiles, tablettes et ordinateurs de bureau. De plus, il fourni des
+        éléments de design pour les éléments HTML simple tels que les formulaires, champs et boutons par exemple.
+        Dans le cadre de notre projet, ce framework peut servir à rendre notre solution responsive. Cela permet
+        de coder une seule application web fonctionnelle sur tous les supports au lieu de créer des applications
+        pour téléphones mobiles.
 
-    \subsection{Besoins de la plateforme}
+    \subsection{Besoins de la base de données}
     \label{subsec:besoinplateforme}
     Les caractéristiques mises en avant précédemment sont d’ordre général. Nous allons à présent regarder
     vis-à-vis des particularités de notre base de données.
 
-    Les données que nous manipulerons seront nombreuses, l’application est destinée entre autres
+    Les données que nous manipulerons seront nombreuses, l’application est destinée, entre autres,
     à des services d’archives départementales qui ont des dizaines de milliers de documents numérises
     et ce nombre s’accroit. Ce sont aussi des données plutôt volumineuses (plusieurs Mo le document).
     Cela signifie que nous avons besoin d’une solution qui soit optimisée pour ce genre de cas tout
-    en restant performant car l’utilisateur ne doit pas attendre longtemps l’affichage du document.
+    en restant performant car l’utilisateur ne doit pas attendre l’affichage du document.
     Donc, MySQL ne figure pas dans les meilleures solutions pour cette particularité.
 
-    La solution devra aussi nous permettre d’implémenter le concept de document numérisé de manière
-    à ne pas rendre le travail de manipulation des données trop complexe. De même, nous aurons besoin
-    de faire des recherches en fonction du titre, de l’année… Le langage devra permettre cela. Cependant,
-    nous pouvons accepter les langages qui ne proposent qu’une recherche rudimentaire car nous pourrons
-    implémenter une recherche plus sophistiquée avec le langage de l’application. C’est le cas, par exemple,
-    de MongoDB.
+    Il faut prendre aussi une particularité intrinsèque au projet : la connaissance du langage.
+    En effet, utiliser un langage que nous maîtrisons déjà nous permettrait de gagner du temps.
+    C’est le cas du SQL que nous avons vu lors de notre cursus scolaire. Cependant apprendre un
+    nouveau langage est toujours un apport ludique. Les projets sont l’occasion d’utiliser des
+    langages différents de ceux enseignés dans le cursus. Mais il ne faut pas non plus choisir un
+    langage trop obscur car le projet sera probablement poursuivi les années suivantes. Il serait
+    préférable que le langage choisi soit motivant pour les prochains groupes qui travailleront sur le projet.
 
-    Il faut prendre aussi une particularité intrinsèque au projet : la connaissance du langage. En effet,
-    utiliser un langage que nous maitrisons déjà nous permettrait de gagner du temps. C’est le cas du SQL
-    que nous avons vu lors de notre cursus scolaire. Cependant apprendre un nouveau langage est toujours
-    un apport ludique. Les projets sont l’occasion d’utiliser des langages différents de ceux enseignés
-    dans le cursus. Mais il ne faut pas non plus choisir un langage trop obscur car le projet sera
-    probablement poursuivi les années suivantes. Il serait préférable que le langage choisi soit motivant
-    pour les prochains groupes qui travailleront sur le projet.
-
-    Enfin, certaines solutions sont des licences propriétaires. Cela signifie que l’utiliser nécessite
-    d’acheter une licence. Nous aimerions éviter d’avoir à utiliser ce genre de solutions non seulement
-    pour une raison financière mais aussi parce que nous préférerions  que notre plateforme soit open source.
-
+    Enfin, certaines solutions sont des licences propriétaires. Cela signifie que l’utiliser nécessite d’acheter
+    une licence. Nous aimerions éviter d’avoir à utiliser ce genre de solutions non seulement pour une raison
+    financière mais aussi parce que nous préférerions  que notre plate-forme soit libre, "free as in freedom"
+    pour citer Mr Richard M. Stallman.

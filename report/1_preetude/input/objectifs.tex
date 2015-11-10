@@ -1,53 +1,53 @@
 \section{Les Objectifs}
-	\label{sec:objectifs}
+    \label{sec:objectifs}
 
-    On va découper les objectifs de l’application en plusieurs phases ; au fur et à mesure
+    Nous allons découper les objectifs de l’application en plusieurs phases ; au fur et à mesure
     du développement les fonctionnalités vont évoluées, l’idée étant d’avoir à n’importe quel moment un produit fonctionnel.
 
-    \subparagraph{Lire un journal :} 
+    \subparagraph{Lire un journal :}
     fonctionnalité essentielle, un utilisateur doit pouvoir consulter un journal, en parcourir
     toutes ses pages. Les journaux peuvent avoir une taille très supérieur aux images standard,
-    il faudra donc pouvoir avoir des « miniatures » des images qui devront être zoomable pour
-    permettre à un utilisateur d’arriver à une taille lisible tout en permettant d’avoir avant
-    cela une vue d’ensemble de la page. Une visionneuse d’images permettant de naviguer entre
-    les images et permettant cette action devra être nécessaire.
-    
+    il faudra donc disposer des journaux sous plusieurs résolution, une faible résolution pour visionner gloablement
+    le journal et une version haute résolution pour la lecture des articles.
+    La navigation entre les pages du journal, et entre les journaus, nécessitera une visionneuse d’image performante.
+
     \subparagraph{Recherche avancée :}
     second point très important, l’utilisateur doit disposer d’une fonctionnalité de recherche
-    qui va permettre de chercher des journaux suivant le journal, la date, le sujet... Pouvoir rechercher
-    directement un article sera aussi quelque chose d’intéressant pour l’utilisateur. Enfin il faudra pouvoir
-    proposer un tri sélectif, par journal et par date par exemple. Si au départ très peu d’éléments seront
-    présents dans la base de données, on imagine par la suite avoir de très nombreux documents archivés
-    (plus d’un million), avec des enregistrements très gros, il sera nécessaire d’avoir une base de données
-    performante pour que l’affichage des résultats pour l’utilisateur soit rapide.
+    qui va permettre de chercher des articles suivant la date, le sujet... Il faudra aussi que l’utilisateur
+    puisse rechercher un article en particulier. Il nous faudra aussi une base de données performante
+    pour que la recherche d’articles soit efficace. Cette base de données ne contiendra, au début,
+    que quelques milliers d’éléments mais à pour vocation de contenir un ensemble important de journaux,
+    quelques centaines de milliers voir quelques millions.
 
     \subparagraph{Recherche plein texte :}
     par la suite le visionnage de document devra être amélioré pour permettre une recherche plein texte.
     L’idée principale est de pouvoir, sur une page quelconque, pouvoir rechercher du texte. Si une (ou plusieurs)
     occurrence est trouvée, alors celle-ci sera mise en évidence sur l’image pour situer à l’utilisateur
     la présence de ce texte. Il sera d’un côté nécessaire d’avoir une visionneuse d’image qui permette facilement
-    le ‘dessin’ d’éléments par-dessus l’image d’une part, et une recherche dans des documents XML
+    le ‘dessin’ d’éléments par-dessus l’image d’une part, et une recherche dans des documents structurés
     (le contenu d’une page étant stockée dans un xml) assez efficace pour obtenir un résultat quasiment instantané.
 
     \subparagraph{Découper et identifier une page de journal :}
-    ajout supplémentaire lors de la lecture de journaux, proposer un découpage de chaque page lues avec les articles,
-    images ou tout élément intéressant à l’utilisateur pour permettre à celui-ci de directement zoomer sur
-    un article précis, ou de montrer simplement le découpage de la page afin de voir son organisation et avoir
-    une liste des éléments existants. Cela nécessitera comme pour la tâche précédente une visionneuse
-    qui permette de ‘dessiner’ sur l’image pour présenter les éléments à l’utilisateur, et d’un analyseur
-    de document XML assez vaste qui permette de reconnaître l’architecture de n’importe quelle page,
-    et qui ne rajoute pas trop de temps de traitement pour l’affichage de chaque page
+    Il nous faudra aussi proposer un découpage à chaque page de journal selon les articles, images ou
+    tout autre élément structurel interessant, dans le but de permettre à l’utilisateur d’afficher directement
+    un élément précis. Cette fonctionnalité nécessite les mêmes prérequis que la tâche précédente,
+    c’est à dire une visionneuse performante et configurable qui permette le dessin sur les images dans
+    le but d’afficher des informations à l’utilisateur. La détection du contenu d’une page de journal est
+    laissée à un outil de l’équipe Intuidoc qui nous fournit un fichier XML contenant la structure de
+    la page de journal ainsi que le contenu des articles.
 
     \subparagraph{Proposition articles proches :}
-    ensuite, il sera intéressant d’ajouter des propositions de lecture standard, redirigeant vers certains
+    Ensuite, il sera intéressant d’ajouter des propositions de lecture standard, redirigeant vers certains
     journaux en lien avec celui que l’utilisateur est en train de lire (édition précédente/suivante,
     autre journal pour la même date ...), pour proposer une navigation plus fluide entre les journaux pour un utilisateur.
 
     \subparagraph{Navigation entre journaux avec les parcours thématiques :}
-    enfin dernière fonctionnalité assez conséquente, permettre aux utilisateurs de créer des parcours thématiques,
-    regroupant des journaux ou des articles autour d’un ou plusieurs éléments spécifiques choisis par l’utilisateur.
-    Cela permettra par la suite de proposer une navigation encore plus fluide entre les divers journaux,
-    en proposant aux personnes lisant un certain journal d’autres journaux faisant parti d’un même parcours thématique.
-    Il est important dans ce contexte de permettre à plusieurs utilisateurs de travailler sur le même parcours
-    pour modifier, ajouter ou enlever des éléments à celui-ci. Cette espace d’entraide et de création pourra
-    se faire par le biais d’un wiki, qui est un environnement plutôt adéquat pour ce genre de fonctionnalités.
+    enfin, la dernière fonctionnalité assez conséquente est de permettre aux utilisateurs
+    de créer des parcours thématiques, regroupant des journaux ou des articles autour
+    d’un ou plusieurs éléments spécifiques choisis par l’utilisateur. Cela permettra
+    par la suite de proposer une navigation encore plus fluide entre les divers journaux,
+    en proposant aux personnes lisant un certain journal, d’autres journaux faisant parti
+    d’un même parcours thématique. Il est important dans ce contexte de permettre à plusieurs utilisateurs
+    de travailler sur un même parcours pour modifier, ajouter ou enlever des éléments à celui-ci.
+    Cet espace d’entraide et de création pourra se faire par le biais d’un wiki, qui est un environnement
+    plutôt adéquat pour ce genre de fonctionnalités.
