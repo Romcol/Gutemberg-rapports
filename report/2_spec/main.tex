@@ -1,0 +1,88 @@
+\documentclass[a4paper]{article}
+
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{lscape}
+\usepackage{rotating}
+\usepackage{epstopdf}
+\usepackage{multirow}
+\usepackage{lmodern}
+\usepackage[left=3cm, right=3cm, bottom=4cm, top=4cm]{geometry}
+\usepackage{array}
+\usepackage{pdfpages}
+
+\usepackage[gen]{eurosym}
+\DeclareUnicodeCharacter{20AC}{\euro{}}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+
+\title{Rapport de pré-étude}
+
+\author
+{
+    François {\sc Boschet}\\
+    Arnaud {\sc Lods}\\
+    Marlène {\sc Tuekam}\\
+    Alexandre {\sc Bouchet}\\
+    Guillaume {\sc Perrudin}\\
+    Nguyen {\sc Song Hai}\\
+    Romain {\sc Colombat}
+}
+
+\date{\today}
+
+\newcommand{\pagevierge}[0]{\newpage\thispagestyle{empty}\null\newpage}
+
+\begin{document}
+    % Ouh c'est sale.
+    \hypersetup{pageanchor=false}
+    \includepdf[pages=1]{figures/couv.pdf}
+    \hypersetup{pageanchor=true}
+
+    \newpage
+    \thispagestyle{empty}
+    \mbox{}
+
+    \newpage
+    % A decommenter pour la release
+    \setcounter{tocdepth}{3}
+    \tableofcontents
+    \setlength{\parskip}{10pt}
+
+    \newpage
+    \thispagestyle{empty}
+    \mbox{}
+
+    \newpage
+    \input{include/introduction.tex}
+
+    \input{include/rappel.tex}
+
+    \input{include/specifications.tex}
+
+    \input{include/organisation.tex}
+
+    \input{include/planification.tex}
+
+    \input{include/conclusion.tex}
+
+
+    % Manoucherie incoming
+    \pagevierge
+    \ifthenelse{\isodd{\thepage}}
+    {\pagevierge}
+    {}
+    \includepdf[pages=2]{figures/couv.pdf}
+\end{document}
