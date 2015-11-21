@@ -26,3 +26,7 @@
 
 #Perso
 Txt/*
+
+#mais pas la couv
+!.gitignore
+!report/2_spec/figures/*
