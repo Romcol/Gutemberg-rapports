@@ -23,3 +23,6 @@
 *.out
 *.synctex.gz
 *.pdf
+
+#Perso
+Txt/*
