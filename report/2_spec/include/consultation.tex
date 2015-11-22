@@ -1,2 +1,52 @@
 \section{Consultation de documents}
 \label{sec:consultation}
+
+La page de consultation de documents est une page générique devant proposer trois modes de consultation :
+\begin{itemize}
+\item article
+\item journal
+\item revue de presse
+\end{itemize}
+
+Il est important d’apporter une valeur ajoutée à cette consultation de document. Trois objectifs ont été définis :
+\begin{itemize}
+\item Informer : informer l’utilisateur sur le document qu’il consulte
+\item Consulter : permettre à l’utilisateur de consulter le document
+\item Guider : guider l’utilisateur en lui proposant de consulter d’autres documents
+\end{itemize}
+C’est selon ces trois objectifs que l’interface a été pensée.
+
+
+\subsection{Informer}
+\label{sec:consultation_informer}
+	La consultation d’un document ne doit pas se cantonner à un simple affichage d’image, il est également important d’informer l’utilisateur sur ce qu’il consulte. La partie gauche de la page y sera dédiée.
+On y trouvera :
+\begin{itemize}
+\item des informations sur le journal en cours de consultation : titre, date.
+\item des informations sur l’article en cours de consultation : titre, tags
+\end{itemize}
+	Cette liste d’information n’est pas exhaustive, elle dépendra des métadonnées qui nous seront mises à disposition.
+	L’utilisateur pourra également être acteur de la classification des articles. Il lui sera possible d’ajouter l’article à une revue de presse ou à ses favoris. Il pourra alors choisir une revue de presse en effectuant une recherche, les revues de presse qu’il a créées ou celles dont il a participé à la création seront proposées en premier dans les résultats de recherche. S’il ne trouve pas la revue de presse qui lui convient, l’utilisateur aura la possibilité d’en créer une (voir maquette en bas à gauche).
+
+\subsection{Consulter}
+\label{sec:consultation_consulter}
+La fonctionnalité principale est bien sûr de consulter des documents. Le milieu de la page y sera consacré.
+L’interface de visualisation affichera une page de journal avec un focus différent selon le mode de lecture :
+\begin{itemize}
+\item “article” et “revue de presse” : la visionneuse zoome sur l’article concerné. Celui-ci sera mis en évidence par un calque transparent coloré.
+\item “journal” : la visionneuse affiche la première page du journal, sans zoom
+\end{itemize}
+Si l’utilisateur survole un autre article, celui ci sera également mis en évidence par un calque.
+	L’utilisateur aura également la possibilité de zoomer/dézoomer et de se déplacer dans la page, ainsi que d’effectuer une recherche textuelle dans la page. Si la lecture est en mode “revue de presse”, il sera possible de passer à l’article précédent ou suivant de la revue de presse.
+
+\subsection{Guider}
+\label{sec:consultation_guider}
+
+	Tous les utilisateurs ne viendront pas en sachant quel article ils souhaitent consulter. Beaucoup d’entre eux voudront simplement découvrir. Dans cette mesure, il semble important de guider l’utilisateur. La partie gauche de la page y sera consacrée.
+
+	Trois fonctionnalités participeront à ce guidage :
+\begin{itemize}
+\item articles similaires : une sélection d’articles similaires à celui en cours de lecture sera proposée à l’utilisateur. Ces recommandations pourront s’effectuer selon plusieurs critères : ressemblances de mots, journaux ou périodes identiques.
+\item revues de presses associées : une liste des revues de presse contenant l’article en cours de visualisation sera proposée à l’utilisateur. L’idée est de le diriger vers des thématiques pouvant potentiellement l’intéresser.
+\item articles de la revue de presse : si la lecture est en mode “revue de presse”, l’utilisateur aura accès à la liste des articles de celle-ci.
+\end{itemize}
