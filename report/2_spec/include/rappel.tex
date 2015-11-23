@@ -1,29 +1,53 @@
 \section{Rappel du projet}
 \label{sec:rapp}
 
-Le projet, inscrit dans le cadre de la formation de 4ème année du département Informatique de l’INSA de Rennes et proposé par l’équipe Intuidoc de l’Irisa, a pour but d’améliorer l’accès aux archives de presse locale et ancienne. C’est en coopération avec les Archives départementales d’Ille-et-Vilaine que nous obtiendrons un panel de document autour duquel nous pourrons bâtir le système de consultation. Ainsi, nous devons mettre à disposition du public une plateforme répondant à cette problématique.
-C’est à partir d’un prototype conçu par l’équipe Intuidoc et permettant d’interpréter des images de journaux anciens (XIXe et XXe) afin de produire une représentation XML du contenu de chaque page, que nous créerons cette plateforme.
-Également, Yoann Royer, chef de projet chez Sopra Steria et ancien diplômé de l’INSA, nous offre son accompagnement tout au long du projet. 
+Le projet, inscrit dans le cadre de la formation de 4ème année du département Informatique de l’INSA de Rennes et proposé par l’équipe
+Intuidoc de l’Irisa, a pour but d’améliorer l’accès aux archives de presse locale et ancienne. C’est en coopération avec les Archives
+départementales d’Ille-et-Vilaine que nous obtiendrons un panel de document autour duquel nous pourrons bâtir le système de consultation.
+Ainsi, nous devons mettre à disposition du public une plateforme répondant à cette problématique.
+C’est à partir d’un prototype conçu par l’équipe Intuidoc et permettant d’interpréter des images de journaux anciens (XIXe et XXe) afin
+de produire une représentation XML du contenu de chaque page, que nous créerons cette plateforme.
+Également, Yoann Royer, chef de projet chez Sopra Steria et ancien diplômé de l’INSA, nous offre son accompagnement tout au long du projet.
 
-	\subsection{Des objectifs aux spécifications}
-	\label{sec:objectifs}
-	En se basant sur les objectifs mentionnés dans le rapport de préetude nous pouvons construire une liste de spécifications aux niveaux de criticités variés.
-	
-
-	\textbf{Lire un journal :} cette fonctionnalité est le cœur du projet, on souhaite que l’utilisateur puisse naviguer dans la revue aisément. Il faut donc que notre IHM (Interface Homme Machine) soit adaptée à notre cible. Une large partie de notre public étant les personnes âgées (recherche sur la généalogique par exemple) l’interface doit être suffisamment simple, user-friendly et graphiquement lisible pour l’utilisateur. De même, elle se doit d’être adaptée à toutes plateforme (PC, tablette, smartphone). Afin d’optimiser la fluidité de l’application, nous avons remarqué qu’un tuilage des revues avec chargement asynchrone est nécessaire. %(On parle ici d’OpenSeaDragon ?)
-	
-
-	\textbf{Recherche avancée :} nous souhaitons que l’application dispose d’une recherche sur les revues prenant en compte plusieurs paramètres tel que la date, le sujet, le nom de la revue, le thème, etc. Cette base aura pour vocation de contenir un certain nombre de documents, au départ quelques milliers puis plusieurs centaines de milliers voire quelques millions. Cela induit donc l’utilisation d’une base de donnée performante pour la recherche.
-	
-
-	\textbf{Recherche plein texte :} la visionneuse se doit d’avoir un outil de recherche plein texte. L’utilisateur se doit d’avoir la possibilité d’effectuer une recherche à partir d’un mot présent dans un article ou un ensemble de mots de même racine ou phonétiquement similaires. %La visionneuse doit fournir un ensemble d’articles et de passage répondant à la requête et doit mettre les mots correspondant à la recherche en surbrillance. (Comprend pas de quoi tu parles)
-	L’outil de recherche doit être adaptée à un document structuré tel que de l’XML (le contenu d’une page étant stocké dans ce format) et fourni un résultat quasi-instantané. %(ElasticSearch ?)
-	
-
-	\textbf{Découper et identifier une page de journal :} la visionneuse se doit par un système d’overlays, structurer le contenu d’une page selon les articles, images ou tout autre élément intéressant. La détection du contenu est réalisé par un outil de l’équipe Intuidoc qui fournir un fichier XML contenant le découpage de la page du journal. La visionneuse doit permettre la définition de zones résistantes au zoom ou autre rotation de l’image et sous forme de polygones. En effet, les zones de la page peuvent être de toute forme.
+    \subsection{Des objectifs aux spécifications}
+    \label{sec:objectifs}
+    En se basant sur les objectifs mentionnés dans le rapport de préetude nous pouvons construire une liste de spécifications aux niveaux de criticités variés.
 
 
-	\textbf{Proposition d’articles proches :} nous pensons intégrer une tel fonctionnalité dans l’outil de visionnage. L'utilisateur se verra suggérer des articles en rapport à celui en cours de lecture, par exemple des articles sur le même sujet, les éditions suivantes ou précédentes du même journal. De plus, nous souhaitons proposer la création et la visualisation de parcours de lecture dont on peut rapporter la structure à celle d’une playlist musicale et qui correspondront à des revues de presse. Il faut ainsi définir une certain nombre de critères de rapprochement et de tri des articles mais aussi un outil permettant de faire cette sélection de façon rapide.
-	
+    \textbf{Lire un journal :} cette fonctionnalité est le cœur du projet, on souhaite que l’utilisateur puisse naviguer dans la revue aisément.
+    Il faut donc que notre IHM (Interface Homme Machine) soit adaptée à notre cible. Une large partie de notre public étant les personnes âgées
+    (recherche sur la généalogique par exemple), l’interface doit être suffisamment simple et graphiquement lisible pour l’utilisateur. De même,
+    elle se doit d’être adaptée à toutes plateforme (PC, tablette, smartphone). Afin d’optimiser la fluidité de l’application, nous avons remarqué
+    qu’un tuilage des revues avec chargement asynchrone est nécessaire. %(On parle ici d’OpenSeaDragon ?) NO. (0.01s)
 
-	\textbf{Parcours thématiques et système collaboratif :} afin de développer ce système de revues de presse. L’application doit bénéficier d’un système de gestion d’utilisateur. Les utilisateurs sont liés aux revues qu’ils ont créées. Les fonctionnalités proposés sont l’ajout d'éléments aux revues. Le créateur aura en plus le droit de supprimer de retirer des articles de la revue. Idéalement, un tel espace d’entraide devra permettre aux utilisateurs de proposer des corrections sur le contenu plein texte des articles par exemple.
+
+    \textbf{Recherche avancée :} nous souhaitons que l’application dispose d’une recherche sur les revues prenant en compte plusieurs paramètres
+    tel que la date, le sujet, le nom de la revue, le thème, etc. Cette base aura pour vocation de contenir un certain nombre de documents, au
+    départ quelques milliers puis plusieurs centaines de milliers voire quelques millions. Cela induit donc l’utilisation d’une base de donnée
+    performante pour la recherche.
+
+    \textbf{Recherche plein texte :} la visionneuse se doit d’avoir un outil de recherche plein texte. L’utilisateur se doit d’avoir la possibilité
+    d’effectuer une recherche à partir d’un mot présent dans un article ou un ensemble de mots de même racine ou phonétiquement similaires.
+    La visionneuse doit fournir un ensemble d’articles et de passage répondant à la requête et doit mettre les mots correspondant à la recherche en
+    surbrillance. %(Comprend pas de quoi tu parles)
+    L’outil de recherche doit être adaptée à un document structuré tel que de l’XML (le contenu d’une page étant stocké dans ce format) et fournit
+    un résultat quasi-instantané. %(ElasticSearch ?)
+
+
+    \textbf{Découper et identifier une page de journal :} la visionneuse se doit par un système d’overlays, structurer le contenu d’une page selon
+    les articles, images ou tout autre élément intéressant. La détection du contenu est réalisé par un outil de l’équipe Intuidoc qui fournit un
+    fichier XML contenant le découpage de la page du journal. La visionneuse doit permettre la définition de zones résistantes au zoom ou autres
+    rotations et doivent pouvoir prendre la forme de polygônes non convexes. En effet, le articles peuvent avoir des formes complexes.
+
+
+    \textbf{Proposition d’articles proches :} nous pensons intégrer une tel fonctionnalité dans l’outil de visionnage. L'utilisateur se verra
+    suggérer des articles en rapport à celui en cours de lecture, par exemple des articles sur le même sujet, les éditions suivantes ou précédentes
+    du même journal. De plus, nous souhaitons proposer la création et la visualisation de parcours de lecture dont on peut rapporter la structure
+    à celle d’une playlist musicale et qui correspondront à des revues de presse. Il faut ainsi définir une certain nombre de critères de rapprochement
+    et de tri des articles mais aussi un outil permettant de faire cette sélection de façon rapide.
+
+
+    \textbf{Parcours thématiques et système collaboratif :} afin de développer ce système de revues de presse. L’application doit bénéficier d’un
+    système de gestion d’utilisateur. Les utilisateurs sont liés aux revues qu’ils ont créées. Les fonctionnalités proposés sont l’ajout d'éléments
+    aux revues. Le créateur aura en plus le droit de supprimer de retirer des articles de la revue. Idéalement, un tel espace d’entraide devra permettre
+    aux utilisateurs de proposer des corrections sur le contenu plein texte des articles par exemple.
