@@ -3,6 +3,8 @@
 
 La plateforme joue en quelque sorte le rôle d'un moteur de recherche. L'idée est de fournir aux utilisateurs une recherche riche et diverse qui lui permettra de trouver efficacement des journaux, des articles ou des revues de presse qu'il souhaiterait consulter. On veut donc permettre à l'utilisateur d'effectuer trois types de recherches; suivant le type des documents qu'il recherche. Un utilisateur ne pourra pas chercher en même temps des 'articles' et des 'journaux', ce afin de distinguer ces différents types et d'éviter de rendre trop de résultats inintéréssants. Suivant le type de document recherché, l'utilisateur disposera de plusieurs filtres.
 
+\textbf{Cette partie était bancale, une réécriture est nécessaire après discussion et nouvel accord sur les fonctionnalités}
+
 \subsection{Recherche de journaux}
 \label{sec:recherche_journal}
 
@@ -18,17 +20,7 @@ filtre dispo : date, journal, titre, tags, recherche plein texte
 
 filtre dispo : nom
 
-\begin{itemize}
-\item Exact : l'utilisateur entre exactement les mots qu'il veut chercher parmi les articles de la base de données. Par exemple : si l'utilisateur cherche "Rennes", il va forcement trouver tous les articles qui contiennent le mot Rennes dedans. Cette façon est très utile pour des mots clés que l’on connaît exactement dans le contexte. Elle va nous donner moins de résultats mais qui sont plus proches ce que l’on voulait chercher.
-\item Contenu : les mots que l'utilisateur peuvent être une partie d'une autre mot dans le contexte. Alors ce type de recherche va nous retourner plus de résultat mais il y a aussi des résultats ne sont pas reliés à ce que l'utilisateur veut chercher. Par exemple : si l'utilisateur veux chercher "Re", les résultats possibles sont "répartition", "Rennes",… Cette façon nous donne plus de résultats et elle est aussi très utile si l’on ne connaît pas le mot exact. Alors l’utilisateur peut entre quelques caractères d’un mot et notre moteur de recherche va lui renvoyer toutes les réponses dont le contenue est associé à l’ensemble des caractères cherchés. Mais comme dans l’exemple "Re" qui donne "repartition", "Rennes" que j’ai indiqué ci-dessus, cette méthode a aussi son point négatif. Elle peut retourner des résultats qui ne relient pas du tout à ce que l’on veut chercher exactement et nous perturbe avec un grand nombre de résultat de retour.
-%\item Multi-recherche: Des fois, si l’utilisateur veut faire plusieurs de recherches, il doit faire une recherche, retourner sur la page accueil (optionnel), ensuite lancer une autre recherche qui perd plus de temps et des fois gene des utilisateurs. Donc, au lieu de chercher chaque fois un seul mot ou une seule phrase, la facon multi-recherche nous permet de faire plusieurs recherches en meme temps. L’utilisateur peut entrer plusieurs mots et plusieurs phrases et lancer plusieurs recherches en meme temps. Les mots et les phrases dans chaque recherche seront delimites par une virgule. La liste de resultat sera l’ensemble des resultats de chaque recherche. Cette facon nous permet de gagner plus de temps en recherchant plusieurs fois en meme temps. En gros, elle est la version multi-exact, car elle va retourner l’ensemble de resultats par la recherche exacte. (Nous avions dit que nous ferons pas cette fonctionnalité )
-\end{itemize}
 
-	Ensuite, on propose le filtrage pour les recherches. Si l'utilisateur veut chercher tous les articles d’un journal à une date fixée. C’est la raison pour laquelle on met ce filtrage dans notre moteur de recherche. On peut dire que c’est une façon de recherche aussi. Du coup, il y a autant de filtrage que les informations nécessaires à stocker pour un article. Donc, les utilisateurs peuvent aussi chercher des articles par titre, date, journal... % Il faudrait être plus précis sur la manière dont c'est présenter ; Parler aussi des critères de tri
- 
-
-On va créer aussi un site web qui génère automatiquement les résultats qu'on reçoit par la requête envoyée à la base de donnée. En générant le site web de résultat, on va mettre les mots cherchés en surbrillance. 
-% Il manque la recherche de revue de presse
 
     \begin{figure}[H]
         \centering
