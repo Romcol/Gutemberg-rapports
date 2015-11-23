@@ -1,13 +1,22 @@
 \section{Recherche d'éléments}
 \label{sec:recherche}
 
-On va créer un site web qui joue notamment le rôle d'un "moteur de recherche". Dans ce site, il y aura certains champs pour pouvoir chercher des articles que l'on désire consulter. Au minimum, on va définir un champ où l'utilisateur peut entrer des mots clés pour chercher un article. 
+La plateforme joue en quelque sorte le rôle d'un moteur de recherche. L'idée est de fournir aux utilisateurs une recherche riche et diverse qui lui permettra de trouver efficacement des journaux, des articles ou des revues de presse qu'il souhaiterait consulter. On veut donc permettre à l'utilisateur d'effectuer trois types de recherches; suivant le type des documents qu'il recherche. Un utilisateur ne pourra pas chercher en même temps des 'articles' et des 'journaux', ce afin de distinguer ces différents types et d'éviter de rendre trop de résultats inintéréssants. Suivant le type de document recherché, l'utilisateur disposera de plusieurs filtres.
 
-En gros, on a trois types de résultat que l’on veut chercher : par journal, par article et par revue de presse. Ce sont les trois principaux types de recherche que l’on propose. L’utilisateur ne peut pas chercher ces trois types en même temps. Chaque recherche est effectuée par un seul type de recherche. Si l’utilisateur veut chercher un autre type,  il y a un bouton pour retourner vers la page d’accueil de recherche et l’utilisateur peut faire une autre recherche sur un autre type. La raison pour laquelle on ne fait pas de mélange entre les types de résultat, est de distinguer d’abord les types et d'éviter de rendre trop de résultats pour ne pas perturber l’utilisateur.
+\subsection{Recherche de journaux}
+\label{sec:recherche_journal}
 
-En haut de chaque page, il y a des boutons qui permettent aux utilisateurs de choisir des filtrages possibles ainsi des critères de tri des résultats afin d'obtenir des résultats de recherche les plus convenable et plus proches de ce qu’on attend.
+filtre dispo : date, titre (une)
 
-D’abord, on propose plusieurs façons de rechercher : 
+\subsection{Recherche d'articles}
+\label{sec:recherche_article}
+
+filtre dispo : date, journal, titre, tags, recherche plein texte
+
+\subsection{Recherche de revues}
+\label{sec:recherche_revue}
+
+filtre dispo : nom
 
 \begin{itemize}
 \item Exact : l'utilisateur entre exactement les mots qu'il veut chercher parmi les articles de la base de données. Par exemple : si l'utilisateur cherche "Rennes", il va forcement trouver tous les articles qui contiennent le mot Rennes dedans. Cette façon est très utile pour des mots clés que l’on connaît exactement dans le contexte. Elle va nous donner moins de résultats mais qui sont plus proches ce que l’on voulait chercher.
@@ -17,7 +26,6 @@ D’abord, on propose plusieurs façons de rechercher :
 
 	Ensuite, on propose le filtrage pour les recherches. Si l'utilisateur veut chercher tous les articles d’un journal à une date fixée. C’est la raison pour laquelle on met ce filtrage dans notre moteur de recherche. On peut dire que c’est une façon de recherche aussi. Du coup, il y a autant de filtrage que les informations nécessaires à stocker pour un article. Donc, les utilisateurs peuvent aussi chercher des articles par titre, date, journal... % Il faudrait être plus précis sur la manière dont c'est présenter ; Parler aussi des critères de tri
  
-%Si l'utilisateur cherche plusieurs mots ou une phrase entière. On va séparer chaque mot dans la phrase, ensuite on cherche tous les mots possibles dans la base de donnee et on retourne le resultat. Par exemple: Si l'utilisateur cherche "Rennes est une ville", notre moteur de recherche va chercher dans la base de donnee toutes les articles qui contiennent chaque mot separe : "Rennes", "est", "une", "ville". Tous ces mots separes seront cherches dans chaque colonne du tableau dans la base de donnee. Quand il arrive a le trouver, il va retourner le record entier qui contient le mot trouve. ( Inutile de préciser ça ) 
 
 On va créer aussi un site web qui génère automatiquement les résultats qu'on reçoit par la requête envoyée à la base de donnée. En générant le site web de résultat, on va mettre les mots cherchés en surbrillance. 
 % Il manque la recherche de revue de presse
