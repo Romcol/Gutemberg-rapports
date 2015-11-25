@@ -1,17 +1,49 @@
 \section{Introduction}
 \label{sec:intro}
 
-    Lors du précédent rapport, nous avions fait état des objectifs du projet et de l'existant autour de celui-ci. Nous avions également fait
-    une première liste d'un certain nombre de technologies et d'outils qui nous permettrait de développer la plateforme. Nous avions aussi abordé
-    succinctement les principales fonctionnalités de l'application.
+Le projet, inscrit dans le cadre de la formation de 4ème année du département Informatique de l’INSA de Rennes, et proposé par l’équipe
+Intuidoc de l’Irisa, a pour but d’améliorer l’accès aux archives de presse locale et ancienne. Bien que les documents ne soient pas fournis par les Archives départementales d'Ille-et-Vilaine, nous travaillons aussi en partenariat avec eux. L'accès aux documents anciens à l'ère du numérique est une problématique réelle, dont ils s'occupent maintenant depuis plusieurs années. Notre projet concerne donc la mise à disposition de documents de presse ancienne au travers d'une plateforme accessible à tous. C'est à partir d'un prototype conçu par l'équipe Intuidoc et permettant d'interpréter des images de journaux anciens (XIXe et XXe) afin de produire une représentation XML du contenu de chaque page, que nous créérons cette plateforme. Également, Yoann Royer, chef de projet chez Sopra Steria, et ancien diplômé de l'INSA, nous offre son accompagnement et ses conseils tout au long du projet.
 
-    Dans ce rapport, le but est d'établir une liste quasi-exhaustive des spécifications fonctionnelles que la plateforme devra suivre,
-    en les détaillants au maximum. On présentera donc chaque fonctionnalité en décrivant un scénario d'usage, l'intérêt de celle-ci
-    dans l'application, expliquer pourquoi elle est nécessaire et on en détaillera le fonctionnement. On évaluera aussi l'importance de
-    chaque fonctionnalité vis-à-vis du développement de l'application finale. Ce rapport sera aussi l'occasion d'établir une première
-    planification des différentes versions de l'application, en fonction de l'importance et de la priorité affectée à chaque tâche,
-    et de la durée prévue pour chacune des tâches. Nous préciserons comment sera organisé le développement de l'application, de manière
-    à commencer à proposer une répartition des tâches suivant les ressources qui seront disponibles pendant le développement.
+Le précédent rapport avait fait état des objectifs du projet et de l'existant autour de celui-ci. Une première définition des fonctionnalités, brèves, avait été établie, afin de réfléchir aux technologies qui nous permettraient de développer la plateforme et mettre en place celles-ci. Ce rapport de spécifications fonctionnelles va nous permettre d'établir la liste quasi-exhaustive des spécifications fonctionnelles tout en les détaillant au maximum. Des croquis seront aussi fournis pour imager nos propos et donner une meilleure vue d'ensemble de la plateforme.
 
-    Dans un premier temps, nous effectuerons donc un rappel du projet, des objectifs et du contexte de celui-ci. Nous allons par la suite
-    détailler toutes les fonctionnalités de l'application, puis finalement proposer une organisation et une planification du projet.
+    \subsection{Des objectifs aux spécifications}
+    \label{sec:objectifs}
+    En se basant sur les objectifs mentionnés dans le rapport de préetude, nous avons établis une liste de fonctionnalités aux niveaux de criticités variés qui seront donc développés dans ce rapport.
+
+
+    \textbf{Lire un journal :} cette fonctionnalité est le cœur du projet; on souhaite que l’utilisateur puisse naviguer dans la revue aisément.
+    Il faut donc que notre IHM (Interface Homme Machine) soit adaptée à notre cible. L’interface doit être suffisamment simple et graphiquement lisible pour l’utilisateur. De même, elle se doit d’être adaptée à toutes plateforme (PC, tablette, smartphone). Afin d’optimiser la fluidité de l’application, nous avons remarqué
+    qu’un tuilage des revues avec chargement asynchrone est nécessaire.
+
+
+    \textbf{Recherche avancée :} nous souhaitons que l’application dispose d’une recherche sur les revues prenant en compte plusieurs paramètres
+    tel que la date, le sujet, le nom de la revue, le thème, etc. Cette base aura pour vocation de contenir un certain nombre de documents, au
+    départ quelques milliers puis plusieurs centaines de milliers voire quelques millions. Cela induit donc l’utilisation d’une base de donnée
+    performante pour la recherche.
+
+    \textbf{Recherche dans la page :} la visionneuse se doit d’avoir un outil de recherche plein texte. L’utilisateur se doit d’avoir la possibilité
+    d’effectuer une recherche à partir d’un mot présent dans un article ou un ensemble de mots de même racine ou phonétiquement similaires.
+    La visionneuse doit fournir un ensemble d’articles et de passages répondant à la requête et doit mettre en avant les mots correspondant à la recherche pour facilement les repérer.
+    L’outil de recherche doit être adapté à un document structuré tel que de l’XML (le contenu d’une page étant stocké dans ce format) et fourni
+    un résultat quasi-instantané.
+
+
+    \textbf{Découper et identifier une page de journal :} la visionneuse se doit, par un système de calques transparents, de structurer le contenu d’une page selon
+    les articles, images ou tout autre élément intéressant. La détection du contenu est réalisé par un outil de l’équipe Intuidoc qui fournit un
+    fichier XML contenant le découpage de la page du journal. La visionneuse doit permettre la définition de zones résistantes au zoom ou autres
+    rotations et les overlays doivent pouvoir prendre la forme de polygônes non convexes. En effet, le articles peuvent avoir des formes complexes.
+
+
+    \textbf{Proposition d’articles proches :} nous pensons intégrer une telle fonctionnalité dans l’outil de visionnage. L'utilisateur se verra
+    suggérer des articles en rapport à celui en cours de lecture; par exemple des articles sur le même sujet ou suivant les éditions suivantes ou précédentes
+    du même journal. De plus, nous souhaitons proposer la création et la visualisation de parcours de lecture dont on peut rapporter la structure
+    à celle d’une playlist musicale et qui correspondrait à des revues de presse. Il faut ainsi définir un certain nombre de critères de rapprochement
+    et de tri des articles mais aussi un outil performant permettant de faire cette sélection de façon rapide.
+
+
+    \textbf{Parcours thématiques et système collaboratif :} afin de développer ce système de revues de presse ou synthèse de plusieurs titres de presse. L’application doit bénéficier d’un
+    système de gestion d’utilisateur. Les utilisateurs sont liés aux revues qu’ils ont créées. Les fonctionnalités proposées sont l’ajout d'éléments
+    aux revues. Le créateur aura en plus le droit de supprimer de retirer des articles de la revue. Idéalement, un tel espace d’entraide devra permettre
+    aux utilisateurs de partager et mettre en avant des revues et des articles.
+
+    Dans un premier temps, nous allons décrire les fonctionnalités qui seront accessibles à l'utilisateur lors de l'arrivée sur la plateforme. La recherche dans la base puis la consultation de documents seront détaillées. Nous développerons par la suite le fonctionnement des revues de presse, et de la gestion des profils utilisateurs. Nous finirons le rapport en établissant une planification initiale des tâches de développement.
