@@ -1,26 +1,50 @@
 \section{Recherche d'éléments}
 \label{sec:recherche}
 
-La plateforme joue en quelque sorte le rôle d'un moteur de recherche. L'idée est de fournir aux utilisateurs une recherche riche et diverse qui lui permettra de trouver efficacement des journaux, des articles ou des revues de presse qu'il souhaiterait consulter. On veut donc permettre à l'utilisateur d'effectuer trois types de recherches; suivant le type des documents qu'il recherche. Un utilisateur ne pourra pas chercher en même temps des 'articles' et des 'journaux', ce afin de distinguer ces différents types et d'éviter de rendre trop de résultats inintéréssants. Suivant le type de document recherché, l'utilisateur disposera de plusieurs filtres.
+La plateforme joue en quelque sorte le rôle d'un moteur de recherche. L'idée est de fournir aux utilisateurs une recherche riche et diverse qui lui permettra de trouver efficacement des journaux, des articles ou des revues de presse qu'il souhaiterait consulter. On veut donc permettre à l'utilisateur d'effectuer trois types de recherches; suivant le type des documents qu'il recherche. Cette fonctionnalité est une des plus importante pour l'utilisateur, l'enjeu étant de lui permettre de trouver le plus efficacement possible des documents qui l'intéresse.
 
-\textbf{Cette partie était bancale, une réécriture est nécessaire après discussion et nouvel accord sur les fonctionnalités}
+Nous avons décidé qu'un utilisateur ne pourra pas chercher en même temps des 'articles' et des 'journaux', ce afin de distinguer ces différents types et d'éviter de rendre trop de résultats inintéréssants. Suivant le type de document recherché, l'utilisateur disposera de plusieurs filtres, qui seront mis à jour sur la page suivant le type de document sélectionné.
+
 
 \subsection{Recherche de journaux}
 \label{sec:recherche_journal}
 
-filtre dispo : date, titre (une)
+La première recherche élémentaire est celle des journaux. L'utilisateur, en arrivant sur cette page, devra être capable de pouvoir cherche l'édition d'un journal qui l'intéresse. Pour ça, il pourra effectuer une recherche sur le nom de celui-ci, mais aussi sur la date. Si le nombre de journaux différents n'est pas trop important, l'utilisateur disposera directement d'une liste de tous les journaux. Il pourra bien évidemment sélectionner plusieurs noms afin d'obtenir un résultat sur différents journaux. Pour la date, il aura le choix de la filtrer suivant trois catégories : 'AVANT', lui permettant de trouver toutes les éditions sorties avant une certaine date, 'APRES', permettant au contraire d'obtenir les éditions sorties après la date écrite, et 'ENTRE', pour chercher des journaux édités entre deux dates précises. Pour rechercher sur une date, l'utilisateur devra au minimum rentrer l'année, et pourra jusqu'à rentrer le jour et le mois.
+
+Les résultats affichés donneront le nom du journal et sa date de parution. Cliquer sur un des résultats permettra d'arriver sur la page de consultation de document pour lire ce dernier.
+
+En résumé, la recherche de journaux s'effectuera sur deux attributs :
+\begin{itemize}
+	\item Le nom du journal
+	\item La date d'édition
+\end{itemize}
 
 \subsection{Recherche d'articles}
 \label{sec:recherche_article}
 
-filtre dispo : date, journal, titre, tags, recherche plein texte
+
+Il sera par ailleurs possible de trier ces articles en deux catégories; les articles appartenant à une revue de presse, et les autres. Les résultats d'articles appartenant à une revue de presse auront un fond coloré, permettant de les identifier.
+
+En résumé, la recherche d'articles s'effectuera sur six attributs :
+\begin{itemize}
+	\item Le journal dans lequel il est paru
+	\item La date de parution
+	\item Le titre de l'article
+	\item Les tags associés à l'article
+	\item Le contenu de l'article
+	\item L'auteur de l'article
+\end{itemize}
+
+
 
 \subsection{Recherche de revues}
 \label{sec:recherche_revue}
 
-filtre dispo : nom
-
-
+En résumé, la recherche de revues de presse s'effectuera sur deux attributs :
+\begin{itemize}
+	\item Le nom de la revue de presse
+	\item La description de la revue de presse
+\end{itemize}
 
     \begin{figure}[H]
         \centering
