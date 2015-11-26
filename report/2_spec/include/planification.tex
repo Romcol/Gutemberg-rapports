@@ -11,6 +11,12 @@
 
 	En faisant une liste non exhaustive de tâches globales (on ne détaille pas encore toutes les sous-tâches de développement qu'une tâche implique, et les tests sont inclus dans le temps de la tâche), et en les ordonnant de manière à obtenir une plateforme qui contiendra au fur et à mesure de plus en plus de fonctionnalités en partant des plus importantes; on arrive à ce schéma de planification.
 
+	La première fonctionnalité développée sera la recherche de documents. C'est la fonctionnalité la plus importante, parce que si l'utilisateur doit chercher lui même des documents, l'accès à ceux-ci sera encore plus compliqué qu'actuellement. Le développement sera découpé suivant les options de recherche que l'on souhaite rendre disponible à l'utilisateur; on va donc développer et tester au fur et à mesure des recherches plus complexes en rajoutant des filtres. Cette partie nécessite bien évidemment la mise en place au préalable de la base de données qui sera requêtée. Une version, contenant en plus un très simple visualisation d'une page, sera fournie après le développement de cette fonctionnalité.
+
+	La seconde fonctionnalité va englober toute la consultation des documents. Cette consultation est la fonctionnalité coeur du site, et on va diviser ce développement en plusieurs parties : la visionneuse de documents, la manipulation d'articles, la recherche dans le document, l'architecture de la page et le parcours dans une revue de presse. La manipulation d'articles est une grosse tâche puisqu'elle comprend la gestion de tags et d'ajout de revues dans une revue de presse ainsi que la proposition d'articles proches et de revues de presse associées. Une nouvelle version de la plateforme sera livrée à la fin du développement de la consultation de documents; puisque les deux plus grosses fonctionnalités, et les plus importantes, auront été développées.
+
+	Enfin la gestion et la consultation des revues de presse ainsi que la gestion d'utilisateur et la création de la page d'accueil seront traité par la suite; ce sont des fonctionnalités mineures dont le temps de développement nécessaire est plutôt court, notamment car on pourra se baser sur le développement réalisé précédemment pour avancer plus vite. La version finale de la plateforme sera livrée avec la fin du développement de celles-ci. Chacune de ces fonctionnalités ne justifient pas la livraison d'une nouvelle version de l'application.
+
 	\begin{figure}[H]
         \centering
         \includegraphics[width=1.3\textwidth, angle=90]{figures/plan.png}
