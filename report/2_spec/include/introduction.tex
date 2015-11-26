@@ -1,16 +1,6 @@
 \section{Introduction}
 \label{sec:intro}
 
-<<<<<<< HEAD
-Le projet, inscrit dans le cadre de la formation de 4ème année du département Informatique de l’INSA de Rennes, et proposé par l’équipe
-Intuidoc de l’Irisa, a pour but d’améliorer l’accès aux archives de presse ancienne. Nous travaillons en partenariat avec les Archives départementales d’Ille-et-Vilaine. L'accès aux documents anciens à l'ère du numérique est une problématique réelle, dont ils s'occupent maintenant depuis plusieurs années. Notre projet concerne donc la mise à disposition de documents de presse ancienne au travers d'une plateforme accessible à tous. C'est à partir d'un prototype conçu par l'équipe Intuidoc et permettant d'interpréter des images de journaux anciens (XIXe et XXe) afin de produire une représentation XML du contenu de chaque page, que nous créerons cette plateforme. Par ailleurs, Yoann Royer, chef de projet chez Sopra Steria, et ancien diplômé de l'INSA, nous offre son accompagnement et ses conseils tout au long du projet.
-
-Le précédent rapport avait fait état des objectifs du projet et de l'existant autour de celui-ci. Une première définition des fonctionnalités, brèves, avait été établie, afin de réfléchir aux technologies qui nous permettraient de développer la plateforme et mettre en place celles-ci. Ce rapport de spécifications fonctionnelles va nous permettre d'établir la liste quasi-exhaustive des spécifications fonctionnelles tout en les détaillant au maximum. Des croquis seront aussi fournis pour illustrer nos propos et donner une meilleure vue d'ensemble de la plateforme.
-
-    \subsection{Objectifs généraux de la plateforme}
-    \label{sec:objectifs}
-    En se basant sur les objectifs mentionnés dans le rapport de préetude\footnote{Rapport de pré-étude, Projet Gutenberg 4INFO 2015-2016}, nous avons établi une liste de fonctionnalités aux niveaux de criticités variées qui seront donc développés dans ce rapport.
-=======
 Le projet, inscrit dans le cadre de la formation de 4ème année du département Informatique de l’INSA de Rennes et proposé par l’équipe Intuidoc de l’Irisa, a pour but d’améliorer l’accès aux archives de presse locale et ancienne. Nous travaillons d'ailleurs en partenariat avec les Archives départementales d'Ille-et-Vilaine. L'accès aux documents anciens à l'ère du numérique est une problématique réelle, dont ils s'occupent maintenant depuis plusieurs années. Notre projet concerne donc la mise à disposition de documents de presse ancienne au travers d'une plateforme accessible à tous. C'est à partir d'un prototype conçu par l'équipe Intuidoc, que nous créerons cette plateforme. Ce prototype permet d'interpréter des images de journaux anciens (XIXe et XXe) afin de produire une représentation XML du contenu de chaque page. Par ailleurs, Yoann Royer, chef de projet chez Sopra Steria et ancien diplômé de l'INSA, nous offre son accompagnement et ses conseils tout au long du projet.
 
 Le précédent rapport avait fait état des objectifs du projet et de l'existant autour de celui-ci. Une première définition des fonctionnalités, brève, avait été établie, afin de réfléchir aux technologies qui nous permettraient de développer la plateforme et de mettre celle-ci en place. Ce rapport de spécifications fonctionnelles va nous permettre d'établir la liste quasi-exhaustive des spécifications fonctionnelles tout en les détaillant au maximum. Des croquis seront aussi fournis pour imager nos propos et donner une meilleure vue d'ensemble de la plateforme.
@@ -27,8 +17,6 @@ Le précédent rapport avait fait état des objectifs du projet et de l'existant
 		\subsection{Des objectifs aux spécifications}
     \label{sec:objectifs}
     En se basant sur les objectifs mentionnés dans le rapport de préetude\footnote{Rapport de pré-étude, Projet Gutemberg 4INFO 2015-2016}, nous avons établi une liste de fonctionnalités aux niveaux de criticités variées qui seront donc développées dans ce rapport.
->>>>>>> 1332c7553389d869a280204ebb3a682f6c01895e
-
 
     \textbf{Lire un journal :} cette fonctionnalité est le cœur du projet ; l'utilisateur doit pouvoir naviguer dans la revue aisément.
     Notre IHM (Interface Homme Machine) sera donc adaptée à notre cible. L’interface sera suffisamment simple et graphiquement lisible pour l'utilisateur. De même, elle sera adaptée à toute plateforme (PC, tablette, smartphone). Afin d’optimiser la fluidité de l’application, nous avons remarqué
@@ -44,12 +32,11 @@ Le précédent rapport avait fait état des objectifs du projet et de l'existant
     \textbf{Recherche dans la page :} la visionneuse bénéficiera d'un outil de recherche plein texte. L'utilisateur aura la possibilité
     d’effectuer une recherche à partir d’un mot présent dans un article ou un ensemble de mots de même racine ou phonétiquement similaires.
     La visionneuse doit fournir un ensemble d’articles et de passages répondant à la requête et doit mettre en avant les mots correspondants à la recherche pour facilement les repérer.
-    L’outil de recherche doit être adapté à un document structuré tel que de l’XML (le contenu d’une page étant stocké dans ce format) et fourni
+    L’outil de recherche doit être adapté à un document structuré tel que de l’XML (le contenu d’une page étant stocké dans ce format) et doit fournir
     un résultat quasi-instantané (< 2 secondes).
 
 
-    \textbf{Découper et identifier une page de journal :} la visionneuse possèdera un système de calques transparent qui permettra de structurer le contenu d’une page selon
-    les articles, images ou tout autre élément intéressant. La détection du contenu est réalisée par un outil de l’équipe Intuidoc qui fournit un
+    \textbf{Découper et identifier une page de journal :} la visionneuse possèdera un système de calques transparent qui permettra de structurer le contenu d’une page selon les articles, images ou tout autre élément intéressant. La détection du contenu est réalisée par un outil de l’équipe Intuidoc qui fournit un
     fichier XML contenant le découpage de la page du journal. La visionneuse doit permettre la définition de zones résistantes au zoom ou autres
     rotations et les calques transparents doivent pouvoir prendre la forme de polygones non convexes. En effet, les articles peuvent avoir des formes complexes.
 
@@ -59,24 +46,6 @@ Le précédent rapport avait fait état des objectifs du projet et de l'existant
     du même journal. De plus, nous souhaitons proposer la création et la visualisation de parcours de lecture dont on peut rapporter la structure
     à celle d’une playlist musicale et qui correspondrait à des revues de presse. Il faut ainsi définir un certain nombre de critères de rapprochement
     et de tri des articles, mais aussi un outil performant permettant de faire cette sélection de façon rapide.
-
-=======
-    \textbf{Recherche dans la page :} la visionneuse aura un outil de recherche plein texte. L'utilisateur doit pouvoir effectuer une recherche à partir d’un mot présent dans un article ou un ensemble de mots de même racine ou phonétiquement similaires.
-    La visionneuse fournira un ensemble d’articles et d'extraits répondant à la requête et mettra en avant les mots correspondants à la recherche pour facilement les repérer.
-    L’outil de recherche sera adapté à un document structuré tel que de le XML (le contenu d’une page étant stocké dans ce format) et fournira
-    un résultat quasi-instantané (inférieur à trois secondes).
-
-
-    \textbf{Découper et identifier une page de journal :} la visionneuse structurera, grâce à un système de calques transparents, le contenu d’une page selon
-    les articles, images ou tout autre élément intéressant. La détection du contenu est réalisée par un outil de l’équipe Intuidoc qui fournit un
-    fichier XML contenant le découpage de la page du journal. La visionneuse permettra la définition de zones résistantes au zoom ou autres
-    rotations et les calques transparents doivent pouvoir prendre la forme de polygones non convexes. En effet, les articles peuvent avoir des formes complexes.
-
-
-    \textbf{Proposition d’articles proches :} cette fonctionnalité sera dans l’outil de visionnage. Sur la page de visualisation de document, l'utilisateur verra des suggestions d'articles en rapport à celui qu'il est en train de visualiser ; par exemple des articles sur le même sujet ou les éditions suivantes ou précédentes
-    du même journal. De plus, L'utilisateur se verra proposer la création et la visualisation de revues de presse dont on peut rapporter la structure
-    à celle d’une playlist musicale. Il faut ainsi définir un certain nombre de critères de rapprochement et de tri des articles, mais aussi un outil performant permettant de faire cette sélection de façon rapide.
->>>>>>> 1332c7553389d869a280204ebb3a682f6c01895e
 
     \textbf{Revues de presse et système collaboratif :} cette fonctionnalité est celle qui fait la différence entre notre site et les autres sites de consultation de documents que l'on peut trouver sur internet. Une revue de presse est un ensemble d'articles qui ont un thème en commun. Ces revues sont visibles pour tous les utilisateurs. Ces derniers pourront d'ailleurs ajouter eux-mêmes des articles à la revue. Idéalement, un tel espace d’entraide permettra aux utilisateurs de partager et de mettre en avant des articles.
 		
