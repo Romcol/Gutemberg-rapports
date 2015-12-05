@@ -30,3 +30,4 @@ Txt/*
 #mais pas la couv
 !.gitignore
 !report/2_spec/figures/*
+!report/3_planification/figure/*
