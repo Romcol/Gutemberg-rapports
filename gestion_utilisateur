@@ -1,0 +1,20 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{gestion utilisateur}
+\author{dunnoyour }
+\date{December 2015}
+
+\begin{document}
+
+\maketitle
+
+\section{Inscription - Estime 9h}
+Pour pouvoir gerer les utilisateurs, il faut creer des utilisateurs. On va faire une page de l’inscription pour les utilisateurs qui veulent s’inscrire. Les principaux elements dans cette page sont des champs d’informations personnelles de l’utilisateur: nom, pseudo, mot de passe, email, etc … Pour assurer que c’est un utilisateur qui veut s’inscrire, on va mettre un captcha a la fin de la page. Il y aura certains champs obligatoire a remplir. Apres s’est inscrit, l’utilisateur va recevoir un mail de confirmation pour son inscription.
+Si un jour, l’utilisateur oublie son mot de passe et il n’arrive pas a se connecter sur son compte. Il voudra donc forcement un nouveau mot de passe pour pouvoir se connecter. C’est la raison pour laquelle on va creer un “form” pour qu’il puisse demander un nouveau mot de passe. On va mettre un champs pour demander son email, un nouveau mot de passe sera effectue aleatoirement et envoye directement a son l’adresse mail. 
+
+
+\section{Gestion du profil - Estime 9h}
+La deuxieme page pour la partie d’utilisateur est le parametrage des utilisateurs. Ici, l’utilisateur peut modifier ses informations personnelles comme mot de passe, email d’inscription, etc … Si l’utilisateur veut modifier son mot de passe, la page va lui demander son mot de passe actuel pour pouvoir effectuer le changement. Apres avoir entre le bon mot de passe, l’utilisateur peut entrer son nouveau mot de passe deux fois dans 2 champs pour assurer que c’est le mot de passe qu’il veut. Comme l’utilisateur peut etre l’auteur des articles, il peut modifier sa signature qui sera mise a la fin de ses propres articles.
+
+\end{document}
