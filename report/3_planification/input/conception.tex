@@ -1,39 +1,42 @@
 \section{Préparation du développement}
-
+\label{sec:prep_dev}
     \subsection{Phase de conception}
-        La phase de conception démarrera à l'issue de notre étude fonctionnelle qui s'achèvera lors des soutenances de projet le 18 décembre.  8 semaines y seront dédiées, qui aboutiront à un rapport de conception à rendre le 5 février dans sa première version, le 11 février dans sa version finale. La création de ce rapport sera divisée en trois tâches (total : 24h) :
+    \label{subsec:conception}
+        La phase de conception démarrera à l'issue de notre étude fonctionnelle qui s'achèvera lors des soutenances de projet le 18 décembre. Huit semaines seront dédiées à cette phase, qui permettra d'aboutir à un rapport de conception à rendre le 5 février dans sa première version et le 11 février dans sa version finale. On décompose naturellement la conception en deux étapes. Dans un premier temps, la modélisation de l'application. Celle-ci inclut la modélisation de la base de données, des modules qui communiqueront entre eux, et des solutions qui seront mises en place. Dans un second temps, la rédaction du rapport, qui contiendra les rappels de la phase de spécifications, toutes les modélisations effectuées, et une possible adaptation du planning des mois qui suivront.
+
+        En résumé, on obtient :
         \begin{itemize}
             \item La modélisation de l'application : 12h
             \item Redaction du rapport : 12h
         \end{itemize}
 
     \subsection{Environnement de développement}
-        En parallèle du travail de rédaction du rapport de conception, il sera primordial de se préparer à la phase de développement mettant en place un environnement de développement (total : 18h) :
+    \label{subsec:env_dev}
+        En parallèle du travail de rédaction du rapport de conception, il sera primordial de se préparer à la phase de développement en mettant en place un environnement de développement, et l'installation du nécessaire sur le poste personnel de chaque développeur. L'environnement de développement va donc être constitué d'un serveur apache qui devra être configuré, et un compte utilisateur devra être créé pour chaque développeur afin d'avoir accès et de posséder les droits sur celui-ci. En parallèle, il sera nécessaire d'installer et de configurer les deux bases de données qui seront utilisées pour développer l'application : ElasticSearch et MongoDB. Enfin, nous configurerons un script de déploiement avec Git qui permettra d'éviter de devoir copier les fichiers sources à la main pour mettre à jour l'application après que des fonctionnalités soient développées. Le tout tournera sous Ubuntu 14.04 installé sur un serveur virtuel.
         \begin{itemize}
-            \item mise en place d'un serveur de développement (total : 9h) :
+            \item mise en place d'un serveur de développement :
             \begin{itemize}
                 \item configuration serveur : serveur HTTP, utilisateurs, accès ssh, ouvertures de ports, etc : 3h
                 \item configuration du déploiement avec git : 2h
                 \item installation + configuration ElasticSearch : 2h
                 \item installation + configuration MongoDB : 2h
             \end{itemize}
-            \item installation des outils sur les postes de travail : 3h/developpeur (total : 9h).
+            \item installation des outils sur les postes de travail : 3h pour chaque développeur
         \end{itemize}
 
     \subsection{Autoformation}
-        De plus, avant de démarrer la phase de développement, il est nécessaire que chacun des développeurs s'autoforme aux technologies qui seront utilisées (total : 12h) :
+        De plus, avant de démarrer la phase de développement, il est nécessaire que chacun des développeurs se forme aux technologies côté serveur qui seront utilisées dans le développement de l'application.
         \begin{itemize}
-            \item Elasticsearch : 1h/developpeur soit 6h
-            \item MongoDB : 2h/developpeur soit 6h
-            \item Framework PHP Laravel : 3h/developpeur soit 12h
+            \item Elasticsearch : 1h par developpeur
+            \item MongoDB : 2h par developpeur
+            \item Framework PHP Laravel : 3h par developpeur
         \end{itemize}
 
-        L'autoformation sur les technologies front-end (Bootstrap, OpenSeadragon) sera considérée comme incluse dans les tâches de développement associées. En effet, ces technologies ne demandant pas de compréhensions de notions complexes, l'autoformation pourra s'effectuer au fur et a mesure des besoins lors du développement.
-        De même, le temps estimée pour l'autoformation sur les bases de données et frameworks ne permettra pas la maitrîse totale de ceux-ci, mais l'idée est d'être initié afin de commencer la phase de développement dans les meilleures conditions.
+        L'auto-formation sur les technologies front-end (Bootstrap, OpenSeadragon ...) sera considérée comme incluse dans les tâches de développement associées. En effet, ces technologies ne demandant pas une compréhension générale de notions complexes, l'auto-formation pourra s'effectuer au fur et à mesure des besoins lors du développement. De même, le temps estimé pour l'auto-formation sur les bases de données et sur le framework ne permettra pas la maîtrise totale de ceux-ci, mais l'idée est d'être initié afin de commencer la phase de développement dans les meilleures conditions.
 
-        Pour résumer, nous aurons les taches suivantes (total 54h) :
+        Pour résumer, la phase précédent le développement de l'application est prévue de prendre un total de 60h :
         \begin{itemize}
             \item Conception et redaction du rapport : 24h
-            \item Mise en place d'un environnement de développement (serveur + postes de travail) : 18
-            \item Autoformation : 12h
+            \item Mise en place d'un environnement de développement (serveur + postes de travail) : 18h
+            \item Autoformation : 18h
         \end{itemize}
