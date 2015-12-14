@@ -1,26 +1,32 @@
 \section{Itération 2 : Consultation de documents}
+	Après avoir développé le moteur de recherche, nous développerons les fonctionnalités liées à la page de consultation de documents.
 
 	\subsection{Consulter}
-		Après avoir développé le moteur de recherche, nous entrerons dans la mise en place des fonctionnalités liées à la page de consultation de documents. Comme nous l'avions énoncé dans le rapport de spécifications, trois modes de consultation seront proposés; article, journal et revue de presse. Trois objectifs sont définis pour cette consultation; consulter, informer et guider le lecteur.
+		Comme nous l'avions énoncé dans le rapport de spécifications, les options et les informations affichées lors d'une consultation dépendra du document (article, journal ou revue de presse) en cours de lecture.
+		Pour la mise en place de la visionneuse de page de journal, nous allons utiliser un module open-source existant; Openseadragon. Cet outil se base sur des images tuilées; nous devrons donc après l'avoir installé réaliser un script permettant de transformer les images des journaux fournies en images tuilées. Nous développerons aussi des fonctions nous permettant de créer et d'afficher des calques pour n'importe quel article sélectionné. Finalement, la dernière tâche consistera à réaliser une fonction de recherche dans le document.
 
+		\begin{itemize}
+			\item intégration OpenSeaDragon : 16h
+			\item script de transformation d'images : 4h
+			\item gestion de calques : 4h
+			\item recherche dans le journal : 5h
+		\end{itemize}
 
-		Tout d'abord, nous allons mettre en place une visionneuse de documents, Openseadragon. C'est une visionneuse d'image haute définition adaptée à notre projet dans la mesure où elle permet d'ajouter des overlays pour de nouvelles fonctionnalités (boutons de navigation, polygones délémiteurs, zoom, calques, ...). Cette étape de développement et de tests est estimée à 24h.
-
-		Ensuite nous rajouterons une fonctionnalités de recherche dans le document à la visionneuse (5h).
 
 	\subsection{Informer}
-		Puis vient l'implémentation des fonctionnalités d'information. Il est question ici :
-		Dans un premier temps, de développer une interface permettant à l'utilisateur de rajouter des informations au document. Il s'agit notamment de :
-			\begin{itemize}
-			\item Gestion des tags (10h)
-			\item ajout à une revue de presse ou aux favoris (10h)
-			\end{itemize}
+		Ensuite viens l'implémentation des fonctionnalités permettant d'informer le lecteur. Il est question ici, dans un premier temps, de développer une interface permettant à l'utilisateur une interaction avec le document. On devra donc implémenter la gestion des tags d'un document, pour qu'il en ajoute ou en retire, et l'ajout à une revue de presse ou aux favoris. On aura donc ici une recherche pour trouver les revues de presse à réaliser. Dans un second temps, nous réaliserons l'affichage de l'architecture du journal en train d'être lu, et des informations sur l'article sélectionné. Cela nécessitera d'interroger la base de données pour recueillir les informations, de les traiter et de les afficher.
 
-		Dans un second temps, il est question de réaliser une architecture du document : interroger la base de données afin de revueillir toutes les informations importantes liées au document consulté. Les informations affichées pourront être par exemple le titre, la date d'un journal, les articles associés, le titre d'un aticle, les tags... Cette tâche nécessitera 8h de travail.
+		\begin{itemize}
+			\item gestion des tags : 10h
+			\item ajout à une revue de presse ou aux favoris : 10h
+			\item architecture document et information article : 8h
+		\end{itemize}
 
 	\subsection{Guider}
-		En dernier lieu, nous allons développer les fonctionnalités de guidage.
-		Parcours d'une revue de presse (8h)
-		Proposition d'articles similaires, des revues de presse de même thématique (10h)
+		En dernier lieu, nous allons développer les fonctionnalités de guidage; c'est-à-dire l'affichage des informations quant aux articles proches, le parcours dans la revue de presse et les revues de presse qui contiennent l'article. Ces deux dernières fonctionnalités seront assez faciles à développer car en interrogeant la base de données il sera assez aisé de récupérer ces liens. La proposition d'articles proches nécessitera un développement plus pousser pour obtenir des résultats convaincants.
 
-		À l'issue du développement de toutes ces fonctionnalités, nous réaliserons des test d'intégration estimés à 20h de travail.
+		\begin{itemize}
+			\item articles proches : 6h
+			\item revues de presse liées : 2h
+			\item parcours d'une revue de presse : 2h
+		\end{itemize}
