@@ -1,28 +1,41 @@
 \section{Itération 3}
 
 	\subsection{Revue de presse}
-		\label{sec:revue}
+	\label{sec:revue}
 
 		La réalisation des revues de presse se déroulera en trois étapes successives.
 		Ces étapes viseront à réaliser les fonctionnalités décrites dans le dernier rapport.
 
-		\subparagraph{Design - 4h}
+		\subsubsection{Design}
 		\label{subpar:revue_design}
-		La première partie consistera a modeliser les différentes partie de la base de données.
+			La première partie consistera a modeliser les différentes partie de la base de données. - 4h
 
-		\subparagraph{Boutons d'ajout/création - 6h}
+		\subsubsection{Boutons d'ajout/création}
 		\label{subpar:revue_design}
-		Il faudra ensuite dévelloper les fonctions de création et d'ajout de d'articles aux revues de presse.
-		Et integrer ces fonctions aux boutons présent sur la page de lecture.
-		Il faudra egalement finir le panneau de parcours de revue de presse à droite de la page de lecture.
+			Il faudra ensuite dévelloper les fonctions de création et d'ajout de d'articles aux revues de presse.
+			Et integrer ces fonctions aux boutons présent sur la page de lecture.
+			Il faudra egalement finir le panneau de parcours de revue de presse à droite de la page de lecture. - 6h
 
-		\subparagraph{Page résumé - 6h}
+		\subsubsection{Page résumé}
 		\label{subpar:revue_resume}
-		Ensuite, une fois le mécanisme de création de de revue de presse finit, il faudra réaliser la page qui résume
-		la revue de presse.
+			Ensuite, une fois le mécanisme de création de de revue de presse finit, il faudra réaliser la page qui résume
+			la revue de presse. - 6h
 
 		\subparagraph{Tests - 8h}
 		\label{subpar:revue_tests}
+
+	\subsection{Page d'accueil}
+
+		\subsubsection{Interface graphique}
+			La page d'accueil comporte plusieurs enjeux, elle permet au visiteur de comprendre du sujet du site web. Une interface graphique simple et fonctionnelle oriente l'utilisateur vers les fonctions de base du site, c'est-à-dire la recherche d'articles, journaux ou revues de presse et leur visionnage. L'affichage d'articles vedettes complète l'accompagnement de l'utilisateur en lui proposant des articles susceptibles d'intéresser un maximum de public.
+			Le site web disposera d'une interface graphique au design moderne, fonctionnel et minimaliste. Le design se verra aussi cohérent entre les différentes pages du site. Le Framework CSS Bootstrap nous permettra de rendre la plateforme responsive, c'est-à-dire visionnable de la même manière sur une variété de supports, les téléphones quel que soit le système, les tablettes et les ordinateurs portables et de bureau. Les langages utilisées seront le HTML, CSS et JQuery (si nécessaire) pour une étape estimée à 8h de travail.
+
+		\subsubsection{Formulaire de recherche dans la base}
+			La page d’accueil comportera un formulaire de recherche texte et une liste déroulante permettant de choisir le type de document pour la recherche dans la base (articles, journaux, revue de presse). Ce formulaire sera en lien avec le moteur de recherche de l'itération 1. Cette étape est estimée à 1h.
+
+		\subsubsection{Affiche des articles vedettes} 
+			Nous définirons un critère de choix des articles susceptibles d'intéresser le nouveau visiteur. Les documents seront sélectionnes sur la base de données et affichés sur la page d'accueil sous forme de miniatures. Cette étape est estimée à 6h.
+
 
 	\subsection{Gestion d'utilisateur}
 		\subsubsection{Inscription - Estimé 9h}
@@ -32,14 +45,3 @@
 
 		\subsubsection{Gestion du profil - Estimé 9h}
 		La deuxième page pour la partie d’utilisateur est le paramétrage des utilisateurs. Ici, l’utilisateur peut modifier ses informations personnelles comme son mot de passe, email d’inscription, etc … Si l’utilisateur veut modifier son mot de passe, la page va lui demander son mot de passe actuel pour pouvoir effectuer le changement. Apres avoir entré le bon mot de passe, l’utilisateur peut entrer son nouveau mot de passe deux fois dans 2 champs pour assurer que c’est le mot de passe qu’il veut. Comme l’utilisateur peut-être l’auteur des articles, il peut modifier sa signature qui sera mise à la fin de ses propres articles.
-
-
-	\subsection{Itération 4 : page d'accueil}
-
-		La page d'accueil comporte plusieurs enjeux, elle permet au visiteur de comprendre du sujet du site web. Une interface graphique simple et fonctionnelle oriente l'utilisateur vers les fonctions de base du site, c'est-à-dire la recherche d'articles, journaux ou revues de presse et leur visionnage. L'affichage d'articles vedettes complète l'accompagnement de l'utilisateur en lui proposant des articles susceptibles d'intéresser un maximum de public.
-
-		\textbf{Interface graphique} : le site web disposera d'une interface graphique au design moderne, fonctionnel et minimaliste. Le design se verra aussi cohérent entre les différentes pages du site. Le Framework CSS Bootstrap nous permettra de rendre la plateforme responsive, c'est-à-dire visionnable de la même manière sur une variété de supports, les téléphones quel que soit le système, les tablettes et les ordinateurs portables et de bureau. Les langages utilisées seront le HTML, CSS et JQuery (si nécessaire) pour une étape estimée à 8h de travail.
-
-		\textbf{Formulaire de recherche dans la base} : La page d’accueil comportera un formulaire de recherche texte et une liste déroulante permettant de choisir le type de document pour la recherche dans la base (articles, journaux, revue de presse). Ce formulaire sera en lien avec le moteur de recherche de l'itération 1. Cette étape est estimée à 1h.
-
-		\textbf{Affiche des articles vedettes} : nous définirons un critère de choix des articles susceptibles d'intéresser le nouveau visiteur. Les documents seront sélectionnes sur la base de données et affichés sur la page d'accueil sous forme de miniatures. Cette étape est estimée à 6h.
