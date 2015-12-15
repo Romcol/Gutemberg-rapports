@@ -1,0 +1,31 @@
+\section{Itération 1 : Moteur de recherche}
+\label{sec:moteur_rech}
+	\subsection{La recherche} 
+	\label{subsec:recherche}
+		La première étape de la mise en place de la recherche est la configuration d'Elasticsearch. C'est lui qui fera la recherche au sein de la base. Cependant, il est nécessaire qu'il puisse communiquer avec la base de données MongoDB afin d'en récupérer le contenu. Elasticsearch dispose d'ailleurs d'un plugin qui lui permet de se lier à une base de données et de mettre à jour son index lors d'ajouts ou de modifications de la base. Elasticsearch sera alors capable de gérer une recherche d'articles, de journaux ou de revues de presse. Cette étape est la tâche principale. Ensuite, il faudra implémenter la communication entre Elasticsearch et l'interface utilisateur. C'est-à-dire une recherche faite par l'utilisateur à partir de l'application sera transmise à Elasticsearch et les résultats seront retournés à l'utilisateur. Il sera aussi nécessaire de développer un script permettant d'insérer les données des documents xml forunis dans la base de données.
+
+		\begin{itemize}
+			\item modélisation d'Elasticsearch et de MongoDB : 10h
+			\item communication entre l'interface et Elasticsearch : 4h
+			\item script d'insertion des données XML : 6h
+		\end{itemize}
+
+	\subsection{Critères et filtres de recherche} 
+	\label{subsec:crit_filtre}
+		Elasticsearch est capable de gérer les recherches avec des critères ainsi que de trier les résultats obtenus. Il suffira donc d'implémenter l'interface utilisateur pour l'utilisation de ces critères et d'envoyer ceux qui ont été choisis à Elasticsearch. Pour les filtres, c'est le même procédé. Les deux étapes prendront 3h chacune.
+
+		\begin{itemize}
+			\item critères de recherche : 3h
+			\item filtres de recherche : 3h
+		\end{itemize}
+
+	\subsection{Affichage des résultats} 
+	\label{subsec:rech_result}
+		Les résultats de la recherche ne se résument pas seulement à une liste d'articles. Suivant le document recherché, de nombreuses informations reliées à ceux-ci seront affichées; pour un article il y aura le titre, l'auteur, les tags, le journal, la date, le contenu, et son appartenance ou non à une revue de presse. Pour afficher ces informations, il faudra questionner la base de données pour obtenir celles-ci ou les demander à Elasticsearch. Il faudra ensuite afficher ces résultats, puis adapter ce qui a été fait pour un type de document pour les deux autres types de document.
+
+		\begin{itemize}
+			\item récupération et traitement des informations pour un document : 8h
+			\item affichage des résultats : 4h
+			\item adaptation pour les autres types de document : 4h
+		\end{itemize}
+
