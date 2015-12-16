@@ -66,6 +66,8 @@
     \mbox{}
 
     \newpage
+    
+    
     \input{input/intro.tex}
 
 	\input{input/rappel.tex}
@@ -84,10 +86,15 @@
 	
 	\newpage
 	\input{input/annexes.tex}
+	
+	\bibliographystyle{plain}
+    \bibliography{input/biblio}
     % Manoucherie incoming
     \pagevierge
     \ifthenelse{\isodd{\thepage}}
     {\pagevierge}
     {}
     \includepdf[pages=2]{figure/couv.pdf}
+    
+    
 \end{document}
