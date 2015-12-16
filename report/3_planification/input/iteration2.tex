@@ -1,12 +1,12 @@
-\section{Itération 2 : Consultation de documents}
+\subsection{Itération 2 : Consultation de documents}
 \label{sec:consultation}
 
 	Après avoir développé le moteur de recherche, nous développerons les fonctionnalités liées à la page de consultation de documents.
 
-	\subsection{Consulter}
+	\subsubsection{Consulter}
 	\label{subsec:consulter}
 		Comme nous l'avions énoncé dans le rapport de spécifications, les options et les informations affichées lors d'une consultation dépendra du document (article, journal ou revue de presse) en cours de lecture.
-		Pour la mise en place de la visionneuse de page de journal, nous allons utiliser un module open-source existant; Openseadragon. Cet outil se base sur des images tuilées; nous devrons donc après l'avoir installé réaliser un script permettant de transformer les images des journaux fournies en images tuilées. Nous développerons aussi des fonctions nous permettant de créer et d'afficher des calques pour n'importe quel article sélectionné. Finalement, la dernière tâche consistera à réaliser une fonction de recherche dans le document.
+		Pour la mise en place de la visionneuse de page de journal, nous allons utiliser un module open-source existant; Openseadragon. Cet outil se base sur des images tuilées; ce sont des images de très grandes tailles qui sont découpées en de très nombreuses parties, afin de permettre de charger uniquement les parties de l'image que nous afficherons afin de réduire le temps d'affichage. Nous devrons donc après l'avoir installé réaliser un script permettant de transformer les images des journaux fournies en images tuilées. Nous développerons aussi des fonctions nous permettant de créer et d'afficher des calques pour n'importe quel article sélectionné. Finalement, la dernière tâche consistera à réaliser une fonction de recherche dans le document.
 
 		\begin{itemize}
 			\item intégration OpenSeaDragon : 16h
@@ -16,7 +16,7 @@
 		\end{itemize}
 
 
-	\subsection{Informer}
+	\subsubsection{Informer}
 	\label{subsec:informer}
 		Ensuite viens l'implémentation des fonctionnalités permettant d'informer le lecteur. Il est question ici, dans un premier temps, de développer une interface permettant à l'utilisateur une interaction avec le document. On devra donc implémenter la gestion des tags d'un document, pour qu'il en ajoute ou en retire, et l'ajout à une revue de presse ou aux favoris. On aura donc ici une recherche pour trouver les revues de presse à réaliser. Dans un second temps, nous réaliserons l'affichage de l'architecture du journal en train d'être lu, et des informations sur l'article sélectionné. Cela nécessitera d'interroger la base de données pour recueillir les informations, de les traiter et de les afficher.
 
@@ -26,7 +26,7 @@
 			\item architecture document et information article : 8h
 		\end{itemize}
 
-	\subsection{Guider}
+	\subsubsection{Guider}
 	\label{subsec:guider}
 		En dernier lieu, nous allons développer les fonctionnalités de guidage; c'est-à-dire l'affichage des informations quant aux articles proches, le parcours dans la revue de presse et les revues de presse qui contiennent l'article. Ces deux dernières fonctionnalités seront assez faciles à développer car en interrogeant la base de données il sera assez aisé de récupérer ces liens. La proposition d'articles proches nécessitera un développement plus poussé pour obtenir des résultats convaincants.
 

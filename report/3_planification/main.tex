@@ -15,6 +15,9 @@
 \usepackage[left=3cm, right=3cm, bottom=4cm, top=4cm]{geometry}
 \usepackage{array}
 \usepackage{pdfpages}
+\usepackage{titlesec}
+
+
 
 \usepackage[gen]{eurosym}
 \DeclareUnicodeCharacter{20AC}{\euro{}}
@@ -57,7 +60,7 @@
 
     \newpage
     % A decommenter pour la release
-    \setcounter{tocdepth}{3}
+    \setcounter{tocdepth}{4}
     \tableofcontents
     \setlength{\parskip}{10pt}
 
@@ -74,12 +77,11 @@
 	
 	\input{input/conception.tex}
 	
+	\input{input/developpement.tex}
     \input{input/iteration1.tex}
-
     \input{input/iteration2.tex}
-
     \input{input/iteration3.tex}
-
+    
     \input{input/planification.tex}
 
 	\input{input/conclusion.tex}
@@ -89,6 +91,8 @@
 	
 	\bibliographystyle{plain}
     \bibliography{input/biblio}
+    
+    
     % Manoucherie incoming
     \pagevierge
     \ifthenelse{\isodd{\thepage}}
