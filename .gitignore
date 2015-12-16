@@ -23,6 +23,8 @@
 *.out
 *.synctex.gz
 *.pdf
+*.glo
+*.glsdefs
 
 #Perso
 Txt/*

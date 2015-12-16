@@ -1,7 +1,7 @@
-\section{Itération 3 : Revue de presse, utilisateur et accueil}
+\subsection{Itération 3 : Revue de presse, utilisateur et accueil}
 \label{subsec:revue_util_accueil}
-	\subsection{Revue de presse}
-	\label{subsec:revue}
+	\subsubsection{Revue de presse}
+	\label{subsubsec:revue}
 
 		L'architecture des revues de presse aura été développé avant dans le cadre du moteur de recherche - puis de la consultation de document -, et la prochaine étape sera de créer leur page spécifique. Il sera donc nécessaire de réaliser l'interface permettant de créer de nouvelles revues de presse, puis de créer une page qui permettra de visualiser une revue de presse créer, et de modifier celle-ci.
 
@@ -10,10 +10,9 @@
 			\item page ajout revue de presse : 3h
 		\end{itemize}
 
-	\subsection{Page d'accueil}
-	\label{subsec:accueil}
-		\subsubsection{Interface graphique}
-		\label{subsubsec:acc_interface}
+	\subsubsection{Page d'accueil}
+	\label{subsubsec:accueil}
+		\paragraph{Interface graphique}
 			
 			La page d'accueil permettant à l'utilisateur de comprendre le site, on réalisera une interface graphique simple et fonctionnelle orientant l'utilisateur vers les fonctions de base du site, c'est-à-dire la recherche d'articles, journaux ou revues de presse et leur visionnage. L'affichage d'articles vedettes complètera l'accompagnement de l'utilisateur en lui proposant des articles susceptibles d'intéresser un maximum de public.
 			Le site web disposera d'une interface graphique au design moderne, fonctionnel et minimaliste. Le design se verra aussi cohérent entre les différentes pages du site. Le Framework CSS Bootstrap nous permettra de développer une plateforme qui s'adaptera à tout type de support.
@@ -22,15 +21,14 @@
 				\item interface et architecture de la page : 8h
 			\end{itemize}
 
-		\subsubsection{Formulaire de recherche dans la base}
-		\label{subsubsec:acc_rech}
+		\paragraph{Formulaire de recherche dans la base}
 			Pour la partie de recherche intégrée à la page d’accueil, celle-ci comportera un formulaire de recherche texte et une liste déroulante permettant de choisir le type de document pour la recherche dans la base (articles, journaux, revue de presse). Ce formulaire reprendra les éléments de recherche développés avec le moteur de recherche de l'itération 1, et sera donc plutôt rapide.
 
 			\begin{itemize}
 				\item formulaire de recherche simple : 1h
 			\end{itemize}
 
-		\subsubsection{Affiche des articles vedettes} 
+		\paragraph{Affiche des articles vedettes} 
 		\label{subsubsec:acc_article}
 			Nous définirons un critère de choix des articles et des revues de presse susceptibles d'intéresser le nouveau visiteur. Les documents seront sélectionnés sur la base de données et affichés sur la page d'accueil sous forme de miniatures avec les informations récupérées.
 
@@ -39,11 +37,10 @@
 				\item génération des éléments HTML : 1h
 			\end{itemize}
 
-	\subsection{Gestion d'utilisateur}
-	\label{subsec:utilisateur}
-		\subsubsection{Inscription et connexion}
-		\label{subsubsec:util_inscr}
-			Pour pouvoir gérer les utilisateurs, il faut créer des utilisateurs. On va faire une page de l’inscription pour les utilisateurs qui veulent s’inscrire. Les principaux éléments dans cette page sont des champs d’informations personnelles de l’utilisateur: nom, pseudo, mot de passe, email, etc … Il sera donc nécessaire de créer la page et le formulaire d'inscription d'utilisateurs, et de confirmer l'inscription par l'envoie d'un mail de confirmation. Un espace de connexion devra aussi être créé à partir de la page d'accueil, et un espace lui permettant de récupérer un nouveau mot de passes s'il a oublié le sien. Un mail de vérification, et une page dédiée au changement d'un mot de passe sera créé.
+	\subsubsection{Gestion d'utilisateur}
+	\label{subsubsec:utilisateur}
+		\paragraph{Inscription et connexion}
+			Pour pouvoir gérer les utilisateurs, il faut créer des utilisateurs; on réalisera donc une interface permettant à ceux-ci de s'inscrire. Les principaux éléments dans cette page sont des champs d’informations personnelles de l’utilisateur: nom, pseudo, mot de passe, email, etc … Il sera donc nécessaire de créer la page et le formulaire d'inscription d'utilisateurs, et de confirmer l'inscription par l'envoi d'un mail de confirmation. Un espace de connexion devra aussi être créé à partir de la page d'accueil, et un espace lui permettant de récupérer un nouveau mot de passe s'il a oublié le sien. Un mail de vérification, et une page dédiée au changement d'un mot de passe sera créé.
 
 			\begin{itemize}
 				\item inscription d'utilisateur : 4h
@@ -51,8 +48,7 @@
 				\item réinitialisation de mot de passe : 2h
 			\end{itemize}
 
-		\subsubsection{Profil utilisateur}
-		\label{subsubsec:util_profil}
+		\paragraph{Profil utilisateur}
 			La tâche suivante constituera à développé l'espace personnel d'un utilisateur. Il faudra travailler sur une page lui permettant de modifier ses paramètres (mail, mot de passe). Ensuite, sur cette page il sera nécessaire de créer trois listes qui contiendront respectivement les revues de presse qu'il a créé, celles auxquelles il a contribué et ses favoris. Les requêtes dans la base de données seront donc établies, et on reprendra le système de gestion d'une revue de presse pour les favoris.
 
 			\begin{itemize}

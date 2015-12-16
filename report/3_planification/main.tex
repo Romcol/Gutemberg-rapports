@@ -15,6 +15,9 @@
 \usepackage[left=3cm, right=3cm, bottom=4cm, top=4cm]{geometry}
 \usepackage{array}
 \usepackage{pdfpages}
+\usepackage{titlesec}
+
+
 
 \usepackage[gen]{eurosym}
 \DeclareUnicodeCharacter{20AC}{\euro{}}
@@ -57,7 +60,7 @@
 
     \newpage
     % A decommenter pour la release
-    \setcounter{tocdepth}{3}
+    \setcounter{tocdepth}{4}
     \tableofcontents
     \setlength{\parskip}{10pt}
 
@@ -66,28 +69,36 @@
     \mbox{}
 
     \newpage
+    
+    
     \input{input/intro.tex}
 
 	\input{input/rappel.tex}
 	
 	\input{input/conception.tex}
 	
+	\input{input/developpement.tex}
     \input{input/iteration1.tex}
-
     \input{input/iteration2.tex}
-
     \input{input/iteration3.tex}
-
+    
     \input{input/planification.tex}
 
 	\input{input/conclusion.tex}
 	
 	\newpage
 	\input{input/annexes.tex}
+	
+	\bibliographystyle{plain}
+    \bibliography{input/biblio}
+    
+    
     % Manoucherie incoming
     \pagevierge
     \ifthenelse{\isodd{\thepage}}
     {\pagevierge}
     {}
     \includepdf[pages=2]{figure/couv.pdf}
+    
+    
 \end{document}
