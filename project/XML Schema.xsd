@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+
+<xs:element name="pageRecoTainer">
+  <xs:complexType mixed="true">
+	<xs:element name="lp:list">
+		<xs:complexType>
+			<xs:element name="lp:str" type="xs:string" maxOccurs="8"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="pageReco">
+		<xs:complexType mixed="true">
+			<xs:sequence>
+				<xs:element name="Titre">
+					<xs:complexType>
+						<xs:element name="titreJournal">
+							<xs:complexType>
+								<xs:element name="par" type="xs:string"/>
+							<xs:attribute name="xbg" type="xs:string"/>
+							<xs:attribute name="ybg" type="xs:string"/>
+							<xs:attribute name="xhg" type="xs:string"/>
+							<xs:attribute name="yhg" type="xs:string"/>
+							<xs:attribute name="xhd" type="xs:string"/>
+							<xs:attribute name="xhd" type="xs:string"/>
+							<xs:attribute name="xbd" type="xs:string"/>
+							<xs:attribute name="ybd" type="xs:string"/>
+							</xs:complexType>
+						</xs:element>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>		
+		<xs:attribute name="xbg" type="xs:string"/>
+		<xs:attribute name="ybg" type="xs:string"/>
+		<xs:attribute name="xhg" type="xs:string"/>
+		<xs:attribute name="yhg" type="xs:string"/>
+		<xs:attribute name="xhd" type="xs:string"/>
+		<xs:attribute name="xhd" type="xs:string"/>
+		<xs:attribute name="xbd" type="xs:string"/>
+		<xs:attribute name="ybd" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+  <xs:attribute name="img" type="image"/>
+  </xs:complexType>
+</xs:element>
