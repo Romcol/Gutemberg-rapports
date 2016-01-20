@@ -69,4 +69,10 @@ curl -XPUT "localhost:9200/_river/test/_meta" -d '
 * < CollectionName > nom de la collection
 * < type > type de document ( pour qualifier les documents json ; pas très important )
 
+Pour avoir une interface pour intéragir avec elasticsearch :
+
+  * ``elasticsearch/bin/plugin -install mobz/elasticsearch-head ``
+  *  Ouvrir http://localhost:9200/_plugin/head/
+
+
 Tuto dont je me suis inspiré : http://blog.viseo-bt.com/indexation-recherche-documents-mongodb-elasticsearch/
