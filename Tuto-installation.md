@@ -11,6 +11,32 @@ et ensuite installer composer https://getcomposer.org/download/
  * Pour windows
 http://laragon.org/
 
+ * Pour communiquer avec elasticsearch, entrer la commande suivante depuis le dossier laragon/bin/composer :
+````
+ composer require elasticsearch/elasticsearch
+ ````
+ Ensuite, dans le fichier php, il suffira de mettre :
+
+ `````
+ <?php
+ require 'vendor/autoload.php';
+
+ $client = new Elasticsearch\Client();
+`````
+
+ * Pour communiquer avec MongoDB
+ ##### Avec Linux
+````
+sudo pecl install mongo
+````
+Ajouter la ligne `` extension=mongo.so `` dans `` php.ini ``
+***
+##### Avec Windows
+Récupérer le zip depuis http://pecl.php.net/package/mongo/1.6.12/windows et extraire le fichier php_mongo.dll puis le mettre dans _laragon/bin/php/php-5.6.16/ext_
+
+Mettre la ligne _extension=php_mongo.dll_ dans le fichier _laragon/bin/php/php-5.6.16/php.ini_
+
+
 #### MongoDB et elasticsearch
 
 * Aller sur <https://www.mongodb.org/downloads?_ga=1.118639489.902302554.1453231495#production> pour récupérer MongoDB.
@@ -33,9 +59,10 @@ S'il y a une erreur : "JAVA_HOME environment variable must be set!" se référer
 ````
 mongod --port 27017 --dbpath <path> --replSet rs0
 ````
-< path > est le chemin du dossier où MongoDB stockera les données.
+< path > est le chemin du dossier où MongoDB stockera les données. (il faut l'avoir créé avant )
 
-* Exécuter mongo et taper :
+
+*  Le Laisser en tâche de fond, éxécuter _mongo_ et taper :
 ````
 cfg = {
    "_id" : "rs0",
