@@ -11,28 +11,35 @@ et ensuite installer composer https://getcomposer.org/download/
  * Pour windows
 http://laragon.org/
 
- * Pour communiquer avec elasticsearch, entrer la commande suivante depuis le dossier laragon/bin/composer :
+ * Pour communiquer avec elasticsearch, copier les composer ; composer.bat ; composer.phar dans le dossier du projet.
+
+ Entrer les commandes suivantes depuis le dossier du projet :
 ````
  composer require elasticsearch/elasticsearch
  ````
+ ````
+ php composer.phar install --no-dev
+ ````
  Ensuite, dans le fichier php, il suffira de mettre :
 
- `````
+`````
  <?php
  require 'vendor/autoload.php';
 
- $client = new Elasticsearch\Client();
+$client = Elasticsearch\ClientBuilder::create()->build();
 `````
 
  * Pour communiquer avec MongoDB
- ##### Avec Linux
+
+##### Avec Linux
 ````
 sudo pecl install mongo
 ````
 Ajouter la ligne `` extension=mongo.so `` dans `` php.ini ``
-***
+
 ##### Avec Windows
 Récupérer le zip depuis http://pecl.php.net/package/mongo/1.6.12/windows et extraire le fichier php_mongo.dll puis le mettre dans _laragon/bin/php/php-5.6.16/ext_
+Il faut mieux mettre la version ThreadSafe x86
 
 Mettre la ligne _extension=php_mongo.dll_ dans le fichier _laragon/bin/php/php-5.6.16/php.ini_
 
@@ -78,16 +85,16 @@ Et voilà !
 
 Pour créer un nouvel index, il suffit de taper :
 ````
-curl -XPUT "localhost:9200/_river/test/_meta" -d '
+curl -XPUT "localhost:9200/_river/name/_meta" -d '
 {
   "type": "mongodb",
   "mongodb": {
-    "db": "test",
-    "collection": "restaurants"
+    "db": "databaseName",
+    "collection": "CollectionName"
   },
  "index": {
-   "name": "resto",
-   "type": "restau"
+   "name": "name",
+   "type": "type"
  }
 }'
 ````
