@@ -1,12 +1,12 @@
 \section{Architecture de Laravel}
 \label{sec:laravel}
 
-Laravel est un framework web PHP open-source. Nous allons utiliser ce Framework pour coder le cœur de l'application web. Il utilise le principe MVC ou modèle-vue-contrôleur. Ce framework permettra d'être plus efficace qu'en codant en PHP natif. Il intègre des fonctionnalités de routages et de mapping objet-relationnel entre autres. Les routes vont permettre de créer les différentes pages et sections de notre site du point de vue de l'URL. L'outil de mapping ORM utilisé par Laravel et nommé Eloquent va nous permettre d'interagir avec les différentes bases de données (MongoDB et Elasticsearch) à travers différents modèles PHP. C'est à dire que ce dernier va permettre une correspondance entre des objets et leurs données associées stockées sur la base de données.
+Laravel est un framework web PHP open-source. Nous allons utiliser ce Framework pour coder le cœur de l'application web. Il utilise le principe MVC ou modèle-vue-contrôleur. Ce framework permettra d'être plus efficace qu'en codant en PHP natif. Il intègre des fonctionnalités de routages et de mapping objet-relationnel entre autres. Les routes vont permettre de créer les différentes pages et sections de notre site du point de vue de l'URL. L'outil de mapping ORM utilisé par Laravel et nommé Eloquent va nous permettre d'interagir avec les différentes bases de données (MongoDB et Elasticsearch) à travers différents modèles PHP. C'est-à-dire que ce dernier va permettre une correspondance entre des objets et leurs données associées stockées sur la base de données.
 
 \subsection{Les routes}
 
 Les routes vont permettent de lier un url à une fonctionnalité de notre site. C'est à dire à une fonction précise d'un contrôleur.\\
-Par exemple si on souhaite créer une page qui va lister tous les articles présents sur notre site, on peut écrire dans le fichier route. Ici on va lier l'url http://www.notresite.extension/articles à la fonction index du contrôleur article.
+Par exemple si nous souhaitons créer une page qui va lister tous les articles présents sur notre site, nous pouvons écrire dans le fichier route. Ici nous allons lier l'url http://www.notresite.extension/articles à la fonction index du contrôleur article.
 
 \begin{verbatim}
 Route::get('articles', 'ArticlesController@index');
@@ -14,8 +14,8 @@ Route::get('articles', 'ArticlesController@index');
 
 \subsection{Le contrôleur}
 
-Le contrôleur est le cœur métier de notre application. Il va exécuter les tâches nécessaires à la requête demandée et passer ces informations à la vue.\\
-Par exemple, ici on va récupérer tous les articles enregistrés et les passer à la vue "pages.articles". Pour cela il faut tout d'abord communiquer avec le modèle "Article" en lien avec la base de donnée.
+Le contrôleur est le cœur métier de notre application. Il va exécuter les tâches nécessaires à la requête demandée et transmettre ces informations à la vue.\\
+Par exemple, ici nous allons récupérer tous les articles enregistrés et les passer à la vue "pages.articles". Pour cela, il faut tout d'abord communiquer avec le modèle "Article" en lien avec la base de données.
 
 \begin{verbatim}
 public function index()
@@ -26,7 +26,7 @@ public function index()
 \end{verbatim}
 
 \subsection{Le modèle}
-Le modèle va permettre de définir des objets dans Laravel. Ici par exemple, l'objet Article. Le modèle est en lien avec la base de donnée. On utilise ici Elasticquent(https://github.com/elasticquent/Elasticquent) pour communiquer avec la base de donnée Elasticsearch et Moloquent (https://github.com/jenssegers/laravel-mongodb) pour communiquer avec MongoDB.
+Le modèle va permettre de définir des objets dans Laravel, par exemple, l'objet Article. Le modèle est en lien avec la base de données. Nous utilisons ici Elasticquent\cite{GitElasticquent} pour communiquer avec la base de données Elasticsearch et Moloquent\cite{GitLaravelMongo} pour communiquer avec MongoDB.
 
 \begin{verbatim}
 class Article extends Moloquent
@@ -40,9 +40,9 @@ class Article extends Moloquent
 
 Le gestionnaire de vue de Laravel (nommé Blade) nous donne la possibilité de définir du code HTML à trou et qui inclue/hérite d'autres vues. Ici notre vue "pages.article" contient le code HTML de la vue article. Cette vue hérite de la vue globale définie par "app".
 \paragraph{}
-La vue globale contient la structure du site à inclure dans chaque page, c'est ici que nous faire le lien avec Bootstrap et JQuery (utilisé par ce dernier). Nous incluons alors les fichiers CSS et Javascript nécessaires.
+La vue globale contient la structure du site à inclure dans chaque page, c'est ici que nous faisons le lien avec Bootstrap et JQuery (utilisé par ce dernier). Nous incluons alors les fichiers CSS et Javascript nécessaires.
 
-\begin{verbatim}
+\begin{lstlisting}
 <!doctype html>
 <html lang="fr">
 <head>
@@ -60,7 +60,7 @@ La vue globale contient la structure du site à inclure dans chaque page, c'est 
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 </body>
 </html>
-\end{verbatim}
+\end{lstlisting}
 
 \begin{figure}[H]
         \centering
