@@ -1,2 +1,21 @@
 \section{Architecture gÃ©nÃ©rale}
 \label{sec:generale}
+Pour la réalisation de notre projet, nous allons utiliser des bases de données pour le stockage des données et pour la recherche, un serveur, des framework et une visionneuse de documents. La figure ci-dessous présente l'architecture logicielle générale de notre projet. Nous allons dans cette partie présenter la communication entre les différents modules de cette architecture.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\textwidth]{figures/Archi.png}
+            \caption{Architecture globale de la plateforme}
+            \label{fig:archi}
+    \end{figure}
+
+L'architecture se divise en deux grandes parties : serveur et client. 
+Le serveur hébergeant l'application est un serveur Linux. Il comporte les modules suivants :
+\begin{itemize}
+	\item Le framework Laravel : il est utilisé pour le codage du centre de la plateforme web en PHP.
+	\item La base de données MongoDB : c'est dans cette base que seront stockées toutes les données de l'application. Laravel pourra donc envoyer des requettes pour récupérer ou modifier des informations.
+	\item La base de données ElasticSearch : cette base contiendra exactement les mêmes données que MongoDB et les requêtes concernant le moteur de recherche y seront envoyées.
+\end{itemize}
+
+Le serveur communique avec le client à travers Laravel via un protocole HTTP. Côté client nous allons utiliser le framework Bootstrap pour réaliser une interface graphique adaptée aux mobiles, tablettes et ordinateurs. Nous utiliserons également le plugin Openseadragon qui est une visionneuse pour la consultation de document. 
+
+Nous allons détailler dans la suite la modélisation de chacun de ces modules de l'architecture générale du projet, ainsi que la communication entre ceux-ci.
