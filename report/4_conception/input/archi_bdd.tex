@@ -34,14 +34,14 @@ Le diagramme suivant résume la modélisation de notre base de données :
             \label{fig:modelbdd}
 \end{figure}
 
-Certaines informations peuvent sembler répétitives comme la liste des articles favoris qui contient les mêmes informations que celles contenues dans les documents de la collection Article. Cependant, avec MongoDB, nous ne pouvons pas faire de jointure entre les tables. Si nous voulons les informations sur l’article, il sera nécessaire de faire une deuxième requête dans la base avec l’id du document de l’article pour obtenir ces informations. C’est pourquoi certaines informations sont dupliquées, notamment celles qui seront affichées. Pour notre exemple, lors de l’affichage de la liste des favoris dans l’espace utilisateur, il est indiqué le titre, le titre du journal, la date et un extrait de l’article. 
+Certaines informations peuvent sembler répétitives comme la liste des articles favoris qui contient les mêmes informations que celles contenues dans les documents de la collection Article. Cependant, avec MongoDB, nous ne pouvons pas faire de jointure entre les tables. Si nous voulons les informations sur l’article, il sera nécessaire de faire une deuxième requête dans la base avec l’id du document de l’article pour obtenir ces informations. C’est pourquoi certaines informations sont dupliquées, notamment celles qui seront affichées. Cela permet d'économiser une requête à la base de données et donc du temps. Pour notre exemple, lors de l’affichage de la liste des favoris dans l’espace utilisateur, il est indiqué le titre, le titre du journal, la date et un extrait de l’article. 
 
 
 Chaque flèche représente une référence, c’est-à-dire que l’id du document correspondant est stockée afin de pouvoir le retrouver dans la base. Les tableaux Coord[] stockent les coordonnées du  titre ou du mot. Cela nous permettra de le mettre en surbrillance lorsqu’il est l’objet de la recherche. 
 
 \subsection{Elasticsearch}
 
-Elasticsearch est un moteur de recherche, il nous servira pour rechercher parmi les articles de notre base. Elasticsearch construit un index à partir des données afin de les parcourir rapidement et de manière optimisé. Pour notre projet, Elasticsearch indexera la base de données. Ainsi, à chaque fois que nous voudrons récupérer un élément de la base, nous utiliserons Elasticsearch. 
+Elasticsearch est un moteur de recherche, il nous servira pour rechercher parmi les articles de notre base, mais aussi pour n'importe quelle requête de recherche que nous aurons besoin de faire. Elasticsearch construit un index à partir des données afin de les parcourir rapidement et de manière optimisée. Pour notre projet, Elasticsearch indexera chaque collection de la base de données.  Cela nous dispense de construire nous-mêmes l'index de la base de données et les requêtes de recherche seront plus rapides que si nous les envoyions directement à MongoDB.
 
 
 Habituellement, Elasticsearch dispose de sa propre base de données qu’il indexe. Nous utilisons donc le plugin elasticsearch-river-mongodb\cite{GitRiver}. Il permet à Elasticsearch d’utiliser une base de données MongoDB comme source de données. 
