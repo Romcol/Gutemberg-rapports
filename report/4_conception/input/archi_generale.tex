@@ -13,9 +13,9 @@ Pour la réalisation de notre projet, nous allons utiliser des bases de données
 L'architecture se divise en deux grandes parties : serveur et client. 
 Le serveur hébergeant l'application est un serveur Linux. Il comporte les modules suivants :
 \begin{itemize}
-	\item Le framework Laravel : il est utilisé pour le codage du centre de la plateforme web en PHP.
-	\item La base de données MongoDB : c'est dans cette base que seront stockées toutes les données de l'application. Laravel pourra donc envoyer des requêtes pour modifier des données.
-	\item La base de données ElasticSearch : cette base contiendra exactement les mêmes données que MongoDB et les requêtes de recherche y seront envoyées.
+	\item Le framework Laravel (Partie \ref{sec:laravel}) : il est utilisé pour le codage du centre de la plateforme web en PHP.
+	\item La base de données MongoDB (Partie \ref{subsec:mongo}) : c'est dans cette base que seront stockées toutes les données de l'application. Laravel pourra donc envoyer des requêtes pour modifier des données.
+	\item La base de données ElasticSearch (Partie \ref{subsec:elastic}) : cette base contiendra exactement les mêmes données que MongoDB et les requêtes de recherche y seront envoyées.
 \end{itemize}
 
 Le serveur communique avec le client à travers Laravel via un protocole HTTP. Côté client, nous allons utiliser le framework Bootstrap pour réaliser une interface graphique adaptées aux mobiles, tablettes et ordinateurs. Nous utiliserons également le plugin Openseadragon qui est une visionneuse pour la consultation de document. 

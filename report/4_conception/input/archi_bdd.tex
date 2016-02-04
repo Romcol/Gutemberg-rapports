@@ -3,8 +3,9 @@
 \label{sec:bdd}
 
 \subsection{Base de données}
+\label{subsec:mongo}
 
-Notre base de données est gérée par un système NoSQL : MongoDB. Nos données sont reparties par collections (c’est l’équivalent d’une table en SQL). Dans ces collections, les données sont écrites sous forme de document JSON. Le format JSON permet de représenter l’information de manière structurée. Un document JSON est composé de paires nom/valeurs ou de listes ordonnées de valeurs. Ces valeurs peuvent être des objets eux-mêmes représentés sous format JSON ; des tableaux ou des valeurs génériques : nombre, chaîne de caractère, booléen. 
+Notre base de données est gérée par un système NoSQL : MongoDB. Nos données sont reparties par collections (c’est l’équivalent d’une table en SQL). Dans ces collections, les données sont écrites sous forme de document JSON. Le format JSON permet de représenter l’information de manière structurée. Un document JSON est composé de paires nom/valeurs ou de listes ordonnées de valeurs. Ces valeurs peuvent être des objets eux-mêmes représentés sous format JSON ; des tableaux ou des valeurs génériques : nombre, chaîne de caractère, booléen. Nous utilisons la version 3.0 qui était la dernière lorsque nous avons commencé à étudier cette technologie.  
 
 
 Voilà un exemple de document que nous aurons dans la collection Revues : 
@@ -24,14 +25,14 @@ Voilà un exemple de document que nous aurons dans la collection Revues :
 
 Chaque document dispose d’un id afin de pouvoir le retrouver rapidement. Cela permet aussi de pouvoir référencer d’autres objets de la base de données. 
 
-Le diagramme suivant résume la modélisation de notre base de données :
+Le diagramme de la figure \ref{modelbdd} résume la modélisation de notre base de données.
 
 
 \begin{figure}[H]
         \centering
         \includegraphics[width=\textwidth]{figure/ModelBDD.png}
             \caption{Modélisation de la base de données}
-            \label{fig:modelbdd}
+            \label{modelbdd}
 \end{figure}
 
 Certaines informations peuvent sembler répétitives comme la liste des articles favoris qui contient les mêmes informations que celles contenues dans les documents de la collection Article. Cependant, avec MongoDB, nous ne pouvons pas faire de jointure entre les tables. Si nous voulons les informations sur l’article, il sera nécessaire de faire une deuxième requête dans la base avec l’id du document de l’article pour obtenir ces informations. C’est pourquoi certaines informations sont dupliquées, notamment celles qui seront affichées. Cela permet d'économiser une requête à la base de données et donc du temps. Pour notre exemple, lors de l’affichage de la liste des favoris dans l’espace utilisateur, il est indiqué le titre, le titre du journal, la date et un extrait de l’article. 
@@ -40,11 +41,12 @@ Certaines informations peuvent sembler répétitives comme la liste des articles
 Chaque flèche représente une référence, c’est-à-dire que l’id du document correspondant est stockée afin de pouvoir le retrouver dans la base. Les tableaux Coord[] stockent les coordonnées du  titre ou du mot. Cela nous permettra de le mettre en surbrillance lorsqu’il est l’objet de la recherche. 
 
 \subsection{Elasticsearch}
+\label{subsec:elastic}
 
-Elasticsearch est un moteur de recherche, il nous servira pour rechercher parmi les articles de notre base, mais aussi pour n'importe quelle requête de recherche que nous aurons besoin de faire. Elasticsearch construit un index à partir des données afin de les parcourir rapidement et de manière optimisée. Pour notre projet, Elasticsearch indexera chaque collection de la base de données.  Cela nous dispense de construire nous-mêmes l'index de la base de données et les requêtes de recherche seront plus rapides que si nous les envoyions directement à MongoDB.
+Elasticsearch est un moteur de recherche, il nous servira pour rechercher parmi les articles de notre base, mais aussi pour n'importe quelle requête de recherche que nous aurons besoin de faire. Elasticsearch construit un index à partir des données afin de les parcourir rapidement et de manière optimisée. Pour notre projet, Elasticsearch indexera chaque collection de la base de données. Cela nous dispense de construire nous-mêmes l'index de la base de données et les requêtes de recherche seront plus rapides que si nous les envoyions directement à MongoDB. Nous utilisons la version 1.4.4 d'Elasticsearch. Une version plus récente existe (la version 2.1) mais le plugin que nous utilisons pour faire communiquer MongoDB et Elasticsearch, ne fonctionne pas sur cette version plus récente.
 
 
-Habituellement, Elasticsearch dispose de sa propre base de données qu’il indexe. Nous utilisons donc le plugin elasticsearch-river-mongodb\cite{GitRiver}. Il permet à Elasticsearch d’utiliser une base de données MongoDB comme source de données. 
+Habituellement, Elasticsearch dispose de sa propre base de données qu’il indexe. Nous utilisons donc le plugin elasticsearch-river-mongodb\cite{GitRiver}, plus précisément sa version la plus récente. Il permet à Elasticsearch d’utiliser une base de données MongoDB comme source de données. 
 
 
 De plus, à chaque ajout, mise à jour ou suppression de données dans la base MongoDB, Elasticsearch met automatiquement à jour son index. Pour cela, il est nécessaire que la base MongoDB soit en \textbf{\textit{replica set}}.  Un \textbf{\textit{replica set}} est un groupe d’instances MongoDB qui maintiennent les mêmes données. Dans ce groupe, chaque instance est accessible en lecture et il y a une instance primaire qui est la seule à être accessible en écriture. Lorsque des modifications sont faîtes dans cette instance, les modifications sont répliquées aux autres instances du groupe. Dans notre cas, la base de données MongoDB sera l’instance primaire et Elasticsearch, par le biais du plugin, sera considérée comme une instance secondaire. 
@@ -69,10 +71,10 @@ Avec
 
 Par exemple, nous pourrons récupérer le document avec son id mais aussi effectuer une recherche d’un terme particulier :
 \begin{verbatim}
-http://host:port/[index]/[type]/_search?q=mai68
+http://host:port/[index]/[type]/_search?q=Mai+68
 \end{verbatim}
 
-Pour une recherche plus complexe, il faut envoyer une requête au format JSON :
+Pour une recherche plus complexe, il faut envoyer une requête au format JSON. Par exemple, si on veut trouver les revues de presse dont le nom contient 'Mai 68'.
 
 \begin{verbatim}
 {
@@ -81,8 +83,8 @@ Pour une recherche plus complexe, il faut envoyer une requête au format JSON :
             "must": [
                 {
                     "query_string": {
-                        "default_field": "my_field",
-                        "query": "text"
+                        "default_field": "Nom",
+                        "query": "Mai 68"
                     }
                 }
             ],
@@ -115,21 +117,28 @@ Il est aussi possible d’utiliser le plugin Head d’Elasticsearch. Il permet d
 
 Pour communiquer avec une base MongoDB, PHP dispose d’une classe Mongo. Celle-ci permet de faire des ajouts, des modifications et des suppressions dans la base de données. 
 
-\begin{verbatim}
+Dans l'exemple de code suivant, nous ajoutons à la base de données, une nouvelle revue de presse sur George Pompidou.
+
+\begin{verbatimtab}[3]
 $m = new MongoClient();
 
 // select a database
 $db = $m->databaseName;   
-$collection = $db->databaseCollection;
+$collection = $db->RevueCollection;
+
+$doc = array(
+	‘Nom’ => ‘George Pompidou’,
+	‘Description’ => ‘Ceci est une revue de presse sur George Pompidou’,
+	‘TitreArticles’ => array()
+);
 
 $collection->insert($doc);
-\end{verbatim}
+\end{verbatimtab}
 
-Le \textit{\$doc} aura été défini avant.
 
 \subsubsection{Elasticsearch}
 
-Pour Elasticsearch, nous utilisons le client PHP officiel pour Elasticsearch. Ainsi, nous pouvons envoyer des requêtes à Elasticsearch et récupérer les résultats de la recherche. Ces requêtes peuvent utiliser la même syntaxe qu’une requête de l’API REST. Par exemple, dans une base de données de restaurants :
+Pour Elasticsearch, nous utilisons le client PHP officiel pour Elasticsearch. Ainsi, nous pouvons envoyer des requêtes à Elasticsearch et récupérer les résultats de la recherche. Ces requêtes peuvent utiliser la même syntaxe qu’une requête de l’API REST. Par exemple, pour trouver les revues dont la description contient 'Mai 68' :
 
 \begin{verbatimtab}
 $json = '{
@@ -139,8 +148,8 @@ $json = '{
             "must": [
                 {
                     "query_string": {
-                        "default_field": "restau.borough",
-                        "query": "Bronx"
+                        "default_field": "Description",
+                        "query": "Mai 68"
                     }
                 }
             ]
@@ -149,8 +158,8 @@ $json = '{
 }';
 
 $params = [
-    'index' => 'resto',
-    'type' => 'restau',
+    'index' => 'RevueIndex',
+    'type' => 'Revue',
     'body' => $json
 ];
 
@@ -159,11 +168,28 @@ print_r($results);
 \end{verbatimtab}
 
 \newpage
-Bien évidemment, Elasticsearch retourne les résultats au format JSON. Mais, le client transforme automatiquement ces données en un format lisible par PHP. La figure \ref{datajsonPhp} montre les données d'une revue au format JSON et le format que nous utiliserons avec PHP.
+Bien évidemment, Elasticsearch retourne les résultats au format JSON. Mais, le client transforme automatiquement ces données en un format lisible par PHP. La Le code suivant correspond les données de la revue de presse sur Mai 68 dans le format que nous utiliserons avec PHP.
 
-\begin{figure}[H]
-        \centering
-        \includegraphics[width=\textwidth]{figure/dataJSONPHP.png}
-            \caption{Format des données fournies par Elasticsearch}
-            \label{datajsonPhp}
-\end{figure}
+\begin{verbatimtab}[3]
+Array
+(
+ [_id] => 1
+ [Nom] => Mai 68
+ [Description] => Ceci est une revue de presse sur Mai 68
+ [TitreArticles] => Array
+   (
+		[0] => Array
+		 (
+			[idArticle] => 34354
+			[Titre] => Effervescence dans les universités françaises
+	   )
+
+		[1] => Array
+		 (
+			[idArticle] => 78e64a
+			[Titre] => Premières barricades de Mai 68
+		 )
+
+	)	
+)
+\end{verbatimtab}
