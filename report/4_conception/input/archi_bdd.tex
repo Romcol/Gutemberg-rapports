@@ -29,7 +29,7 @@ Le diagramme suivant résume la modélisation de notre base de données :
 
 \begin{figure}[H]
         \centering
-        \includegraphics[scale=0.35]{figure/ModelBDD.png}
+        \includegraphics[width=\textwidth]{figure/ModelBDD.png}
             \caption{Modélisation de la base de données}
             \label{fig:modelbdd}
 \end{figure}
@@ -47,10 +47,10 @@ Elasticsearch est un moteur de recherche, il nous servira pour rechercher parmi 
 Habituellement, Elasticsearch dispose de sa propre base de données qu’il indexe. Nous utilisons donc le plugin elasticsearch-river-mongodb\cite{GitRiver}. Il permet à Elasticsearch d’utiliser une base de données MongoDB comme source de données. 
 
 
-De plus, à chaque ajout, mise à jour ou suppression de données dans la base MongoDB, Elasticsearch met automatiquement à jour son index. Pour cela, il est nécessaire que la base MongoDB soit en \textbf{\textit{replica set}}.  Un \textbf{\textit{replica set}} est un groupe d’instances MongoDB qui maintiennent les mêmes données. Dans ce groupe, chaque instance est accessible en lecture et il y a une instance primaire qui est la seule à être accessible en écriture. Lorsque des modifications sont faîtes dans cette instance, les modifications sont répliquées aux autres instances du groupe. Dans notre cas, la base de données MongoDB sera l’instance primaire et Elasticsearch, par le biais du plugin, sera considérée comme une instance secondaire.
+De plus, à chaque ajout, mise à jour ou suppression de données dans la base MongoDB, Elasticsearch met automatiquement à jour son index. Pour cela, il est nécessaire que la base MongoDB soit en \textbf{\textit{replica set}}.  Un \textbf{\textit{replica set}} est un groupe d’instances MongoDB qui maintiennent les mêmes données. Dans ce groupe, chaque instance est accessible en lecture et il y a une instance primaire qui est la seule à être accessible en écriture. Lorsque des modifications sont faîtes dans cette instance, les modifications sont répliquées aux autres instances du groupe. Dans notre cas, la base de données MongoDB sera l’instance primaire et Elasticsearch, par le biais du plugin, sera considérée comme une instance secondaire. 
 
-
-Pour effectuer une recherche dans la base à l’aide d’Elasticsearch, nous avons deux moyens. Soit nous pouvons utiliser l’API REST. Cette API utilise le format JSON pour les requêtes et les réponses et supporte les principales méthodes HTTP (GET, DELETE, PUT, POST). 
+Après avoir configurer l'instance de MongoDB en \textbf{\textit{replica set}}, Elasticsearch peut créer des indexs à partir des données de MongoDB.
+Pour effectuer une recherche dans la base à l’aide d’Elasticsearch, nous utiliserons utiliser l’API REST. Cette API utilise le format JSON pour les requêtes et aussi les requêtes en HTTP.
 
 
 Elle est utilisée de la façon suivante :
@@ -108,7 +108,7 @@ Avec
 Il n'est pas nécessaire de tous les spécifier à chaque requête.
 
 
-L’autre moyen est d’utiliser le plugin Head d’Elasticsearch. Il permet d’avoir accès à une interface. Depuis cette dernière, nous pouvons consulter l’état d’Elasticsearch et de ses index. Nous accédons aussi à une interface de moteur de recherche.
+Il est aussi possible d’utiliser le plugin Head d’Elasticsearch. Il permet d’avoir accès à une interface. Depuis cette dernière, nous pouvons consulter l’état d’Elasticsearch et de ses index. Nous accédons aussi à une interface de moteur de recherche. Cependant, ce plugin nous sera moins utile car Elasticsearch sera sur un serveur, nous y accèderons donc principalement à distance.
 
 \subsection{Communication avec php}
 \subsubsection{MongoDB}
@@ -159,11 +159,11 @@ print_r($results);
 \end{verbatimtab}
 
 \newpage
-Bien évidemment, Elasticsearch retourne les résultats au format JSON. Les données sont donc converties en un format lisible par PHP :
+Bien évidemment, Elasticsearch retourne les résultats au format JSON. Mais, le client transforme automatiquement ces données en un format lisible par PHP. La figure \ref{datajsonPhp} montre les données d'une revue au format JSON et le format que nous utiliserons avec PHP.
 
 \begin{figure}[H]
         \centering
         \includegraphics[width=\textwidth]{figure/dataJSONPHP.png}
             \caption{Format des données fournies par Elasticsearch}
-            \label{fig:datajsonPhp}
+            \label{datajsonPhp}
 \end{figure}
