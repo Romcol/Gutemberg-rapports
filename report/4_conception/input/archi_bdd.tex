@@ -2,6 +2,11 @@
 \section{Architecture de la base de données}
 \label{sec:bdd}
 
+\subsection{Origine de nos données}
+\label{subsec:dataOrigin}
+
+Comme nous l'avons dit dans l'introduction, nos données sont issus de fichiers XML que nous fournit l’équipe Intuidoc. Dans chaque fichier se trouve le contenu d'une page de journal. Pour récupérer ces données, nous avons réalisé un programme \textit{parser}. Ce programme prend les données qui nous intéresse et les insère directement dans la base de données MongoDB si elle est accessible. Il peut aussi créer des fichiers JSON qui contiennent les données pour pouvoir les importer dans une base de données. Le programme est en PHP car c'est un langage qui permet de lire le contenu de fichiers XML facilement.
+
 \subsection{Base de données}
 \label{subsec:mongo}
 
@@ -25,20 +30,28 @@ Voilà un exemple de document que nous aurons dans la collection Revues :
 
 Chaque document dispose d’un id afin de pouvoir le retrouver rapidement. Cela permet aussi de pouvoir référencer d’autres objets de la base de données. 
 
+Notre base de données est composée de cinq collections :
+\begin{itemize}
+	\item \textbf{Article :} elle contient les informations de chaque articles : son titre, le titre du journal, la date. Pour pouvoir mettre l'article en surbrillance, nous stockons aussi les coordonnées de l'article sur la page. Nous faisons de même pour le titre dans le cas d'une recherche parmi les  titres. Quant au contenu de l'article, les mots sont stockés avec leurs coordonnées afin de pouvoir, eux aussi, les surligner s'ils correspondent aux termes recherchés. Enfin, la liste des revues contenant l'article et la liste des tags sont stockées ici.
+	\item \textbf{Page :} les informations de chaque page sont stockées ici (titre, date, numéro de page, page précédente et suivante, nom de l'image). De plus, la liste des articles (titre et coordonnées) ainsi que la liste des légendes des images sont aussi stockées car ces informations sont affichées lorsqu'on visualise une page.
+	\item \textbf{Revue :} les revues de presse sont stockées dans cette collection. Nous stockons le nom, la description et la date de création de la revue ainsi que la liste des ses articles avec leur titre. Ces derniers sont en effet affichés sur la page de la revue.
+	\item \textbf{Utilisateur :} ici sont stockés le mail et le mot de passe crypté de chaque utilisateur. Nous y conservons aussi les listes des revues contribuées, créées avec leur titre et leur description ainsi que la liste des articles favoris avec leur titre, journal, date et un extrait.
+	\end{itemize}
+
 Le diagramme de la figure \ref{modelbdd} résume la modélisation de notre base de données.
 
 
 \begin{figure}[H]
         \centering
         \includegraphics[width=\textwidth]{figure/ModelBDD.png}
-            \caption{Modélisation de la base de données}
+            \caption{Modélisation de la base de données MongoDB}
             \label{modelbdd}
 \end{figure}
 
-Certaines informations peuvent sembler répétitives comme la liste des articles favoris qui contient les mêmes informations que celles contenues dans les documents de la collection Article. Cependant, avec MongoDB, nous ne pouvons pas faire de jointure entre les tables. Si nous voulons les informations sur l’article, il sera nécessaire de faire une deuxième requête dans la base avec l’id du document de l’article pour obtenir ces informations. C’est pourquoi certaines informations sont dupliquées, notamment celles qui seront affichées. Cela permet d'économiser une requête à la base de données et donc du temps. Pour notre exemple, lors de l’affichage de la liste des favoris dans l’espace utilisateur, il est indiqué le titre, le titre du journal, la date et un extrait de l’article. 
+Certaines informations peuvent sembler répétitives comme la liste des articles favoris qui contient les mêmes informations que celles contenues dans les documents de la collection Article. Cependant, avec MongoDB, nous ne pouvons pas faire de jointure entre les tables. Si nous voulons les informations sur l’article, il sera nécessaire de faire une deuxième requête dans la base avec l’id du document de l’article pour obtenir ces informations. C’est pourquoi certaines informations sont dupliquées, notamment celles qui seront affichées. Cela permet d'économiser des requêtes à la base de données et donc du temps. Cependant, étant donné que nous faisons les requêtes de recherche avec Elasticsearch\ref{subsec:elastic}, cela rend les requêtes très rapides. Par conséquent, il est possible que nous ne perdions pas de temps à faire des requêtes pour récupérer certaines données au lieu d'utiliser les données dupliquées. La duplication serait donc facultative et nous pourrions ainsi économiser en quantité de données stockées.
 
 
-Chaque flèche représente une référence, c’est-à-dire que l’id du document correspondant est stockée afin de pouvoir le retrouver dans la base. Les tableaux Coord[] stockent les coordonnées du  titre ou du mot. Cela nous permettra de le mettre en surbrillance lorsqu’il est l’objet de la recherche. 
+Chaque flèche représente une référence, c’est-à-dire que l’id du document correspondant est stockée afin de pouvoir le retrouver dans la base. 
 
 \subsection{Elasticsearch}
 \label{subsec:elastic}
