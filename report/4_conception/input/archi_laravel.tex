@@ -2,12 +2,13 @@
 \section{Architecture de Laravel}
 \label{sec:laravel}
 
-Laravel est un framework web PHP open-source. Nous allons utiliser ce Framework pour coder le cœur de l'application web. Il utilise le principe MVC ou modèle-vue-contrôleur. Ce framework permettra d'être plus efficace qu'en codant en PHP natif. Il intègre des fonctionnalités de routages et de mapping objet-relationnel entre autres. Les routes vont permettre de créer les différentes pages et sections de notre site du point de vue de l'URL. L'outil de mapping ORM utilisé par Laravel et nommé Eloquent va nous permettre d'interagir avec les différentes bases de données (MongoDB et Elasticsearch) à travers différents modèles PHP. C'est-à-dire que ce dernier va permettre une correspondance entre des objets et leurs données associées stockées sur la base de données.
+Laravel\cite{Laravel} est un framework web PHP open-source. Nous allons utiliser ce Framework pour coder le cœur de l'application web dans sa version 5.2.10 et sur PHP 5.6.16. Il utilise le principe MVC ou modèle-vue-contrôleur. Ce framework permettra d'être plus efficace qu'en codant en PHP natif. Il intègre des fonctionnalités de routages et de mapping objet-relationnel entre autres. Les routes vont permettre de créer les différentes pages et sections de notre site du point de vue de l'URL. L'outil de mapping ORM utilisé par Laravel et nommé Eloquent va nous permettre d'interagir avec les différentes bases de données (MongoDB et Elasticsearch) à travers différents modèles PHP. C'est-à-dire que ce dernier va permettre une correspondance entre des objets et leurs données associées stockées sur la base de données.\\
+Dans la suite de cette partie nous allons présenter les différentes classes nécessaires à l'affichage des articles présent sur la base de donnée. Une procédure équivalente sera effectuée pour chaque fonctionnalité de notre site (voir figure \ref{archiLaravel}).
 
 \subsection{Les routes}
 
-Les routes vont permettent de lier un url à une fonctionnalité de notre site. C'est à dire à une fonction précise d'un contrôleur.\\
-Par exemple si nous souhaitons créer une page qui va lister tous les articles présents sur notre site, nous pouvons écrire dans le fichier route. Ici nous allons lier l'url http://www.notresite.extension/articles à la fonction index du contrôleur article.
+Les routes vont permettent de lier un URL à une fonctionnalité de notre site. C'est à dire à une fonction précise d'un contrôleur. Ce n'est pas un élément du modèle MVC mais c'est notre porte d'entrée vers les classes de ce modèle.\\
+Par exemple si nous souhaitons créer une page qui va lister tous les articles présents sur notre site, nous pouvons l'écrire dans le fichier route. Ici nous allons lier l'URL http://www.notresite.extension/articles à la fonction index du contrôleur article.
 
 \begin{verbatim}
 Route::get('articles', 'ArticlesController@index');
@@ -16,32 +17,31 @@ Route::get('articles', 'ArticlesController@index');
 \subsection{Le contrôleur}
 
 Le contrôleur est le cœur métier de notre application. Il va exécuter les tâches nécessaires à la requête demandée et transmettre ces informations à la vue.\\
-Par exemple, ici nous allons récupérer tous les articles enregistrés et les passer à la vue "pages.articles". Pour cela, il faut tout d'abord communiquer avec le modèle "Article" en lien avec la base de données.
+Par exemple, ici nous allons récupérer tous les articles enregistrés et les passer à la vue "pages.articles". Pour cela, il faut tout d'abord communiquer avec le modèle "Article" qui est directement liés à nos bases de données MongoDB et Elasticsearch.
 
 \begin{verbatim}
 public function index()
 {
-	$articles = Article::all();
-	return view('pages.articles', compact('articles'));
+    $articles = Article::all();
+    return view('pages.articles', compact('articles'));
 }
 \end{verbatim}
 
 \subsection{Le modèle}
-Le modèle va permettre de définir des objets dans Laravel, par exemple, l'objet Article. Le modèle est en lien avec la base de données. Nous utilisons ici Elasticquent\cite{GitElasticquent} pour communiquer avec la base de données Elasticsearch et Moloquent\cite{GitLaravelMongo} pour communiquer avec MongoDB.
+Le modèle va permettre de définir des objets dans Laravel, par exemple, l'objet Article. Le modèle est en lien avec la base de données. Nous utilisons ici Elasticquent\cite{GitElasticquent} pour communiquer avec la base de données Elasticsearch et Moloquent\cite{GitLaravelMongo} pour communiquer avec MongoDB.\\ Pour toutes les requêtes d'affichage nous préférerons l'utilisation d'Elasticsearch sur MongoDB pour ces performances. MongoDB sera utilisé pour toutes les requêtes d'ajout et de modification de la base de données, ces données seront bien sûr répliquées sur Elasticsearch.
 
 \begin{verbatim}
 class Article extends Moloquent
 {
-	use ElasticquentTrait;
-	protected $collection = 'article';
+    use ElasticquentTrait;
+    protected $collection = 'article';
 }
 \end{verbatim}
 
 \subsection{Les vues}
 
-Le gestionnaire de vue de Laravel (nommé Blade) nous donne la possibilité de définir du code HTML à trou et qui inclue/hérite d'autres vues. Ici notre vue "pages.article" contient le code HTML de la vue article. Cette vue hérite de la vue globale définie par "app".
-
-La vue globale contient la structure du site à inclure dans chaque page, c'est ici que nous faisons le lien avec Bootstrap et JQuery (utilisé par ce dernier). Nous incluons alors les fichiers CSS et Javascript nécessaires.
+Le gestionnaire de vue de Laravel (nommé Blade) nous donne la possibilité de définir du code HTML à trou et qui inclue/hérite d'autres vues. Ici notre vue "pages.article" contient le code HTML de la vue article. Cette vue hérite de la vue globale définie par "app".\\
+La vue globale contient la structure du site à inclure dans chaque page, c'est ici que nous faisons le lien avec Bootstrap\cite{Bootstrap} et JQuery (qui est requis par Boostrap). Nous incluons alors les fichiers CSS et Javascript nécessaires.
 
 \begin{lstlisting}
 <!doctype html>
@@ -65,7 +65,7 @@ La vue globale contient la structure du site à inclure dans chaque page, c'est 
 
 \begin{figure}[H]
         \centering
-        \includegraphics[width=200px]{figure/diagrammeLaravel.png}
-            \caption{Architecture Laravel autour des articles}
+        \includegraphics[width=300px]{figure/diagrammeLaravel.png}
+            \caption{Architecture Laravel globale (Routes + MVC)}
             \label{archiLaravel}
 \end{figure}
