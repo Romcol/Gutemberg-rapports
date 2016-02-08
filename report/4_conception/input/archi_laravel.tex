@@ -3,12 +3,12 @@
 \label{sec:laravel}
 
 Laravel\cite{Laravel} est un framework web PHP open-source. Nous allons utiliser ce Framework pour coder le cœur de l'application web dans sa version 5.2.10 et sur PHP 5.6.16. Il utilise le principe MVC ou modèle-vue-contrôleur. Ce framework permettra d'être plus efficace qu'en codant en PHP natif. Il intègre des fonctionnalités de routages et de mapping objet-relationnel entre autres. Les routes vont permettre de créer les différentes pages et sections de notre site du point de vue de l'URL. L'outil de mapping ORM utilisé par Laravel et nommé Eloquent va nous permettre d'interagir avec les différentes bases de données (MongoDB et Elasticsearch) à travers différents modèles PHP. C'est-à-dire que ce dernier va permettre une correspondance entre des objets et leurs données associées stockées sur la base de données.\\
-Dans la suite de cette partie nous allons présenter les différentes classes nécessaires à l'affichage des articles présent sur la base de donnée. Une procédure équivalente sera effectuée pour chaque fonctionnalité de notre site (voir figure \ref{archiLaravel}).
+Dans la suite de cette partie nous allons présenter les différentes classes nécessaires à l'affichage des articles présents sur la base de donnée. Une procédure équivalente sera effectuée pour chaque fonctionnalité de notre site (voir figure \ref{archiLaravel}).
 
 \subsection{Les routes}
 
-Les routes vont permettent de lier un URL à une fonctionnalité de notre site. C'est à dire à une fonction précise d'un contrôleur. Ce n'est pas un élément du modèle MVC mais c'est notre porte d'entrée vers les classes de ce modèle.\\
-Par exemple si nous souhaitons créer une page qui va lister tous les articles présents sur notre site, nous pouvons l'écrire dans le fichier route. Ici nous allons lier l'URL http://www.notresite.extension/articles à la fonction index du contrôleur article.
+Les routes vont permettre de lier un URL à une fonctionnalité de notre site, c'est-à-dire à une fonction précise d'un contrôleur. Ce n'est pas un élément du modèle MVC mais c'est notre porte d'entrée vers les classes de ce modèle.\\
+Par exemple, si nous souhaitons créer une page qui va lister tous les articles présents sur notre site, nous pouvons l'écrire dans le fichier route. Ici nous allons lier l'URL http://www.notresite.extension/articles à la fonction index du contrôleur article.
 
 \begin{verbatim}
 Route::get('articles', 'ArticlesController@index');
