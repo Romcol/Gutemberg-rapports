@@ -65,7 +65,7 @@ Habituellement, Elasticsearch dispose de sa propre base de données qu’il inde
 
 De plus, à chaque ajout, mise à jour ou suppression de données dans la base MongoDB, Elasticsearch met automatiquement à jour son index. Pour cela, il est nécessaire que la base MongoDB soit en \textbf{\textit{replica set}}.  Un \textbf{\textit{replica set}} est un groupe d’instances MongoDB qui maintiennent les mêmes données. Dans ce groupe, chaque instance est accessible en lecture et il y a une instance primaire qui est la seule à être accessible en écriture. Lorsque des modifications sont faîtes dans cette instance, les modifications sont répliquées aux autres instances du groupe. Dans notre cas, la base de données MongoDB sera l’instance primaire et Elasticsearch, par le biais du plugin, sera considérée comme une instance secondaire. 
 
-Après avoir configurer l'instance de MongoDB en \textbf{\textit{replica set}}, Elasticsearch peut créer des indexs à partir des données de MongoDB.
+Après avoir configurer l'instance de MongoDB en \textbf{\textit{replica set}}, Elasticsearch peut créer des index à partir des données de MongoDB.
 Pour effectuer une recherche dans la base à l’aide d’Elasticsearch, nous utiliserons utiliser l’API REST. Cette API utilise le format JSON pour les requêtes et aussi les requêtes en HTTP.
 
 
@@ -131,7 +131,7 @@ Il est aussi possible d’utiliser le plugin Head d’Elasticsearch. Il permet d
 
 Pour communiquer avec une base MongoDB, PHP dispose d’une classe Mongo. Celle-ci permet de faire des ajouts, des modifications et des suppressions dans la base de données. 
 
-Dans l'exemple de code suivant, nous ajoutons à la base de données, une nouvelle revue de presse sur George Pompidou.
+Dans l'exemple de code suivant, nous ajoutons à la base de données, une nouvelle revue de presse sur Georges Pompidou.
 
 \begin{verbatimtab}[3]
 $m = new MongoClient();
@@ -182,7 +182,7 @@ print_r($results);
 \end{verbatimtab}
 
 \newpage
-Bien évidemment, Elasticsearch retourne les résultats au format JSON. Mais, le client transforme automatiquement ces données en un format lisible par PHP. La Le code suivant correspond les données de la revue de presse sur Mai 68 dans le format que nous utiliserons avec PHP.
+Bien évidemment, Elasticsearch retourne les résultats au format JSON. Mais, le client transforme automatiquement ces données en un format lisible par PHP. Le code suivant correspond aux données de la revue de presse sur Mai 68 dans le format utilisé avec PHP.
 
 \begin{verbatimtab}[3]
 Array

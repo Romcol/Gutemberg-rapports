@@ -2,7 +2,7 @@
 \section{Architecture générale}
 \label{sec:generale}
 
-Pour la réalisation de notre projet, nous allons utiliser des bases de données pour le stockage des données et pour la recherche, un serveur, des framework et une visionneuse de documents. La figure \ref{archi} présente l'architecture logicielle générale de notre projet. Nous allons dans cette partie présenter la communication entre les différents modules de cette architecture.
+Pour la réalisation de notre projet, nous allons utiliser des bases de données pour le stockage des données et pour la recherche, un serveur, des frameworks et une visionneuse de documents. La figure \ref{archi} présente l'architecture logicielle générale de notre projet. Nous allons dans cette partie présenter la communication entre les différents modules de cette architecture.
     \begin{figure}[H]
         \centering
         \includegraphics[width=\textwidth]{figure/Archi.png}
@@ -18,6 +18,6 @@ Le serveur hébergeant l'application est un serveur Linux. Il comporte les modul
 	\item La base de données ElasticSearch (Partie \ref{subsec:elastic}) : cette base contiendra exactement les mêmes données que MongoDB et les requêtes de recherche y seront envoyées.
 \end{itemize}
 
-Le serveur communique avec le client à travers Laravel via un protocole HTTP. Côté client, nous allons utiliser le framework Bootstrap pour réaliser une interface graphique adaptées aux mobiles, tablettes et ordinateurs. Nous utiliserons également le plugin Openseadragon qui est une visionneuse pour la consultation de document. 
+Le serveur communique avec le client à travers Laravel via un protocole HTTP. Côté client, nous allons utiliser le framework Bootstrap (Partie \ref{subsec:vues}) pour réaliser une interface graphique adaptées aux mobiles, tablettes et ordinateurs. Nous utiliserons également le plugin Openseadragon (Partie \ref{sec:seadragon}) qui est une visionneuse pour la consultation de document. 
 
 Nous allons détailler dans la suite la modélisation de chacun de ces modules de l'architecture générale du projet, ainsi que la communication entre ceux-ci.
