@@ -1,21 +1,25 @@
 \newpage
 \section{Visionneuse Openseadragon}
 \label{sec:seadragon}
-OpenSeadragon est une visionneuse d’image haute résolution et customisable, open source adaptée aux périphériques desktop et mobiles, ce qui convient à notre projet. Nous utiliserons la version 2.1.0 d'Openseadragon. Openseadragon est un pluggin implémenté en Javascript. La visionneuse sera insérée dans la page HTML de consultation de documents à travers un script comme l'illustre la figure \ref{seadragon}. Pour notre projet nous allons utiliser les fonctionnalités d'Openseadragon suivantes : 
+OpenSeadragon est une visionneuse d’image haute résolution et customisable, open source adaptée aux périphériques desktop et mobiles, ce qui convient à notre projet. Nous utiliserons la version 2.1.0 d'Openseadragon. Openseadragon est un pluggin implémenté en Javascript. La visionneuse sera insérée dans la page HTML de consultation de documents à travers un script comme l'illustre la figure \ref{seadragon}. La figure \ref{seadragonarchi} illustre la communication entre Openseadragon et la base de données qui passe par Larvel pour quelques spécifications fonctionnelles du projet. Nous allons utiliser les fonctionnalités d'Openseadragon suivantes : 
 \begin{itemize}
-	\item l'affichage de l'image associée au document : Opensedragon prend en charge plusieurs formatq d'images. Dans notre cas, les images de presse anciennes étant très grandes, l'utilisation du format d'image simple(JPG,PNG,...) rend la visionneuse moins performantes. Nous allons donc utiliser un outils, PHP Deep Zoom Tools qui permet d'avoir des images tuilées au format .dzi(Deep Zoom Image), beaucoup plus performantes avec Openseadragon.
-	\item les boutons de zoom/dezoom 
-	\item les boutons de naviguation, rotation
-	\item les overlays : utiles pour délimiter les articles, ou rajouter des tags par exemple. Ici nous rajouterons à Openseadragon le pluggin (javascript égalment) SVG-overlay qui permet de réaliser ces overlays
+	\item l'affichage de l'image associée au document : Laravel  récupère à l'aide d'une requette les informations concernant le document et l'image correspondante sera transmise à Openseadragon pour l'affichage. Opensedragon prend en charge plusieurs formats d'images. Dans notre cas, les images de presse anciennes étant très grandes, l'utilisation du format d'image simple(JPG,PNG,...) rend la visionneuse moins performantes. Nous allons donc utiliser un outils, PHP Deep Zoom Tools qui permet d'avoir des images tuilées au format .dzi(Deep Zoom Image), beaucoup plus performantes avec Openseadragon. La conversion en fichier .dzi sera effectuée en une fois pour toutes les images des documents à l'aide d'un script avant d'être stockées dans les bases de données.
+	\item les boutons de zoom/dezoom, rotation 
+	\item les boutons de naviguation 
+	\item les gestionnaires d'événements :  nous allons utiliser cette fonctionnalité pour gérer l'affichage des informations concernant les articles sur une page. Lorsque l'utilisateur clique sur un article d'une page, un script permettra au gestionnaire d'événement d'Opensaedragon de récuperer les coordonnées de la souris qui pourront permettre d'identifier sur quel article l'utilisateur a cliqué et ainsi afficher les bonnes informations.
 	  \begin{figure}[H]
         \centering
         \includegraphics[width=\textwidth]{figure/osd.png}
-            \caption{Architecture globale de la plateforme}
+            \caption{Appel à Openseadragon}
             \label{seadragon}
     \end{figure}
 	
-	
-
+		  \begin{figure}[H]
+        \centering
+        \includegraphics[width=\textwidth]{figure/osdarchi.png}
+            \caption{Communication Openseadragon/Laravel/MongoDB}
+            \label{seadragonarchi}
+    \end{figure}
 
 
 
