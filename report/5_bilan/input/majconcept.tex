@@ -1,0 +1,27 @@
+\section{Rectificatifs de la conception}
+\label{sec:majconc}
+
+Dans ces rectificatifs, nous détaillerons les modifications que nous avons réalisé concernant les spécifications\cite{Specs}. Afin de pouvoir relier facilement ces rectificatifs au contenu du rapport original, nous reprendrons les mêmes titres de chapitre et nous rappellerons si nécessaire ce qui a été rédigé dans le rapport original. 
+
+\subsection{Architecture générale}
+
+L'architecture générale de notre application n'a pas beaucoup changé. Nous avons juste utilisé la bibliothèque jQuery afin de faciliter notre développement javascript côté client.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\textwidth]{figure/Archi.png}
+            \caption{Architecture globale de la plateforme}
+            \label{archi}
+    \end{figure}
+		
+\subsection{Architecture de la base de données}
+
+\subsubsection{Origine de nos données}
+
+ \begin{leftonly}
+  Pour récupérer ces données, nous avons réalisé un programme \textit{parser}. Ce programme prend les données
+qui nous intéresse et les insère directement dans la base de données MongoDB si elle est accessible.
+Il peut aussi créer des fichiers JSON qui contiennent les données pour pouvoir les importer dans
+une base de données.
+ \end{leftonly}
+
