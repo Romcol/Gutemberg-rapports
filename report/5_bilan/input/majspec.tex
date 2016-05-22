@@ -1,0 +1,76 @@
+\section{Rectificatifs du rapport de spécifications}
+\label{sec:majspec}
+
+Dans ces rectificatifs, nous détaillerons les modifications que nous avons réalisées concernant les spécifications\cite{Specs}. Afin de pouvoir relier facilement ces rectificatifs au contenu du rapport original, nous reprendrons les mêmes titres de chapitre et nous rappellerons si nécessaire ce qui a été rédigé dans le rapport original. 
+
+\subsection{Arrivée sur la plateforme}
+
+\subsubsection{Le recherche dans la base}
+
+\begin{leftonly}
+
+L'utilisateur peut, directement sur la page d'accueil, lancer une recherche d'un document. Il peut chercher des journaux, des articles ou des revues de presse. Respectivement, la recherche s'effectuera sur le titre des documents recherchés.
+
+\end{leftonly}
+
+La recherche par journaux est accessible par un bouton mis à part de la recherche. Elle permet d'accéder à l'ensemble des éditions des journaux inclus dans la base de données. Ainsi, l'utilisateur n'a pas besoin d'entrer un nom de journal sans savoir ce qu'y se trouve dans la base. La recherche de journaux est détaillée dans la partie \ref{sec:rechjour} Recherche de journaux. 
+
+De même, nous avons ajouté la possibilité de rechercher uniquement dans les titre des articles.
+
+\subsection{Recherche de documents}
+
+\subsubsection{Recherche de journaux}
+\label{sec:rechjour}
+
+Lors de son arrivée sur cette page, l'utilisateur se verra proposé tous les éditions contenues dans la base. Ces éditions sont par groupes de vingt. L'utilisateur a donc accès à la liste des différents titres de journaux, il suffit de les sélectionner et ils seront ajoutés à une liste. Ensuite, lorsque l'utilisateur clique sur le bouton de recherche, les éditions affichées ne sont que celles dont le titre fait partie de la liste. L'utilisateur peut ainsi mettre plusieurs journaux dans cette liste. Une liste signifie que tous les journaux peuvent être proposés. 
+De plus, l'utilisateur peut choisir la période sur laquelle il veut obtenir des résultats. Il devra entrer au minimum l'année et pourra aussi rentrer le mois et le jour. Pour résumer, l'utilisateur peut ainsi décider de n'avoir que les éditions de 'L'Intransigeant' et de 'L'Aurore' entre 1940 et 1942. 
+
+\subsubsection{Recherche de journaux}
+
+\begin{leftonly}
+	En résumé, la recherche d'articles s'effectuera sur six attributs :
+\begin{itemize}
+	\item le journal dans lequel il est paru;
+	\item la date de parution;
+	\item le titre de l'article;
+	\item les tags associés à l'article;
+	\item le contenu de l'article;
+	\item l'auteur de l'article.
+\end{itemize}
+\end{leftonly}
+
+Les auteurs des articles sont très rarement cités dans les journaux que nous avons. N'ayant pas cette information, notre application ne propose pas de faire une recherche parmi les auteurs des articles.
+
+\subsubsection{Recherche de revues de presse}
+
+\begin{leftonly}
+	Les résultats affichés contiendront le nom de la revue de presse, sa description et les trois premiers articles de celle-ci.
+	\end{leftonly}
+
+Afin d'éviter d'avoir trop d'informations affichées lors de la recherche de revues de presse, nous avons préféré de ne pas afficher les trois premiers articles de chaque revue.
+
+\subsection{Consultation de documents}
+\subsubsection{Informer}
+
+\begin{leftonly}
+Il lui sera aussi possible d’ajouter l’article à une revue de presse ou à ses favoris. Il pourra alors choisir une revue de presse en effectuant une recherche ; les revues de presse qu’il a créées ou celles auxquelles il a participé seront proposées en premier dans les résultats de recherche.
+\end{leftonly}
+
+La liste des revues créées et contribuées est directement accessible afin que l'utilisateur puisse ajouter un article facilement à une de ces revues. Il peut aussi créer une nouvelle revue à laquelle l'article sera ajouté. La recherche a été retirée car l'affichage des résultats de la recherche prenait pris trop de place et ainsi cela gâchait l'ergonomie de la page de visualisation.
+
+
+\begin{leftonly}
+En cliquant sur un article dans la liste des articles de la page, ce dernier sera mis en évidence par un calque transparent. Si des calques étaient déjà appliqués, ceux-ci seront supprimés pour ne laisser que l’article concerné et le repérer plus facilement.
+\end{leftonly}
+
+Afin de mieux visualiser la structure de la page, chaque article dispose d'un calque transparent de couleur. En cliquant sur un article, son calque est encadré. De même, lorsque l'utilisateur clique sur un article dans la liste des articles de la page, la visionneuse zoome sur cet article. L'utilisateur n'a pas ainsi à devoir chercher l'article encadré sur la page.
+
+\subsubsection{Consulter}
+
+Pour la recherche textuelle dans la page, l'utilisateur peut zoomer sur chaque occurrence du terme recherché sur la page à l'aide de deux boutons. Ces derniers permettent de zoomer sur l'occurrence précédente ou suivante. De même, dans la liste des articles de la page, le nombre d'occurrences du terme est indiqué pour chaque article.
+
+\begin{leftonly}
+Pour avoir une utilisation plus fluide, l’utilisateur pourra double-cliquer sur un article, et ce afin de zoomer directement sur ce dernier.
+\end{leftonly}
+
+Zoomer sur l'article sélectionné peut se faire grâce à un bouton 'zoomer sur l'article'. De même, un bouton 'mode lecture' permet de zoomer sur le début de l'article et ainsi de pouvoir lire celui-ci. Enfin, le double-clique fait un zoom classique sur la page.

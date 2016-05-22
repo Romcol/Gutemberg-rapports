@@ -1,0 +1,165 @@
+\section{Etat de finalisation du projet}
+\label{sec:finalis}
+
+
+Le développement de notre projet était séparé en trois itérations, chacune de ces itérations correspondait à une grande fonctionnalité :
+\begin{itemize}
+\item La recherche
+\item La visionneuse
+\item Les revues de presse, comptes utilisateurs et les tags
+\end{itemize}
+
+De plus, la deuxième et la troisième itérations contenaient aussi les corrections et les modifications par rapport à l'itération précédente que nous proposaient nos encadrants. Voilà les principales tâches réalisées pour chaque itérations :
+
+\subsection{Première itération : la recherche}
+
+\begin{itemize}
+\setlength\itemsep{1em}
+
+	\item Réalisation du parser qui transforme les données pour ensuite les envoyer à la base de données MongoDB.
+
+	\item Création de la page d'accueil.
+
+	\item Mise en place de la recherche plein texte dans le contenu des articles en utilisant Elasticsearch.
+
+	\item Affichage des résultats de la recherche sur la plateforme ; les informations affichées sont le titre, la date, le nom du journal et le début de l'article.
+
+	\item Ajout de la recherche dans les titres en se basant sur ce qui a été fait avant.
+
+	\item Ajout de la recherche dans les titres de journaux.
+
+	\item Ajout des champs pour filtrer les résultats par date dans la recherche.
+
+	\item Ajout des critères de tri dans la recherche.
+
+	\item Mise en place de la pagination des résultats ; ils sont ainsi affichés dix par page.
+
+	\item Modification de l'extrait de l'article afin qu'il soit centré sur les occurrences du terme recherché, ces occurrences sont d'ailleurs surlignées dans l'extrait et dans le titre.
+
+\end{itemize}
+
+La recherche dans les titres de journaux, dans cette itération, ne correspond pas à ce qui était prévu dans les spécifications. De même, le filtrage par titre de journal n'a pas été implémenté. Dans notre conception, ces deux fonctionnalités devaient utiliser l'agrégation proposée par Elasticsearch. Cependant, la bibliothèque que nous utilisons pour la communication entre Laravel et Elasticsearch ne nous permettait pas d'accéder à l'agrégation. Faire autrement nous semblait à ce moment trop complexe et nous ne pouvions pas changer de bibliothèque car nous étions trop avancé dans le développement. Néanmoins, nous avons pu trouver un moyen de le faire quand même lors de la troisième itération en nous inspirant de l'implémentation des tags.
+
+\subsection{Deuxième itération : la visionneuse}
+
+Quelques apports ont été ajoutés aux fonctionnalités de la première itération en plus des correctifs :
+
+\begin{itemize}
+\setlength\itemsep{1em}
+	
+	\item Affichage du nombre de résultats obtenus.
+
+	\item Affichage de la durée de la recherche.
+
+	\item Mise en place d'une règle sous forme d'expression régulière afin de contrôler ce qui est entré dans les champs de filtrage par date.
+
+\end{itemize}
+
+Les tâches qui concernent la visionneuse sont les suivantes :
+
+\begin{itemize}
+\setlength\itemsep{1em}
+
+	\item Création de la page de la visionneuse.
+
+	\item Mise en place d'OpenSeadragon sur la page.
+
+	\item Affichage des informations concernant la page ( titre du journal, date et numéro de page ).
+
+	\item Affichage de la liste des articles de la page.
+
+	\item Ajout de calques sur tous les articles.
+
+	\item Mise en place de la sélection d'article ; en cliquant sur un article sur l'image, l'article devient sélectionné et son calque devient encadré.
+
+	\item Affichage des informations de l'article sélectionné ; pour le moment, uniquement le titre est affiché.
+
+	\item Ajout du zoom sur l'article lorsque l'utilisateur l'a sélectionné depuis la page de recherche.
+
+	\item Modification de la liste des articles de la page afin de pouvoir sélectionner un article depuis cette liste ; la visionneuse zoome alors automatiquement sur cet article.
+
+	\item Ajout d'une image par défaut s'il n'y a pas d'image disponible.
+
+	\item Ajout de boutons pour commander la visionneuse ( zoom, dézoom, plein écran, voir la page entière ).
+
+	\item Ajout d'un bouton 'zoom sur l'article' qui permet de zoomer sur l'article déjà sélectionné.
+
+	\item Ajout d'un bouton 'Désactiver les calques' qui retire les calques de tous les articles
+
+	\item Ajout de la recherche plein texte dans la page avec des indicateur qui permettent de repérer les occurrences.
+
+	\item Ajout de boutons 'page précédente' et 'page suivante'
+
+	\item Affichage des boutons de commande de la visionneuse lorsque celle-ci est en plein écran.
+
+	\item Ajout des articles proches de l'article sélectionné ; la proximité des articles est basée sur la date, le titre de journal et le titre des articles.
+
+	\item Mise en place du nombre de vues sur les articles ( affichage dans les informations de l'article, critère de tri dans la recherche, affichage des articles les plus vus dans l'accueil )
+
+\end{itemize}
+
+\subsection{Troisième itération : les revues de presse, comptes utilisateurs et les tags}
+
+Pour les modifications de l'itération précédente, nous avons pu avoir le retour de Jean-Yves Leclerc des Archives Départementales en plus du retour de nos encadrants. Nous avons eu donc plus de modifications à faire que la deuxième itération : 
+
+\begin{itemize}
+\setlength\itemsep{1em}
+
+	\item Ajout d'un bouton 'mode lecture' qui zoome sur le début de l'article.
+
+	\item Ajout du bouton 'retour à la recherche' à la page de la visionneuse qui permet de revenir à la dernière recherche réalisée avec tous ces paramètres.
+
+	\item Affichage des légendes des images des articles dans la liste des articles.
+
+	\item Ajout de boutons pour zoomer sur chaque occurrence du mot recherché sur la page visionnée.
+
+	\item Modification de la recherche plein texte pour accepter les expressions régulières.
+
+	\item Affichage du nombre d'occurrences pour chaque article dans la liste des articles de la page.
+
+\end{itemize}
+
+Les tâches qui concernent les revues de presse, comptes utilisateurs et les tags sont les suivantes :
+
+\begin{itemize}
+\setlength\itemsep{1em}
+
+	\item Mise en place des comptes utilisateur à l'aide de l'implémentation de Laravel (inscription et connexion) avec les vues correspondantes.
+
+	\item Mise en place d'un système d'envoi de mail pour la réinitialisation du mot de passe en utilisant une boîte mail Gmail créée scpécialement pour le projet.
+
+	\item Ajout d'un champ pour ajouter un tag à un article ; le champ dispose de l'autocomplétion.
+
+	\item Affichage des tags de l'article sélectionné avec la possibilité de les supprimer.
+
+	\item Ajout du filtrage par tag dans la recherche.
+
+	\item Affichage des tags dans les résultats de la recherche.
+
+	\item Ajout de la création de revue de presse.
+
+	\item Création de la page d'affichage de la revue de presse.
+
+	\item Création de la page de profil.
+
+	\item Modification de la page de la visionneuse pour ajouter l'article sélectionné à une revue parmi les revues créées et contribuées ou en créant une nouvelle revue.
+
+	\item Mise en place de la recherche parmi les revues de presse.
+
+	\item Modification de la recherche par titres de journaux afin qu'elle corresponde mieux aux spécifications.
+
+	\item Ajout du filtrage par titres de journaux dans la recherche.
+
+	\item Modification de la page d'affichage de revue de presse pour permettre à son créateur de la modifier (supprimer des articles, changer l'ordre, supprimer la revue).
+
+	\item Ajout d'un bouton aux articles obtenus avec la recherche afin de pouvoir les ajouter à la liste des revues contribuées.
+
+	\item Ajout d'un bouton pour ajouter l'article sélectionné à la liste des favoris. 
+
+	\item Mise en place de la navigation au sein de la revue de presse ; pour passer à l'article précédent ou suivant de la revue lorsqu'on visionne l'article.
+
+	\item Amélioration de l'esthétique de l'interface en général.
+
+\end{itemize}
+
+Pour résumer, nous avons réalisé toutes nos spécifications. Notre moteur de recherche fournit des résultats en moins d'une seconde avec une base de données de près de 14 000 articles. La visionneuse charge l'imageen quelques secondes ( selon la connexion ) grâce au système de tuilage. 

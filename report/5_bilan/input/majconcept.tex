@@ -1,7 +1,7 @@
 \section{Rectificatifs de la conception}
 \label{sec:majconc}
 
-Dans ces rectificatifs, nous détaillerons les modifications que nous avons réalisé concernant les spécifications\cite{Specs}. Afin de pouvoir relier facilement ces rectificatifs au contenu du rapport original, nous reprendrons les mêmes titres de chapitre et nous rappellerons si nécessaire ce qui a été rédigé dans le rapport original. 
+Dans ces rectificatifs, nous détaillerons les modifications que nous avons réalisées concernant la conception\cite{Conc}. Afin de pouvoir relier facilement ces rectificatifs au contenu du rapport original, nous reprendrons les mêmes titres de chapitre et nous rappellerons si nécessaire ce qui a été rédigé dans le rapport original. 
 
 \subsection{Architecture générale}
 
@@ -54,3 +54,7 @@ Le diagramme de la figure \ref{modelbdd} résume la modélisation de notre base 
 \end{leftonly}
 
 Nous avons, en fait, utilisé la bibliothèque Bouncy\cite{GitBouncy} pour gérer la communication entre Laravel et Elasticsearch. Nous avions beaucoup trop de difficultés à utiliser Elasticquent comme nous le voulions. Nous avons donc changé de bibliothèque.
+
+\subsubsection{Authentification}
+
+Cette partie ne se trouvait pas dans le rapport original. Nous avons utilisé le système d'authentification pré-implémenté dans Laravel pour l'inscription et la connexion des utilisateurs. En effet, Laravel propose un ensemble de fichiers ( contrôleurs, vues, ... ) qui permet de gérer l'authentification. Nous avons ainsi un système d'authentification simple et rapide à mettre en place qui inclus le chiffrage du mot de passe et un système de récupération de mot de passe qui envoie un lien par mail pour réinitialiser le mot de passe. Il est possible de modifier le comportement de ce système en surchargeant les méthodes afin d'ajouter des fonctionnalités. Pour notre application, nous avons juste à traduire en français les messages donnés à l'utilisateur lorsqu'il remplit mal les champs ou que les identifiants existent déjà dans la base.
