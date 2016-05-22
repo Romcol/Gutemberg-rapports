@@ -16,12 +16,41 @@ L'architecture générale de notre application n'a pas beaucoup changé. Nous av
 		
 \subsection{Architecture de la base de données}
 
-\subsubsection{Origine de nos données}
+\subsubsection{Base de données}
 
- \begin{leftonly}
-  Pour récupérer ces données, nous avons réalisé un programme \textit{parser}. Ce programme prend les données
-qui nous intéresse et les insère directement dans la base de données MongoDB si elle est accessible.
-Il peut aussi créer des fichiers JSON qui contiennent les données pour pouvoir les importer dans
-une base de données.
- \end{leftonly}
+Le principal changement dans la modélisation de notre base de données est que la collection Tags a été remplacée par une collection \textit{AutocompleteData}. Les tags qui devaient être stockés dans la collection Tags sont en fait stockés dans une liste dans cette nouvelle collection. Nous avions besoin de stocker la liste des titres de journaux contenus dans la base de données. Nous avons donc rassemblé ces deux listes dans une même collection. Elle se nomme \textit{AutocompleteData} car elle sert notamment pour l'autocomplétion. Ainsi la collection contient deux documents :
 
+\begin{verbatimtab}[3]
+{
+	‘Name’ : ‘tags’,
+	‘Data’ : [ ‘Rennes’, ‘Finances’, ...]
+}
+{
+	‘Name’ : ‘titleNewsPaper’,
+	‘Data’ : [ ‘L'Aurore’, ‘Le Petit Journal’, ...]
+}
+\end{verbatimtab}
+
+
+De même, nous avons décidé de mettre plus de données dans la liste des articles contenue dans les données des revues de presse. Ainsi, pour chaque article d'une revue de presse, nous avons son titre, sa date, le nom du journal et un extrait qui correspond au début de l'article.
+
+Enfin, nous avons tous les noms des champs en anglais par soucis de cohérence avec le code de notre implémentation.
+
+Le diagramme de la figure \ref{modelbdd} résume la modélisation de notre base de données.
+
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=\textwidth]{figure/ModelBDD.png}
+            \caption{Modélisation de la base de données MongoDB}
+            \label{modelbdd}
+\end{figure}
+
+\subsection{Architecture de Laravel}
+
+\subsubsection{Le modèle}
+
+\begin{leftonly}
+	Le modèle va permettre de définir des objets dans Laravel, par exemple, l'objet Article. Le modèle est en lien avec la base de données. Nous utilisons ici Elasticquent\cite{GitElasticquent} pour communiquer avec la base de données Elasticsearch et Moloquent\cite{GitLaravelMongo} pour communiquer avec MongoDB.\\ Pour toutes les requêtes d'affichage nous préférerons l'utilisation d'Elasticsearch sur MongoDB pour ces performances. MongoDB sera utilisé pour toutes les requêtes d'ajout et de modification de la base de données, ces données seront bien sûr répliquées sur Elasticsearch.
+\end{leftonly}
+
+Nous avons, en fait, utilisé la bibliothèque Bouncy\cite{GitBouncy} pour gérer la communication entre Laravel et Elasticsearch. Nous avions beaucoup trop de difficultés à utiliser Elasticquent comme nous le voulions. Nous avons donc changé de bibliothèque.
