@@ -1,11 +1,14 @@
 \section{Rectificatifs de la conception}
 \label{sec:majconc}
 
-Dans ces rectificatifs, nous détaillerons les modifications que nous avons réalisées concernant la conception\cite{Conc}. Afin de pouvoir relier facilement ces rectificatifs au contenu du rapport original, nous reprendrons les mêmes titres de chapitre et nous rappellerons si nécessaire ce qui a été rédigé dans le rapport original. 
+Dans ces rectificatifs, nous détaillerons les modifications que nous avons réalisées concernant la conception\cite{Conc}. Afin de pouvoir relier facilement ces rectificatifs au contenu du rapport original, nous reprendrons les mêmes titres de chapitre et donnerons les numéros de page de ces chapitres dans le rapport initial.
+\begin{leftonly}
+   Nous rappellerons aussi, si nécessaire, ce qui a été rédigé dans le rapport original dans des cadre comme celui-ci. 
+\end{leftonly}
 
-\subsection{Architecture générale}
+\subsection{Architecture générale - p7}
 
-L'architecture générale décrit dans la figure \ref{archi} de notre application n'a pas beaucoup changé. Nous avons juste utilisé la bibliothèque jQuery afin de faciliter notre développement javascript côté client.
+L'architecture générale que nous avons établie durant la phase de conception et décrite dans la figure \ref{archi} a été validée lors du développement de l'itération 1. Nous avons juste ajouté la bibliothèque jQuery lors de l'itération 2 car les fonctionnalités de la visionneuse utilisaient beaucoup de javascript. La bibliothèque jQuery nous a permis d'avoir du code plus simple et plus efficace.
 
     \begin{figure}[H]
         \centering
@@ -14,11 +17,14 @@ L'architecture générale décrit dans la figure \ref{archi} de notre applicatio
             \label{archi}
     \end{figure}
 		
-\subsection{Architecture de la base de données}
+\subsection{Architecture de la base de données - p8}
 
-\subsubsection{Base de données}
+\subsubsection{Base de données - p8}
 
-Le principal changement dans la modélisation de notre base de données est que la collection Tags a été remplacée par une collection \textit{AutocompleteData}. Les tags qui devaient être stockés dans la collection Tags sont en fait stockés dans une liste dans cette nouvelle collection. Nous avions besoin de stocker la liste des titres de journaux contenus dans la base de données. Nous avons donc rassemblé ces deux listes dans une même collection. Elle se nomme \textit{AutocompleteData} car elle sert notamment pour l'autocomplétion. Ainsi la collection contient deux documents :
+Notre modèle de données n'a pas été modifié depuis sa modélisation, il était adapté à l'utlisation que nous en avons fait au travers des diverses fonctionnalités que nous devions développé. 
+
+
+Nous avons simplement d'ajouter des champs dans la liste des articles contenue dans les données des revues de presse. Ainsi, pour chaque article d'une revue de presse, nous avons son titre, sa date, le nom du journal et un extrait qui correspond au début de l'article. Pour cela, l'utilisation d'une base de données NoSQL nous facilite la tâche car nous n'avons pas besoin de reprendre l'ensemble des données pour ajouter un nouveau champ. De même, la collection Tags a été transformée en une collection \textit{AutocompleteData}. Les tags qui devaient être stockés dans la collection Tags sont en fait stockés dans une liste dans cette nouvelle collection. Nous avions besoin de stocker la liste des titres de journaux contenus dans la base de données. Nous avons donc rassemblé ces deux listes dans une même collection. Elle se nomme \textit{AutocompleteData} car elle sert notamment pour l'autocomplétion. Ainsi la collection contient deux documents :
 
 \begin{verbatimtab}[3]
 {
@@ -31,9 +37,6 @@ Le principal changement dans la modélisation de notre base de données est que 
 }
 \end{verbatimtab}
 
-
-De même, nous avons décidé de mettre plus de données dans la liste des articles contenue dans les données des revues de presse. Ainsi, pour chaque article d'une revue de presse, nous avons son titre, sa date, le nom du journal et un extrait qui correspond au début de l'article.
-
 Enfin, nous avons tous les noms des champs en anglais par soucis de cohérence avec le code de notre implémentation.
 
 Le diagramme de la figure \ref{modelbdd} résume la modélisation de notre base de données.
@@ -45,6 +48,10 @@ Le diagramme de la figure \ref{modelbdd} résume la modélisation de notre base 
             \label{modelbdd}
 \end{figure}
 
+\subsubsection{Elasticsearch - p10}
+
+Elasticsearch a prouvé sa capacité à accompagner la montée en volumétrie de l’application ainsi qu'à gérer des requêtes complexes pour pouvoir exécuter des recherches avec des critères de filtrage et de tri. Ainsi, nous n'avions aucun traitement des résultats obtenus à faire.  
+
 \subsection{Architecture de Laravel}
 
 \subsubsection{Le modèle}
@@ -53,7 +60,7 @@ Le diagramme de la figure \ref{modelbdd} résume la modélisation de notre base 
 	Le modèle va permettre de définir des objets dans Laravel, par exemple, l'objet Article. Le modèle est en lien avec la base de données. Nous utilisons ici Elasticquent\cite{GitElasticquent} pour communiquer avec la base de données Elasticsearch et Moloquent\cite{GitLaravelMongo} pour communiquer avec MongoDB.\\ Pour toutes les requêtes d'affichage nous préférerons l'utilisation d'Elasticsearch sur MongoDB pour ces performances. MongoDB sera utilisé pour toutes les requêtes d'ajout et de modification de la base de données, ces données seront bien sûr répliquées sur Elasticsearch.
 \end{leftonly}
 
-Nous avons, en fait, utilisé la bibliothèque Bouncy\cite{GitBouncy} pour gérer la communication entre Laravel et Elasticsearch. Nous avions beaucoup trop de difficultés à utiliser Elasticquent comme nous le voulions. Nous avons donc changé de bibliothèque.
+Nous avons, en fait, utilisé la bibliothèque Bouncy\cite{GitBouncy} pour gérer la communication entre Laravel et Elasticsearch. Elasticquent répondait à nos besoins mais il ne fonctionnait pour une application qui utilise MongoDB comme base de données. Nous avons donc optés pour GitBouncy. Cette bibliothèque s'inspire d'Elasticquent et elle est adaptée pour une utilisation en lien avec MongoDB.
 
 \subsubsection{Authentification}
 
